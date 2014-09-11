@@ -1,4 +1,4 @@
-ProjektKarpador
+Projekt Karpador
 ===============
 
 A game for pOTJam VI<br />
