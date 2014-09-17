@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 #Wed Sep 17 16:20:19 CEST 2014
 warSrcDir=webapp/
 lastWarOutDir=/home/daniel/ProjektKarpador/html/war
+=======
+#Fri Sep 12 00:53:23 CEST 2014
+warSrcDir=webapp/
+lastWarOutDir=/home/mo/ProjektKarpador/html/war
+>>>>>>> bd67e80ffc8dba4592a1d968ccda642c95fc9184
 eclipse.preferences.version=1
 warSrcDirIsOutput=false
