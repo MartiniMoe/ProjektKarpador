@@ -25,7 +25,6 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
 		
-<<<<<<< HEAD
 		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
 		
@@ -33,10 +32,6 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		camera.setToOrtho(false, w * 100, h * 100);
 		
 		Gdx.input.setInputProcessor(this);
-=======
-		
-		
->>>>>>> bd67e80ffc8dba4592a1d968ccda642c95fc9184
 	}
 
 	@Override
