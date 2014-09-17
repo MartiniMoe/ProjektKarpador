@@ -14,6 +14,9 @@ public class ProjektKarpador extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
+		
+		
+		
 	}
 
 	@Override
