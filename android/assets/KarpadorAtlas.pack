@@ -1,0 +1,2478 @@
+
+KarpadorAtlas.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Items/items_spritesheet
+  rotate: false
+  xy: 1, 435
+  size: 576, 576
+  orig: 576, 576
+  offset: 0, 0
+  index: -1
+Items/cloud2
+  rotate: false
+  xy: 1, 362
+  size: 129, 71
+  orig: 129, 71
+  offset: 0, 0
+  index: -1
+Items/cloud3
+  rotate: false
+  xy: 579, 940
+  size: 129, 71
+  orig: 129, 71
+  offset: 0, 0
+  index: -1
+Items/cloud1
+  rotate: false
+  xy: 1, 289
+  size: 128, 71
+  orig: 128, 71
+  offset: 0, 0
+  index: -1
+Items/gemYellow
+  rotate: false
+  xy: 132, 363
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/flagYellowHanging
+  rotate: false
+  xy: 579, 868
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/buttonGreen
+  rotate: false
+  xy: 710, 941
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/bombFlash
+  rotate: false
+  xy: 1, 217
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/flagGreen2
+  rotate: false
+  xy: 204, 363
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/keyBlue
+  rotate: false
+  xy: 579, 796
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/coinSilver
+  rotate: false
+  xy: 782, 941
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/coinBronze
+  rotate: false
+  xy: 1, 145
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/gemGreen
+  rotate: false
+  xy: 276, 363
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/switchMid
+  rotate: false
+  xy: 579, 724
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/weight
+  rotate: false
+  xy: 854, 941
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/star
+  rotate: false
+  xy: 1, 73
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/flagRedHanging
+  rotate: false
+  xy: 348, 363
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/flagGreen
+  rotate: false
+  xy: 579, 652
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/chain
+  rotate: false
+  xy: 926, 941
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/keyRed
+  rotate: false
+  xy: 1, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/buttonBlue
+  rotate: false
+  xy: 420, 363
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/buttonBlue_pressed
+  rotate: false
+  xy: 579, 580
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/buttonRed_pressed
+  rotate: false
+  xy: 492, 363
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/cactus
+  rotate: false
+  xy: 579, 508
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/springboardDown
+  rotate: false
+  xy: 579, 436
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/gemBlue
+  rotate: false
+  xy: 651, 868
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/buttonGreen_pressed
+  rotate: false
+  xy: 651, 796
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/switchRight
+  rotate: false
+  xy: 651, 724
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/flagRed
+  rotate: false
+  xy: 651, 652
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/gemRed
+  rotate: false
+  xy: 651, 580
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/flagGreenHanging
+  rotate: false
+  xy: 651, 508
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/mushroomRed
+  rotate: false
+  xy: 651, 436
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/flagBlue2
+  rotate: false
+  xy: 723, 869
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/bush
+  rotate: false
+  xy: 723, 797
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/plantPurple
+  rotate: false
+  xy: 795, 869
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/keyYellow
+  rotate: false
+  xy: 723, 725
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/weightChained
+  rotate: false
+  xy: 795, 797
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/buttonYellow
+  rotate: false
+  xy: 867, 869
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/plant
+  rotate: false
+  xy: 723, 653
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/springboardUp
+  rotate: false
+  xy: 795, 725
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/snowhill
+  rotate: false
+  xy: 867, 797
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/fireball
+  rotate: false
+  xy: 723, 581
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/flagYellow2
+  rotate: false
+  xy: 795, 653
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/spikes
+  rotate: false
+  xy: 867, 725
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/bomb
+  rotate: false
+  xy: 723, 509
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/mushroomBrown
+  rotate: false
+  xy: 795, 581
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/flagYellow
+  rotate: false
+  xy: 867, 653
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/coinGold
+  rotate: false
+  xy: 723, 437
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/buttonRed
+  rotate: false
+  xy: 795, 509
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/flagRed2
+  rotate: false
+  xy: 867, 581
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/switchLeft
+  rotate: false
+  xy: 795, 437
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/keyGreen
+  rotate: false
+  xy: 867, 509
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/rock
+  rotate: false
+  xy: 867, 437
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/flagBlue
+  rotate: false
+  xy: 939, 869
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/flagBlueHanging
+  rotate: false
+  xy: 939, 797
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/buttonYellow_pressed
+  rotate: false
+  xy: 939, 725
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Items/particleBrick2b
+  rotate: false
+  xy: 73, 266
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+Items/particleBrick1b
+  rotate: false
+  xy: 998, 990
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+Items/particleBrick2a
+  rotate: false
+  xy: 939, 709
+  size: 19, 14
+  orig: 19, 14
+  offset: 0, 0
+  index: -1
+Items/particleBrick1a
+  rotate: false
+  xy: 73, 250
+  size: 19, 14
+  orig: 19, 14
+  offset: 0, 0
+  index: -1
+
+KarpadorAtlas2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Player/p1_spritesheet
+  rotate: false
+  xy: 1, 577
+  size: 508, 288
+  orig: 508, 288
+  offset: 0, 0
+  index: -1
+Player/p3_spritesheet
+  rotate: false
+  xy: 1, 287
+  size: 508, 288
+  orig: 508, 288
+  offset: 0, 0
+  index: -1
+Player/p2_spritesheet
+  rotate: false
+  xy: 511, 583
+  size: 494, 282
+  orig: 494, 282
+  offset: 0, 0
+  index: -1
+Player/p3_jump
+  rotate: false
+  xy: 1, 191
+  size: 67, 94
+  orig: 67, 94
+  offset: 0, 0
+  index: -1
+Player/p3_hurt
+  rotate: false
+  xy: 511, 489
+  size: 69, 92
+  orig: 69, 92
+  offset: 0, 0
+  index: -1
+Player/p1_hurt
+  rotate: false
+  xy: 70, 193
+  size: 69, 92
+  orig: 69, 92
+  offset: 0, 0
+  index: -1
+Player/p1_jump
+  rotate: false
+  xy: 1, 95
+  size: 67, 94
+  orig: 67, 94
+  offset: 0, 0
+  index: -1
+Player/p2_jump
+  rotate: false
+  xy: 511, 393
+  size: 66, 94
+  orig: 66, 94
+  offset: 0, 0
+  index: -1
+Player/p2_hurt
+  rotate: false
+  xy: 582, 489
+  size: 67, 92
+  orig: 67, 92
+  offset: 0, 0
+  index: -1
+Player/p3_front
+  rotate: false
+  xy: 70, 99
+  size: 66, 92
+  orig: 66, 92
+  offset: 0, 0
+  index: -1
+Player/p2_front
+  rotate: false
+  xy: 141, 193
+  size: 66, 92
+  orig: 66, 92
+  offset: 0, 0
+  index: -1
+Player/p3_stand
+  rotate: false
+  xy: 1, 1
+  size: 66, 92
+  orig: 66, 92
+  offset: 0, 0
+  index: -1
+Player/p2_stand
+  rotate: false
+  xy: 511, 299
+  size: 66, 92
+  orig: 66, 92
+  offset: 0, 0
+  index: -1
+Player/p1_stand
+  rotate: false
+  xy: 579, 395
+  size: 66, 92
+  orig: 66, 92
+  offset: 0, 0
+  index: -1
+Player/p1_front
+  rotate: false
+  xy: 651, 489
+  size: 66, 92
+  orig: 66, 92
+  offset: 0, 0
+  index: -1
+Player/p3_duck
+  rotate: false
+  xy: 138, 120
+  size: 69, 71
+  orig: 69, 71
+  offset: 0, 0
+  index: -1
+Player/p1_duck
+  rotate: false
+  xy: 209, 214
+  size: 69, 71
+  orig: 69, 71
+  offset: 0, 0
+  index: -1
+Player/p2_duck
+  rotate: false
+  xy: 647, 415
+  size: 67, 72
+  orig: 67, 72
+  offset: 0, 0
+  index: -1
+
+KarpadorAtlas3.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Player/p3_walk/PNG/p3_walk04
+  rotate: false
+  xy: 1, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p3_walk/PNG/p3_walk01
+  rotate: false
+  xy: 75, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p3_walk/PNG/p3_walk06
+  rotate: false
+  xy: 149, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p3_walk/PNG/p3_walk09
+  rotate: false
+  xy: 223, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p3_walk/PNG/p3_walk07
+  rotate: false
+  xy: 297, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p3_walk/PNG/p3_walk03
+  rotate: false
+  xy: 371, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p3_walk/PNG/p3_walk02
+  rotate: false
+  xy: 445, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p3_walk/PNG/p3_walk05
+  rotate: false
+  xy: 519, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p3_walk/PNG/p3_walk10
+  rotate: false
+  xy: 593, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p3_walk/PNG/p3_walk11
+  rotate: false
+  xy: 667, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p3_walk/PNG/p3_walk08
+  rotate: false
+  xy: 741, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+
+KarpadorAtlas4.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Player/p3_walk/p3_walk
+  rotate: false
+  xy: 1, 1
+  size: 256, 512
+  orig: 256, 512
+  offset: 0, 0
+  index: -1
+
+KarpadorAtlas5.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Player/p1_walk/PNG/p1_walk06
+  rotate: false
+  xy: 1, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p1_walk/PNG/p1_walk08
+  rotate: false
+  xy: 75, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p1_walk/PNG/p1_walk05
+  rotate: false
+  xy: 149, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p1_walk/PNG/p1_walk11
+  rotate: false
+  xy: 223, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p1_walk/PNG/p1_walk04
+  rotate: false
+  xy: 297, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p1_walk/PNG/p1_walk02
+  rotate: false
+  xy: 371, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p1_walk/PNG/p1_walk10
+  rotate: false
+  xy: 445, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p1_walk/PNG/p1_walk03
+  rotate: false
+  xy: 519, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p1_walk/PNG/p1_walk01
+  rotate: false
+  xy: 593, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p1_walk/PNG/p1_walk09
+  rotate: false
+  xy: 667, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+Player/p1_walk/PNG/p1_walk07
+  rotate: false
+  xy: 741, 1
+  size: 72, 97
+  orig: 72, 97
+  offset: 0, 0
+  index: -1
+
+KarpadorAtlas6.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Player/p1_walk/p1_walk
+  rotate: false
+  xy: 1, 1
+  size: 256, 512
+  orig: 256, 512
+  offset: 0, 0
+  index: -1
+
+KarpadorAtlas7.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Player/p2_walk/p2_walk
+  rotate: false
+  xy: 1, 1
+  size: 256, 512
+  orig: 256, 512
+  offset: 0, 0
+  index: -1
+
+KarpadorAtlas8.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Player/p2_walk/PNG/p2_walk11
+  rotate: false
+  xy: 1, 1
+  size: 70, 94
+  orig: 70, 94
+  offset: 0, 0
+  index: -1
+Player/p2_walk/PNG/p2_walk06
+  rotate: false
+  xy: 73, 1
+  size: 70, 94
+  orig: 70, 94
+  offset: 0, 0
+  index: -1
+Player/p2_walk/PNG/p2_walk08
+  rotate: false
+  xy: 145, 1
+  size: 70, 94
+  orig: 70, 94
+  offset: 0, 0
+  index: -1
+Player/p2_walk/PNG/p2_walk10
+  rotate: false
+  xy: 217, 1
+  size: 70, 94
+  orig: 70, 94
+  offset: 0, 0
+  index: -1
+Player/p2_walk/PNG/p2_walk09
+  rotate: false
+  xy: 289, 1
+  size: 70, 94
+  orig: 70, 94
+  offset: 0, 0
+  index: -1
+Player/p2_walk/PNG/p2_walk02
+  rotate: false
+  xy: 361, 1
+  size: 70, 94
+  orig: 70, 94
+  offset: 0, 0
+  index: -1
+Player/p2_walk/PNG/p2_walk03
+  rotate: false
+  xy: 433, 1
+  size: 70, 94
+  orig: 70, 94
+  offset: 0, 0
+  index: -1
+Player/p2_walk/PNG/p2_walk01
+  rotate: false
+  xy: 505, 1
+  size: 70, 94
+  orig: 70, 94
+  offset: 0, 0
+  index: -1
+Player/p2_walk/PNG/p2_walk05
+  rotate: false
+  xy: 577, 1
+  size: 70, 94
+  orig: 70, 94
+  offset: 0, 0
+  index: -1
+Player/p2_walk/PNG/p2_walk07
+  rotate: false
+  xy: 649, 1
+  size: 70, 94
+  orig: 70, 94
+  offset: 0, 0
+  index: -1
+Player/p2_walk/PNG/p2_walk04
+  rotate: false
+  xy: 721, 1
+  size: 70, 94
+  orig: 70, 94
+  offset: 0, 0
+  index: -1
+
+KarpadorAtlas9.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+preview
+  rotate: false
+  xy: 1, 259
+  size: 698, 675
+  orig: 698, 675
+  offset: 0, 0
+  index: -1
+bg_castle
+  rotate: false
+  xy: 1, 1
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bg
+  rotate: false
+  xy: 701, 678
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+
+KarpadorAtlas10.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+sample
+  rotate: false
+  xy: 1, 1
+  size: 770, 560
+  orig: 770, 560
+  offset: 0, 0
+  index: -1
+
+KarpadorAtlas11.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Tiles/tiles_spritesheet
+  rotate: false
+  xy: 1, 73
+  size: 914, 936
+  orig: 914, 936
+  offset: 0, 0
+  index: -1
+Tiles/castleHalf
+  rotate: false
+  xy: 1, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowHillLeft2
+  rotate: false
+  xy: 73, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassCliffLeftAlt
+  rotate: false
+  xy: 145, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/tochLit2
+  rotate: false
+  xy: 217, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtHillLeft
+  rotate: false
+  xy: 289, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stoneCliffLeft
+  rotate: false
+  xy: 361, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleCliffRight
+  rotate: false
+  xy: 433, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sand
+  rotate: false
+  xy: 505, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/boxExplosiveAlt
+  rotate: false
+  xy: 577, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stoneHillRight2
+  rotate: false
+  xy: 649, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/brickWall
+  rotate: false
+  xy: 721, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtCenter
+  rotate: false
+  xy: 793, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowCenter
+  rotate: false
+  xy: 793, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/boxEmpty
+  rotate: false
+  xy: 865, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/rockHillLeft
+  rotate: false
+  xy: 917, 939
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtLeft
+  rotate: false
+  xy: 917, 867
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowHalfRight
+  rotate: false
+  xy: 917, 795
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassMid
+  rotate: false
+  xy: 917, 723
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleCenter
+  rotate: false
+  xy: 917, 651
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stoneCenter_rounded
+  rotate: false
+  xy: 917, 579
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/signRight
+  rotate: false
+  xy: 917, 507
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/signExit
+  rotate: false
+  xy: 917, 435
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/ropeVertical
+  rotate: false
+  xy: 917, 363
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stoneHillLeft2
+  rotate: false
+  xy: 917, 291
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtHalfRight
+  rotate: false
+  xy: 917, 219
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassCliffLeft
+  rotate: false
+  xy: 917, 147
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleHillLeft2
+  rotate: false
+  xy: 917, 75
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowHillRight2
+  rotate: false
+  xy: 937, 3
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassLedgeRight
+  rotate: false
+  xy: 989, 985
+  size: 5, 24
+  orig: 5, 24
+  offset: 0, 0
+  index: -1
+Tiles/grassLedgeLeft
+  rotate: false
+  xy: 989, 959
+  size: 5, 24
+  orig: 5, 24
+  offset: 0, 0
+  index: -1
+Tiles/stoneLedgeRight
+  rotate: false
+  xy: 989, 933
+  size: 5, 24
+  orig: 5, 24
+  offset: 0, 0
+  index: -1
+Tiles/stoneLedgeLeft
+  rotate: false
+  xy: 989, 907
+  size: 5, 24
+  orig: 5, 24
+  offset: 0, 0
+  index: -1
+Tiles/castleLedgeRight
+  rotate: false
+  xy: 989, 883
+  size: 5, 22
+  orig: 5, 22
+  offset: 0, 0
+  index: -1
+Tiles/castleLedgeLeft
+  rotate: false
+  xy: 989, 859
+  size: 5, 22
+  orig: 5, 22
+  offset: 0, 0
+  index: -1
+Tiles/dirtLedgeLeft
+  rotate: false
+  xy: 989, 839
+  size: 5, 18
+  orig: 5, 18
+  offset: 0, 0
+  index: -1
+Tiles/sandLedgeLeft
+  rotate: false
+  xy: 989, 819
+  size: 5, 18
+  orig: 5, 18
+  offset: 0, 0
+  index: -1
+Tiles/sandLedgeRight
+  rotate: false
+  xy: 989, 799
+  size: 5, 18
+  orig: 5, 18
+  offset: 0, 0
+  index: -1
+Tiles/snowLedgeRight
+  rotate: false
+  xy: 989, 779
+  size: 5, 18
+  orig: 5, 18
+  offset: 0, 0
+  index: -1
+Tiles/snowLedgeLeft
+  rotate: false
+  xy: 989, 759
+  size: 5, 18
+  orig: 5, 18
+  offset: 0, 0
+  index: -1
+Tiles/dirtLedgeRight
+  rotate: false
+  xy: 989, 739
+  size: 5, 18
+  orig: 5, 18
+  offset: 0, 0
+  index: -1
+
+KarpadorAtlas12.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Tiles/hill_largeAlt
+  rotate: false
+  xy: 1, 833
+  size: 48, 146
+  orig: 48, 146
+  offset: 0, 0
+  index: -1
+Tiles/hill_large
+  rotate: false
+  xy: 1, 685
+  size: 48, 146
+  orig: 48, 146
+  offset: 0, 0
+  index: -1
+Tiles/hill_smallAlt
+  rotate: false
+  xy: 51, 873
+  size: 48, 106
+  orig: 48, 106
+  offset: 0, 0
+  index: -1
+Tiles/hill_small
+  rotate: false
+  xy: 1, 577
+  size: 48, 106
+  orig: 48, 106
+  offset: 0, 0
+  index: -1
+Tiles/stoneHalf
+  rotate: false
+  xy: 101, 909
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/ropeAttached
+  rotate: false
+  xy: 173, 909
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandMid
+  rotate: false
+  xy: 245, 909
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtHalfMid
+  rotate: false
+  xy: 317, 909
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/boxExplosive_disabled
+  rotate: false
+  xy: 389, 909
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtCliffLeftAlt
+  rotate: false
+  xy: 461, 909
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowHillRight
+  rotate: false
+  xy: 533, 909
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/boxWarning
+  rotate: false
+  xy: 605, 909
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/boxAlt
+  rotate: false
+  xy: 677, 909
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/bridge
+  rotate: false
+  xy: 749, 909
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/liquidWater
+  rotate: false
+  xy: 821, 909
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/fence
+  rotate: false
+  xy: 893, 909
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleCliffLeftAlt
+  rotate: false
+  xy: 51, 801
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtHalf
+  rotate: false
+  xy: 51, 729
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/boxItem
+  rotate: false
+  xy: 51, 657
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleCliffLeft
+  rotate: false
+  xy: 51, 585
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtHalfLeft
+  rotate: false
+  xy: 1, 505
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowHalf
+  rotate: false
+  xy: 1, 433
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleLeft
+  rotate: false
+  xy: 1, 361
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/lock_blue
+  rotate: false
+  xy: 1, 289
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassHalf
+  rotate: false
+  xy: 1, 217
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleHalfRight
+  rotate: false
+  xy: 1, 145
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandCliffRight
+  rotate: false
+  xy: 1, 73
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/ropeHorizontal
+  rotate: false
+  xy: 1, 1
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stoneCliffRight
+  rotate: false
+  xy: 73, 513
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/boxItemAlt_disabled
+  rotate: false
+  xy: 73, 441
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandHillLeft2
+  rotate: false
+  xy: 73, 369
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/lock_yellow
+  rotate: false
+  xy: 73, 297
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowHalfLeft
+  rotate: false
+  xy: 73, 225
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtCliffRightAlt
+  rotate: false
+  xy: 73, 153
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stoneCliffRightAlt
+  rotate: false
+  xy: 73, 81
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtHillRight
+  rotate: false
+  xy: 73, 9
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassHillLeft2
+  rotate: false
+  xy: 123, 837
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandCliffLeft
+  rotate: false
+  xy: 123, 765
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/door_openTop
+  rotate: false
+  xy: 195, 837
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/boxCoinAlt
+  rotate: false
+  xy: 123, 693
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/box
+  rotate: false
+  xy: 195, 765
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassHalfRight
+  rotate: false
+  xy: 267, 837
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassLeft
+  rotate: false
+  xy: 123, 621
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowCliffLeft
+  rotate: false
+  xy: 195, 693
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stoneHalfLeft
+  rotate: false
+  xy: 267, 765
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleHillLeft
+  rotate: false
+  xy: 339, 837
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassRight
+  rotate: false
+  xy: 195, 621
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtCliffRight
+  rotate: false
+  xy: 267, 693
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassCliffRight
+  rotate: false
+  xy: 339, 765
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandHillRight2
+  rotate: false
+  xy: 411, 837
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grass
+  rotate: false
+  xy: 267, 621
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/ladder_mid
+  rotate: false
+  xy: 339, 693
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowHillLeft
+  rotate: false
+  xy: 411, 765
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandHalfLeft
+  rotate: false
+  xy: 483, 837
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stoneCliffLeftAlt
+  rotate: false
+  xy: 339, 621
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/boxItemAlt
+  rotate: false
+  xy: 411, 693
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowCliffRightAlt
+  rotate: false
+  xy: 483, 765
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stoneHalfRight
+  rotate: false
+  xy: 555, 837
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleCenter_rounded
+  rotate: false
+  xy: 411, 621
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/boxCoin
+  rotate: false
+  xy: 483, 693
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtRight
+  rotate: false
+  xy: 555, 765
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowRight
+  rotate: false
+  xy: 627, 837
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandRight
+  rotate: false
+  xy: 483, 621
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/boxExplosive
+  rotate: false
+  xy: 555, 693
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/boxCoinAlt_disabled
+  rotate: false
+  xy: 627, 765
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassHalfLeft
+  rotate: false
+  xy: 699, 837
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleMid
+  rotate: false
+  xy: 555, 621
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowMid
+  rotate: false
+  xy: 627, 693
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleHalfLeft
+  rotate: false
+  xy: 699, 765
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtCenter_rounded
+  rotate: false
+  xy: 771, 837
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleHillRight
+  rotate: false
+  xy: 627, 621
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassCenter_rounded
+  rotate: false
+  xy: 699, 693
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandCenter_rounded
+  rotate: false
+  xy: 699, 693
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/door_closedMid
+  rotate: false
+  xy: 771, 765
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandCliffLeftAlt
+  rotate: false
+  xy: 843, 837
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/ladder_top
+  rotate: false
+  xy: 699, 621
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandCliffRightAlt
+  rotate: false
+  xy: 771, 693
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/liquidLavaTop
+  rotate: false
+  xy: 843, 765
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snow
+  rotate: false
+  xy: 771, 621
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtHillLeft2
+  rotate: false
+  xy: 843, 693
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/lock_green
+  rotate: false
+  xy: 843, 621
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowHalfMid
+  rotate: false
+  xy: 915, 837
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stoneWall
+  rotate: false
+  xy: 915, 765
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandHillLeft
+  rotate: false
+  xy: 915, 693
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stoneMid
+  rotate: false
+  xy: 915, 621
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stoneLeft
+  rotate: false
+  xy: 145, 549
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtMid
+  rotate: false
+  xy: 145, 477
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/door_openMid
+  rotate: false
+  xy: 217, 549
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowCenter_rounded
+  rotate: false
+  xy: 145, 405
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleHillRight2
+  rotate: false
+  xy: 217, 477
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/lock_red
+  rotate: false
+  xy: 289, 549
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stone
+  rotate: false
+  xy: 145, 333
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowCliffLeftAlt
+  rotate: false
+  xy: 217, 405
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassHalfMid
+  rotate: false
+  xy: 289, 477
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sign
+  rotate: false
+  xy: 361, 549
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/bridgeLogs
+  rotate: false
+  xy: 145, 261
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowLeft
+  rotate: false
+  xy: 217, 333
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleCliffRightAlt
+  rotate: false
+  xy: 289, 405
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/signLeft
+  rotate: false
+  xy: 361, 477
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleRight
+  rotate: false
+  xy: 433, 549
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/liquidWaterTop
+  rotate: false
+  xy: 145, 189
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/liquidLava
+  rotate: false
+  xy: 217, 261
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandHalfRight
+  rotate: false
+  xy: 289, 333
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtHillRight2
+  rotate: false
+  xy: 361, 405
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandHalf
+  rotate: false
+  xy: 433, 477
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stoneHalfMid
+  rotate: false
+  xy: 505, 549
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/rockHillRight
+  rotate: false
+  xy: 145, 117
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castleHalfMid
+  rotate: false
+  xy: 217, 189
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandHillRight
+  rotate: false
+  xy: 289, 261
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassHillLeft
+  rotate: false
+  xy: 361, 333
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/window
+  rotate: false
+  xy: 433, 405
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/boxItem_disabled
+  rotate: false
+  xy: 505, 477
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/castle
+  rotate: false
+  xy: 577, 549
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/liquidWaterTop_mid
+  rotate: false
+  xy: 145, 45
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirtCliffLeft
+  rotate: false
+  xy: 217, 117
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandCenter
+  rotate: false
+  xy: 289, 189
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassCenter
+  rotate: false
+  xy: 289, 189
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/snowCliffRight
+  rotate: false
+  xy: 361, 261
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stoneRight
+  rotate: false
+  xy: 433, 333
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/torch
+  rotate: false
+  xy: 505, 405
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/door_closedTop
+  rotate: false
+  xy: 577, 477
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassHillRight
+  rotate: false
+  xy: 649, 549
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandHalfMid
+  rotate: false
+  xy: 217, 45
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassHillRight2
+  rotate: false
+  xy: 289, 117
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/liquidLavaTop_mid
+  rotate: false
+  xy: 361, 189
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/stoneCenter
+  rotate: false
+  xy: 433, 261
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/fenceBroken
+  rotate: false
+  xy: 505, 333
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/boxCoin_disabled
+  rotate: false
+  xy: 577, 405
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/dirt
+  rotate: false
+  xy: 649, 477
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/sandLeft
+  rotate: false
+  xy: 721, 549
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/tochLit
+  rotate: false
+  xy: 289, 45
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Tiles/grassCliffRightAlt
+  rotate: false
+  xy: 361, 117
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+
+KarpadorAtlas13.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+HUD/hud_spritesheet
+  rotate: false
+  xy: 1, 242
+  size: 269, 269
+  orig: 269, 269
+  offset: 0, 0
+  index: -1
+HUD/hud_heartFull
+  rotate: false
+  xy: 1, 195
+  size: 53, 45
+  orig: 53, 45
+  offset: 0, 0
+  index: -1
+HUD/hud_heartEmpty
+  rotate: false
+  xy: 272, 466
+  size: 53, 45
+  orig: 53, 45
+  offset: 0, 0
+  index: -1
+HUD/hud_heartHalf
+  rotate: false
+  xy: 1, 148
+  size: 53, 45
+  orig: 53, 45
+  offset: 0, 0
+  index: -1
+HUD/hud_p1Alt
+  rotate: false
+  xy: 56, 193
+  size: 47, 47
+  orig: 47, 47
+  offset: 0, 0
+  index: -1
+HUD/hud_coins
+  rotate: false
+  xy: 272, 417
+  size: 47, 47
+  orig: 47, 47
+  offset: 0, 0
+  index: -1
+HUD/hud_p3Alt
+  rotate: false
+  xy: 1, 99
+  size: 47, 47
+  orig: 47, 47
+  offset: 0, 0
+  index: -1
+HUD/hud_p3
+  rotate: false
+  xy: 105, 193
+  size: 47, 47
+  orig: 47, 47
+  offset: 0, 0
+  index: -1
+HUD/hud_p2
+  rotate: false
+  xy: 272, 368
+  size: 47, 47
+  orig: 47, 47
+  offset: 0, 0
+  index: -1
+HUD/hud_p1
+  rotate: false
+  xy: 1, 50
+  size: 47, 47
+  orig: 47, 47
+  offset: 0, 0
+  index: -1
+HUD/hud_p2Alt
+  rotate: false
+  xy: 1, 1
+  size: 47, 47
+  orig: 47, 47
+  offset: 0, 0
+  index: -1
+HUD/hud_keyYellow_disabled
+  rotate: false
+  xy: 327, 471
+  size: 44, 40
+  orig: 44, 40
+  offset: 0, 0
+  index: -1
+HUD/hud_keyRed_disabled
+  rotate: false
+  xy: 56, 151
+  size: 44, 40
+  orig: 44, 40
+  offset: 0, 0
+  index: -1
+HUD/hud_keyGreem_disabled
+  rotate: false
+  xy: 154, 200
+  size: 44, 40
+  orig: 44, 40
+  offset: 0, 0
+  index: -1
+HUD/hud_keyRed
+  rotate: false
+  xy: 272, 326
+  size: 44, 40
+  orig: 44, 40
+  offset: 0, 0
+  index: -1
+HUD/hud_keyBlue_disabled
+  rotate: false
+  xy: 373, 471
+  size: 44, 40
+  orig: 44, 40
+  offset: 0, 0
+  index: -1
+HUD/hud_keyGreen
+  rotate: false
+  xy: 102, 151
+  size: 44, 40
+  orig: 44, 40
+  offset: 0, 0
+  index: -1
+HUD/hud_keyYellow
+  rotate: false
+  xy: 200, 200
+  size: 44, 40
+  orig: 44, 40
+  offset: 0, 0
+  index: -1
+HUD/hud_keyBlue
+  rotate: false
+  xy: 272, 284
+  size: 44, 40
+  orig: 44, 40
+  offset: 0, 0
+  index: -1
+HUD/hud_gem_blue
+  rotate: false
+  xy: 419, 475
+  size: 46, 36
+  orig: 46, 36
+  offset: 0, 0
+  index: -1
+HUD/hud_gem_yellow
+  rotate: false
+  xy: 272, 246
+  size: 46, 36
+  orig: 46, 36
+  offset: 0, 0
+  index: -1
+HUD/hud
+  rotate: false
+  xy: 467, 471
+  size: 32, 40
+  orig: 32, 40
+  offset: 0, 0
+  index: 8
+HUD/hud
+  rotate: false
+  xy: 246, 201
+  size: 32, 39
+  orig: 32, 39
+  offset: 0, 0
+  index: 7
+HUD/hud_gem_red
+  rotate: false
+  xy: 280, 208
+  size: 46, 36
+  orig: 46, 36
+  offset: 0, 0
+  index: -1
+HUD/hud_gem_green
+  rotate: false
+  xy: 419, 437
+  size: 46, 36
+  orig: 46, 36
+  offset: 0, 0
+  index: -1
+HUD/hud
+  rotate: false
+  xy: 467, 431
+  size: 32, 38
+  orig: 32, 38
+  offset: 0, 0
+  index: 2
+HUD/hud
+  rotate: false
+  xy: 50, 107
+  size: 32, 39
+  orig: 32, 39
+  offset: 0, 0
+  index: 9
+HUD/hud
+  rotate: false
+  xy: 50, 67
+  size: 30, 38
+  orig: 30, 38
+  offset: 0, 0
+  index: 0
+HUD/hud
+  rotate: false
+  xy: 50, 27
+  size: 30, 38
+  orig: 30, 38
+  offset: 0, 0
+  index: 6
+HUD/hud
+  rotate: false
+  xy: 84, 111
+  size: 29, 38
+  orig: 29, 38
+  offset: 0, 0
+  index: 4
+HUD/hud
+  rotate: false
+  xy: 115, 111
+  size: 28, 38
+  orig: 28, 38
+  offset: 0, 0
+  index: 5
+HUD/hud
+  rotate: false
+  xy: 148, 153
+  size: 28, 38
+  orig: 28, 38
+  offset: 0, 0
+  index: 3
+HUD/hud
+  rotate: false
+  xy: 178, 161
+  size: 26, 37
+  orig: 26, 37
+  offset: 0, 0
+  index: 1
+HUD/hud_x
+  rotate: false
+  xy: 206, 170
+  size: 30, 28
+  orig: 30, 28
+  offset: 0, 0
+  index: -1
+
+KarpadorAtlas14.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Enemies/enemies_spritesheet
+  rotate: false
+  xy: 1, 92
+  size: 353, 153
+  orig: 353, 153
+  offset: 0, 0
+  index: -1
+Enemies/pokerMad
+  rotate: false
+  xy: 356, 99
+  size: 48, 146
+  orig: 48, 146
+  offset: 0, 0
+  index: -1
+Enemies/pokerSad
+  rotate: false
+  xy: 406, 99
+  size: 48, 146
+  orig: 48, 146
+  offset: 0, 0
+  index: -1
+Enemies/fishDead
+  rotate: false
+  xy: 1, 48
+  size: 66, 42
+  orig: 66, 42
+  offset: 0, 0
+  index: -1
+Enemies/flyFly1
+  rotate: false
+  xy: 69, 54
+  size: 72, 36
+  orig: 72, 36
+  offset: 0, 0
+  index: -1
+Enemies/fishSwim1
+  rotate: false
+  xy: 1, 4
+  size: 66, 42
+  orig: 66, 42
+  offset: 0, 0
+  index: -1
+Enemies/flyFly2
+  rotate: false
+  xy: 143, 59
+  size: 75, 31
+  orig: 75, 31
+  offset: 0, 0
+  index: -1
+Enemies/fishSwim2
+  rotate: false
+  xy: 69, 9
+  size: 62, 43
+  orig: 62, 43
+  offset: 0, 0
+  index: -1
+Enemies/blockerSad
+  rotate: false
+  xy: 456, 194
+  size: 51, 51
+  orig: 51, 51
+  offset: 0, 0
+  index: -1
+Enemies/blockerBody
+  rotate: false
+  xy: 456, 141
+  size: 51, 51
+  orig: 51, 51
+  offset: 0, 0
+  index: -1
+Enemies/blockerMad
+  rotate: false
+  xy: 456, 88
+  size: 51, 51
+  orig: 51, 51
+  offset: 0, 0
+  index: -1
+Enemies/flyDead
+  rotate: false
+  xy: 220, 57
+  size: 59, 33
+  orig: 59, 33
+  offset: 0, 0
+  index: -1
+Enemies/snailWalk2
+  rotate: false
+  xy: 281, 59
+  size: 57, 31
+  orig: 57, 31
+  offset: 0, 0
+  index: -1
+Enemies/slimeDead
+  rotate: false
+  xy: 356, 85
+  size: 59, 12
+  orig: 59, 12
+  offset: 0, 0
+  index: -1
+Enemies/snailWalk1
+  rotate: false
+  xy: 340, 52
+  size: 54, 31
+  orig: 54, 31
+  offset: 0, 0
+  index: -1
+Enemies/slimeWalk2
+  rotate: false
+  xy: 143, 31
+  size: 51, 26
+  orig: 51, 26
+  offset: 0, 0
+  index: -1
+Enemies/slimeWalk1
+  rotate: false
+  xy: 133, 1
+  size: 50, 28
+  orig: 50, 28
+  offset: 0, 0
+  index: -1
+Enemies/snailShell
+  rotate: false
+  xy: 396, 53
+  size: 44, 30
+  orig: 44, 30
+  offset: 0, 0
+  index: -1
+Enemies/snailShell_upsidedown
+  rotate: false
+  xy: 442, 56
+  size: 44, 30
+  orig: 44, 30
+  offset: 0, 0
+  index: -1
