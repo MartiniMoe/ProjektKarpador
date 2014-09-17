@@ -6,13 +6,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.utils.Align;
-import com.badlogic.gdx.utils.Scaling;
 
 public class ProjektKarpador extends ApplicationAdapter implements ApplicationListener, InputProcessor {
 	AtlasRegion grassLeft;
@@ -90,8 +86,6 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 			imgMoveOffsetY = (h - screenY) - imgY;
 		}
 		
-		System.out.println("pos: " + screenX + ", " + screenY);
-
 		return false;
 	}
 
@@ -111,8 +105,11 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 			int w = Gdx.graphics.getWidth();
 			int h = Gdx.graphics.getHeight();
 			
-			imgX = screenX - imgMoveOffsetX;
-			imgY = (h - screenY) - imgMoveOffsetY;
+			if (screenX >= 0 && screenX <= w &&
+				screenY >= 0 && screenY <= h) {
+				imgX = screenX - imgMoveOffsetX;
+				imgY = (h - screenY) - imgMoveOffsetY;
+			}
 		}
 		
 		return false;
