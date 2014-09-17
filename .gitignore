@@ -2,3 +2,6 @@
 /core/bin/
 /android/bin/
 /desktop/bin/
+/bin/
+/html/bin/
+/.gradle/
