@@ -1,0 +1,96 @@
+
+KarpadorPack.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Fisch/Fisch
+  rotate: false
+  xy: 1, 99
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 4
+Fisch/Fisch
+  rotate: false
+  xy: 1, 1
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 6
+Fisch/Fisch
+  rotate: false
+  xy: 131, 99
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 12
+Fisch/Fisch
+  rotate: false
+  xy: 131, 1
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 5
+Fisch/Fisch
+  rotate: false
+  xy: 261, 99
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 13
+Fisch/Fisch
+  rotate: false
+  xy: 261, 1
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 11
+Fisch/Fisch
+  rotate: false
+  xy: 391, 99
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 10
+Fisch/Fisch
+  rotate: false
+  xy: 391, 1
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 7
+Fisch/Fisch
+  rotate: false
+  xy: 521, 99
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 2
+Fisch/Fisch
+  rotate: false
+  xy: 521, 1
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 8
+Fisch/Fisch
+  rotate: false
+  xy: 651, 99
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 9
+Fisch/Fisch
+  rotate: false
+  xy: 651, 1
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 3
+Fisch/Fisch
+  rotate: false
+  xy: 781, 99
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 1

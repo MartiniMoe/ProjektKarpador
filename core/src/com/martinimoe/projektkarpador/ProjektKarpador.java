@@ -29,11 +29,11 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		batch = new SpriteBatch();
 		
 		TextureAtlas atlas;
-		atlas = new TextureAtlas(Gdx.files.internal("KarpadorAtlas.pack"));
-		grassLeft = atlas.findRegion("Tiles/grassLeft");
-		grassMiddle = atlas.findRegion("Tiles/grassMid");
-		grassRight = atlas.findRegion("Tiles/grassRight");
-		playerStanding = atlas.findRegion("Player/p1_stand");
+		atlas = new TextureAtlas(Gdx.files.internal("KarpadorPack.atlas"));
+		//grassLeft = atlas.findRegion("Tiles/grassLeft");
+		//grassMiddle = atlas.findRegion("Tiles/grassMid");
+		//grassRight = atlas.findRegion("Tiles/grassRight");
+		playerStanding = atlas.findRegion("Fisch/Fisch");
 		
 		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
@@ -106,7 +106,8 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 			int h = Gdx.graphics.getHeight();
 			
 			if (screenX >= 0 && screenX <= w &&
-				screenY >= 0 && screenY <= h) {
+				screenY >= 0 && screenY <= h) 
+			{
 				imgX = screenX - imgMoveOffsetX;
 				imgY = (h - screenY) - imgMoveOffsetY;
 			}
