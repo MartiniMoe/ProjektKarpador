@@ -6,7 +6,9 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.PolygonRegion;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -15,9 +17,7 @@ import com.badlogic.gdx.math.EarClippingTriangulator;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.ShortArray;
-import com.badlogic.gdx.utils.viewport.FillViewport;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
 public class ProjektKarpador extends ApplicationAdapter implements ApplicationListener, InputProcessor {
 	private SpriteBatch batch;
@@ -26,6 +26,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	private Stage stage;
 	private PolygonRegion pRegion;
 	private float screensPerLevel = 2;
+	private Camera camera;
 	
 	@Override
 	public void create () {
@@ -39,8 +40,10 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		// Spieler (Fisch) erzeugen
 		myFish = new Fish(atlas);
 		
+		//Camera erzeugen 
+		camera = new OrthographicCamera();
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
-		stage = new Stage(new FillViewport(1024, 768));
+		stage = new Stage(new ExtendViewport(1280, 720,camera));
 	    Gdx.input.setInputProcessor(stage);
 	    stage.addActor(myFish);
 		
@@ -84,9 +87,12 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
-		pBatch.begin();
 		
-		pBatch.draw(pRegion, 0, 0,0,0,stage.getWidth(),stage.getHeight(), 1,1, 0);
+		stage.getCamera().translate(-1f, 0, 0);
+		stage.getCamera().update();
+		pBatch.setProjectionMatrix(camera.combined);
+		pBatch.begin();
+		pBatch.draw(pRegion, 0, 0);
 		pBatch.end();
 		
 		batch.begin();
