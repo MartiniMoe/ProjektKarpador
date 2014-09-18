@@ -7,7 +7,7 @@
 /.gradle/
 
 #Android-SDK-Pfad
-local.properties
+*.properties
 # Java .gitignore
 *.class
 # Mobile Tools for Java (J2ME)
