@@ -15,6 +15,8 @@ import com.badlogic.gdx.math.EarClippingTriangulator;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.ShortArray;
+import com.badlogic.gdx.utils.viewport.FillViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class ProjektKarpador extends ApplicationAdapter implements ApplicationListener, InputProcessor {
@@ -38,7 +40,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		myFish = new Fish(atlas);
 		
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
-		stage = new Stage(new ScreenViewport());
+		stage = new Stage(new FillViewport(1024, 768));
 	    Gdx.input.setInputProcessor(stage);
 	    stage.addActor(myFish);
 		
@@ -83,7 +85,8 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		pBatch.begin();
-		pBatch.draw(pRegion, 0, 0);
+		
+		pBatch.draw(pRegion, 0, 0,0,0,stage.getWidth(),stage.getHeight(), 1,1, 0);
 		pBatch.end();
 		
 		batch.begin();
