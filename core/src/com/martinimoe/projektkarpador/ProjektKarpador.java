@@ -13,9 +13,17 @@ import com.badlogic.gdx.graphics.g2d.PolygonRegion;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.objects.PolygonMapObject;
+import com.badlogic.gdx.maps.objects.PolylineMapObject;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.math.DelaunayTriangulator;
 import com.badlogic.gdx.math.EarClippingTriangulator;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ShortArray;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
@@ -25,7 +33,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	private Fish myFish;
 	private Stage stage;
 	private PolygonRegion pRegion;
-	private float screensPerLevel = 2;
+	private float screensPerLevel = .5f;
 	private Camera camera;
 	
 	@Override
@@ -46,15 +54,20 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		stage = new Stage(new ExtendViewport(1280, 720,camera));
 	    Gdx.input.setInputProcessor(stage);
 	    stage.addActor(myFish);
-		
+	    
 	    // kA, stand im Tutorial
 		Gdx.input.setInputProcessor(this);
+		TiledMap map = new TmxMapLoader().load("map.tmx");
+		//Array<PolygonMapObject> polys = 
+		System.out.println(map.getLayers().get(0).getObjects().get(0).getClass());
+		PolylineMapObject plmo = (PolylineMapObject) map.getLayers().get(0).getObjects().get(0);
 		
 		// Landscape generieren. Hochkompliziert!
-		float[] vertices = new float[40];
+		float[] vertices = new float[60];
 		// Der erste Punkt ist am Koordinatenursprung
 		vertices[0] = 0;
 		vertices[1] = 0;
+		System.out.println(((stage.getWidth() * screensPerLevel) / vertices.length));
 		for (int i = 2; i < vertices.length-2; i++) {
 			// Jede Zweite Koordinate ist x-Koordinate
 			// Diese sollen gleichmäßig verteilt sein.
@@ -63,22 +76,24 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 			}
 			// Sonst Höhe zufällig berechnen
 			else{
-				vertices[i] = MathUtils.random(10, 100);
+				vertices[i] = MathUtils.random(100, 200);
 			}
 		}
 		// Der letzte ist punkt ist an ( Levelende | 0 )
 		vertices[vertices.length-2] = stage.getWidth() * screensPerLevel;
-		vertices[vertices.length-1] = 0;
+		vertices[vertices.length-1] = 50;
 		
 		// Der ECT berechnet aus den koordinaten die polygone, danach wird konvertiert
 		EarClippingTriangulator ect = new EarClippingTriangulator();
+		DelaunayTriangulator dt = new DelaunayTriangulator();
 		ShortArray sa = ect.computeTriangles(vertices);
-		short[] shortarray = new short[sa.size];
-		for(int i = 0; i < sa.size; i++) {
-			shortarray[i] = sa.get(i);
-		}
+		// sa = dt.computeTriangles(vertices, true);
+		
+		
 		// Die PolygonRegion enthält den Levelboden
-		pRegion = new PolygonRegion(atlas.findRegion("Terrain/terrain"), vertices, shortarray);
+		//pRegion = new PolygonRegion(atlas.findRegion("Terrain/terrain"), vertices,  sa.toArray());
+		//plmo.getPolyline().scale(0.1f);
+		pRegion = new PolygonRegion(atlas.findRegion("Terrain/terrain"), plmo.getPolyline().getVertices(), ect.computeTriangles(plmo.getPolyline().getVertices()).toArray());
 		
 	}
 
