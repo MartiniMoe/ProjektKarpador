@@ -9,16 +9,17 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Texture.TextureWrap;
 import com.badlogic.gdx.graphics.g2d.PolygonRegion;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.maps.objects.PolylineMapObject;
-import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.EarClippingTriangulator;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.ShortArray;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
 public class ProjektKarpador extends ApplicationAdapter implements ApplicationListener, InputProcessor {
@@ -27,7 +28,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	private Fish myFish;
 	private Stage stage;
 	private PolygonRegion pRegion;
-	private float screensPerLevel = .5f;
+	private float screensPerLevel = 2;
 	private Camera camera;
 	
 	@Override
@@ -51,17 +52,13 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	    
 	    // kA, stand im Tutorial
 		Gdx.input.setInputProcessor(this);
-		TiledMap map = new TmxMapLoader().load("map.tmx");
-		//Array<PolygonMapObject> polys = 
-		System.out.println(map.getLayers().get(0).getObjects().get(0).getClass());
-		PolylineMapObject plmo = (PolylineMapObject) map.getLayers().get(0).getObjects().get(0);
 		
 		// Landscape generieren. Hochkompliziert!
-		float[] vertices = new float[60];
+		float[] vertices = new float[128];
 		// Der erste Punkt ist am Koordinatenursprung
 		vertices[0] = 0;
 		vertices[1] = 0;
-		System.out.println(((stage.getWidth() * screensPerLevel) / vertices.length));
+		
 		for (int i = 2; i < vertices.length-2; i++) {
 			// Jede Zweite Koordinate ist x-Koordinate
 			// Diese sollen gleichmäßig verteilt sein.
@@ -74,22 +71,25 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 			}
 		}
 		// Der letzte ist punkt ist an ( Levelende | 0 )
-		vertices[vertices.length-2] = stage.getWidth() * screensPerLevel;
-		vertices[vertices.length-1] = 50;
+		vertices[vertices.length-2] = stage.getWidth() * 20;
+		
+		vertices[vertices.length-1] = 0;
 		
 		// Der ECT berechnet aus den koordinaten die polygone, danach wird konvertiert
 		EarClippingTriangulator ect = new EarClippingTriangulator();
 		
 		//DelaunayTriangulator dt = new DelaunayTriangulator();
-		//ShortArray sa = ect.computeTriangles(vertices);
+		ShortArray sa = ect.computeTriangles(vertices);
 		// sa = dt.computeTriangles(vertices, true);
 		
+		TextureRegion texTerrain = atlas.findRegion("Terrain/terrain");
+		Texture texture = new Texture("terrain.png");
+		
+		texture.setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
 		
 		// Die PolygonRegion enthält den Levelboden
-		//pRegion = new PolygonRegion(atlas.findRegion("Terrain/terrain"), vertices,  sa.toArray());
-		//plmo.getPolyline().scale(0.1f);
-		pRegion = new PolygonRegion(atlas.findRegion("Terrain/terrain"), plmo.getPolyline().getVertices(), ect.computeTriangles(plmo.getPolyline().getVertices()).toArray());
-		
+		pRegion = new PolygonRegion(new TextureRegion(texture), vertices,  sa.toArray());
+				
 	}
 
 	@Override
@@ -98,7 +98,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		
-		stage.getCamera().translate(-1f, 0, 0);
+		//stage.getCamera().translate(-1f, 0, 0);
 		stage.getCamera().update();
 		pBatch.setProjectionMatrix(camera.combined);
 		pBatch.begin();
@@ -106,6 +106,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		pBatch.end();
 		
 		batch.begin();
+		
 		stage.act(Gdx.graphics.getDeltaTime());
 	    stage.draw();
 		batch.end();

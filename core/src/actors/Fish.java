@@ -18,7 +18,15 @@ public class Fish extends Actor{
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
-		batch.draw(flounder.getKeyFrame(elapsed, true), 100, 100);
+		batch.draw(flounder.getKeyFrame(elapsed, true), getX(),getY());
 		elapsed += Gdx.graphics.getDeltaTime();
+	}
+	
+	@Override
+	public void act(float delta) {
+		super.act(delta);
+		this.moveBy(4f, 0);
+		
+
 	}
 }
