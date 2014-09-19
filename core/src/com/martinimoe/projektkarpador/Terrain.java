@@ -41,7 +41,7 @@ public class Terrain {
 			}
 			// Sonst Höhe zufällig berechnen
 			else{
-				vertices[i] = MathUtils.random(100, 400);
+				vertices[i] = MathUtils.random(100, 600);
 			}
 			metricVertices[i] = vertices[i]/Config.PIXELSPERMETER;
 		}
