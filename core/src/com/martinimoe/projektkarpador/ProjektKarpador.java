@@ -13,18 +13,12 @@ import com.badlogic.gdx.graphics.g2d.PolygonRegion;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.maps.MapLayer;
-import com.badlogic.gdx.maps.objects.PolygonMapObject;
 import com.badlogic.gdx.maps.objects.PolylineMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.math.DelaunayTriangulator;
 import com.badlogic.gdx.math.EarClippingTriangulator;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.ShortArray;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
 public class ProjektKarpador extends ApplicationAdapter implements ApplicationListener, InputProcessor {
@@ -85,8 +79,9 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		
 		// Der ECT berechnet aus den koordinaten die polygone, danach wird konvertiert
 		EarClippingTriangulator ect = new EarClippingTriangulator();
-		DelaunayTriangulator dt = new DelaunayTriangulator();
-		ShortArray sa = ect.computeTriangles(vertices);
+		
+		//DelaunayTriangulator dt = new DelaunayTriangulator();
+		//ShortArray sa = ect.computeTriangles(vertices);
 		// sa = dt.computeTriangles(vertices, true);
 		
 		
@@ -123,12 +118,10 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
 	}
 	
 	public void dispose() {
@@ -137,7 +130,6 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-		// TODO Auto-generated method stub
 //		int w = Gdx.graphics.getWidth();
 //		int h = Gdx.graphics.getHeight();
 		
@@ -155,7 +147,6 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		// TODO Auto-generated method stub
 //		imgMove = false;
 		
 		return false;
@@ -163,7 +154,6 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
-		// TODO Auto-generated method stub
 //		if (imgMove)
 //		{
 //			int w = Gdx.graphics.getWidth();
@@ -182,32 +172,27 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 
 	@Override
 	public boolean mouseMoved(int screenX, int screenY) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean scrolled(int amount) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	
 
 	@Override
 	public boolean keyDown(int keycode) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean keyUp(int keycode) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean keyTyped(char character) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 }
