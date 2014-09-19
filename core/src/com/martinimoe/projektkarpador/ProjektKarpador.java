@@ -51,7 +51,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		gameContext.getWorld().setContactListener(this);
 
 		// Gelände erzeugen
-		terrain = new Terrain(8000, gameContext);
+		terrain = new Terrain(1000, gameContext);
 		
 		// Spieler (Fisch) erzeugen
 		myFish = new Fish(gameContext, 4000, 500);
