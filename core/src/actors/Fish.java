@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
@@ -51,9 +52,11 @@ public class Fish extends Actor{
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 
+		setX(body.getPosition().x*Config.PIXELSPERMETER-getWidth()/2);
+		setY(body.getPosition().y*Config.PIXELSPERMETER-getHeight()/1.2f);
 		batch.draw(flounder.getKeyFrame(elapsed, true),
-					body.getPosition().x*Config.PIXELSPERMETER-getWidth()/2,
-					body.getPosition().y*Config.PIXELSPERMETER-getHeight()/1.2f,
+					getX(),
+					getY(),
 					getWidth()/2,
 					getHeight()/2,
 					getWidth(),
@@ -68,5 +71,9 @@ public class Fish extends Actor{
 	@Override
 	public void act(float delta) {
 		super.act(delta);
+	}
+
+	public void move(int i) {
+		body.applyForceToCenter(new Vector2(i*100, 0), true);
 	}
 }

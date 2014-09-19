@@ -67,7 +67,8 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		
 		gameContext.getWorld().step(Gdx.graphics.getDeltaTime(), 6, 2);
 		
-		//stage.getCamera().translate(-1f, 0, 0);
+//		stage.getCamera().translate(-1f, 0, 0);
+		stage.getCamera().position.set(myFish.getX(), stage.getCamera().position.y, 0);
 		stage.getCamera().update();
 		pBatch.setProjectionMatrix(camera.combined);
 		pBatch.begin();
@@ -78,7 +79,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		stage.act(Gdx.graphics.getDeltaTime());
 	    stage.draw();
 	    Matrix4 cam = stage.getCamera().combined.cpy();
-		debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
+//		debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
 		batch.end();
 		
 	}
@@ -102,43 +103,20 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-//		int w = Gdx.graphics.getWidth();
-//		int h = Gdx.graphics.getHeight();
-		
-//		if (screenX >= imgX && screenX < imgX + fish.packedWidth &&
-//		    (h - screenY) >= imgY && (h - screenY) < imgY + fish.packedHeight)
-//		{
-//			imgMove = true;
-//			
-//			imgMoveOffsetX = screenX - imgX;
-//			imgMoveOffsetY = (h - screenY) - imgY;
-//		}
-		
+		if (screenX < stage.getViewport().getScreenWidth()/2)
+			myFish.move(-1);
+		else
+			myFish.move(1);
 		return false;
 	}
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-//		imgMove = false;
-		
 		return false;
 	}
 	
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
-//		if (imgMove)
-//		{
-//			int w = Gdx.graphics.getWidth();
-//			int h = Gdx.graphics.getHeight();
-//			
-//			if (screenX >= 0 && screenX <= w &&
-//				screenY >= 0 && screenY <= h) 
-//			{
-//				imgX = screenX - imgMoveOffsetX;
-//				imgY = (h - screenY) - imgMoveOffsetY;
-//			}
-//		}
-		
 		return false;
 	}
 
