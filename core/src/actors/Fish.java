@@ -22,14 +22,17 @@ public class Fish extends Actor{
 		setX(x);
 		setY(y);
 		
+		// Textur laden
 		Array<AtlasRegion> frames = gameContext.getAtlas().findRegions("Fisch/Fisch");
 		flounder = new Animation(0.05f,frames);
-		setWidth(frames.get(0).packedWidth);
-		setHeight(frames.get(0).packedHeight);
+		// Fischgröße aus Textur generieren
+		setWidth(frames.get(0).getRegionWidth());
+		setHeight(frames.get(0).getRegionHeight());
 		
+		// Box2d driss
 		BodyDef bd = new BodyDef();
 		bd.type = BodyType.DynamicBody;
-		bd.position.set(((getX()+getWidth())/2)/Config.PIXELSPERMETER, (getY()+getHeight()/2)/Config.PIXELSPERMETER);
+		bd.position.set(((getX()-getWidth())/2)/Config.PIXELSPERMETER, (getY()+getHeight()/2)/Config.PIXELSPERMETER);
 		body = gameContext.getWorld().createBody(bd);
 		CircleShape circle = new CircleShape();
 		circle.setRadius((getHeight()/2)/Config.PIXELSPERMETER);
@@ -43,7 +46,7 @@ public class Fish extends Actor{
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
-		batch.draw(flounder.getKeyFrame(elapsed, true), body.getPosition().x*Config.PIXELSPERMETER, body.getPosition().y*Config.PIXELSPERMETER);
+		batch.draw(flounder.getKeyFrame(elapsed, true), body.getPosition().x*Config.PIXELSPERMETER-getWidth()/2, body.getPosition().y*Config.PIXELSPERMETER-getHeight()/1.2f);
 		elapsed += Gdx.graphics.getDeltaTime();
 	}
 	

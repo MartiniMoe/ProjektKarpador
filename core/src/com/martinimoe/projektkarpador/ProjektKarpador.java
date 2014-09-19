@@ -12,7 +12,9 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
@@ -25,18 +27,21 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	private Camera camera;
 	private GameContext gameContext = null;
 	private Terrain terrain = null;
+	private Box2DDebugRenderer debugRenderer = null;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		pBatch = new PolygonSpriteBatch();
 		
+		debugRenderer = new Box2DDebugRenderer();
+		
 		// Texturen laden
 		TextureAtlas atlas;
 		atlas = new TextureAtlas(Gdx.files.internal("KarpadorPack.pack"));
 
 		gameContext = new GameContext(new World(new Vector2(0, -9f), false), atlas);
-		
+
 		terrain = new Terrain(8000, gameContext);
 		
 		// Spieler (Fisch) erzeugen
@@ -72,7 +77,10 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		batch.begin();
 		stage.act(Gdx.graphics.getDeltaTime());
 	    stage.draw();
+	    Matrix4 cam = stage.getCamera().combined.cpy();
+		debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
 		batch.end();
+		
 	}
 	
 	@Override
