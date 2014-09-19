@@ -78,7 +78,8 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		batch.begin();
 		stage.act(Gdx.graphics.getDeltaTime());
 	    stage.draw();
-	    Matrix4 cam = stage.getCamera().combined.cpy();
+	    // Box2d Debugger:
+//	    Matrix4 cam = stage.getCamera().combined.cpy();
 //		debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
 		batch.end();
 		

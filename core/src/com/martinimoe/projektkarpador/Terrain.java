@@ -10,10 +10,8 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.ChainShape;
-import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.utils.ShortArray;
 
 public class Terrain {
@@ -25,7 +23,7 @@ public class Terrain {
 		this.terrainWidth = width;
 		
 		// Landscape generieren. Hochkompliziert!
-		float[] vertices = new float[128];
+		float[] vertices = new float[(int) (terrainWidth/100)];
 		float[] metricVertices = new float[vertices.length];
 		// Der erste Punkt ist am Koordinatenursprung
 		vertices[0] = 0;
@@ -33,20 +31,20 @@ public class Terrain {
 		metricVertices[0] = 0;
 		metricVertices[1] = 0;
 		
-		for (int i = vertices.length-2; i > 2; i--) {
+		for (int i = 2; i < vertices.length-2; i++) {
 			// Jede Zweite Koordinate ist x-Koordinate
 			// Diese sollen gleichmäßig verteilt sein.
 			if(i%2 == 0){
-				vertices[i] = i * ((terrainWidth * Config.SCREENSPERLEVEL) / vertices.length);
+				vertices[i] = i * ((terrainWidth / vertices.length) * Config.SCREENSPERLEVEL);
 			}
 			// Sonst Höhe zufällig berechnen
 			else{
-				vertices[i] = MathUtils.random(100, 600);
+				vertices[i] = MathUtils.random(100, 200);
 			}
 			metricVertices[i] = vertices[i]/Config.PIXELSPERMETER;
 		}
 		// Der letzte ist punkt ist an ( Levelende | 0 )
-		vertices[vertices.length-2] = terrainWidth * 20;
+		vertices[vertices.length-2] = terrainWidth * Config.SCREENSPERLEVEL;
 		vertices[vertices.length-1] = 0;
 		metricVertices[metricVertices.length-2] = vertices[vertices.length-2]/Config.PIXELSPERMETER;
 		metricVertices[metricVertices.length-1] = vertices[vertices.length-1]/Config.PIXELSPERMETER;
