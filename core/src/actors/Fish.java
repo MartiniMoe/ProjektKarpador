@@ -9,7 +9,9 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.CircleShape;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Array;
@@ -20,7 +22,8 @@ public class Fish extends Actor {
 	private Animation flounder = null;
 	private float elapsed = 0;
 	private Body body = null;
-	private Action bouncing;
+	private boolean doJump = false;
+	private float jumpDelay = 0;
 	
 	public Fish(GameContext gameContext, float x, float y){
 		setX(x);
@@ -35,38 +38,23 @@ public class Fish extends Actor {
 		
 		// Box2d driss
 		BodyDef bd = new BodyDef();
+		bd.bullet = true;
 		bd.type = BodyType.DynamicBody;
 		bd.position.set(((getX()-getWidth())/2)/Config.PIXELSPERMETER, (getY()+getHeight()/2)/Config.PIXELSPERMETER);
 		body = gameContext.getWorld().createBody(bd);
-		CircleShape circle = new CircleShape();
-		circle.setRadius((getHeight()/2)/Config.PIXELSPERMETER);
+		PolygonShape pShape = new PolygonShape();
+		pShape.setAsBox((getWidth()/3)/Config.PIXELSPERMETER, (getHeight()/4)/Config.PIXELSPERMETER);
+//		CircleShape circle = new CircleShape();
+//		circle.setRadius((getHeight()/2)/Config.PIXELSPERMETER);
 		
 		FixtureDef fDef = new FixtureDef();
-		fDef.friction =.25f;
-		fDef.restitution = .5f;
-		fDef.density = 1;
-		fDef.shape = circle;
+		fDef.friction = .75f;
+//		fDef.restitution = .5f;
+		fDef.density = 2;
+		fDef.shape = pShape;
 		
-		body.createFixture(fDef);
-		
-		bouncing = new Action() {
-			private float timeElapsed;
-			@Override
-			public boolean act(float delta) {
-				timeElapsed += delta;
-				if (timeElapsed >= 1f)
-				{
-					body.applyForceToCenter(0, 200, true);
-					timeElapsed = 0 ;
-				}
-				
-				
-				return false;
-			}
-		};
-		
-		addAction(bouncing);
-		
+		Fixture f = body.createFixture(fDef);
+		f.setUserData(this);
 	}
 	
 	@Override
@@ -74,7 +62,7 @@ public class Fish extends Actor {
 		super.draw(batch, parentAlpha);
 
 		setX(body.getPosition().x*Config.PIXELSPERMETER-getWidth()/2);
-		setY(body.getPosition().y*Config.PIXELSPERMETER-getHeight()/1.2f);
+		setY(body.getPosition().y*Config.PIXELSPERMETER-getHeight()/1.65f);
 		batch.draw(flounder.getKeyFrame(elapsed, true),
 					getX(),
 					getY(),
@@ -89,13 +77,29 @@ public class Fish extends Actor {
 		elapsed += Gdx.graphics.getDeltaTime();
 	}
 	
+	public void jump() {
+		doJump = true;
+		jumpDelay = 0;
+	}
+	
 	@Override
 	public void act(float delta) {
 		super.act(delta);
+		if (doJump && jumpDelay > .2f) {
+			body.applyForceToCenter(0, 400, true);
+			doJump = false;
+		}
+		jumpDelay += delta;
 	}
 
 	public void move(int i) {
-		body.applyForceToCenter(i*100, 0, true);
+		System.out.println(body.getLinearVelocity());
+		if (i == 1 && body.getLinearVelocity().x < 10 ||
+			i == -1 && body.getLinearVelocity().x > -10)
+		{
+			body.applyForceToCenter(i*100, 0, true);
+			body.applyAngularImpulse(-i*.2f, true);
+		}
 	}
 	
 

@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.ChainShape;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.utils.ShortArray;
@@ -39,7 +40,7 @@ public class Terrain {
 			}
 			// Sonst Höhe zufällig berechnen
 			else{
-				vertices[i] = MathUtils.random(100, 200);
+				vertices[i] = MathUtils.random(100, 600);
 			}
 			metricVertices[i] = vertices[i]/Config.PIXELSPERMETER;
 		}
@@ -73,7 +74,8 @@ public class Terrain {
 		cShape.createChain(metricVertices);
 		FixtureDef fDef = new FixtureDef();
 		fDef.shape = cShape;
-		body.createFixture(fDef);
+		Fixture f = body.createFixture(fDef);
+		f.setUserData(this);
 	}
 	
 	public void draw(PolygonSpriteBatch pBatch) {

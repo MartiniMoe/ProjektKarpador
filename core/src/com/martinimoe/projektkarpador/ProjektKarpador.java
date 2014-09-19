@@ -15,11 +15,15 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
+import com.badlogic.gdx.physics.box2d.Contact;
+import com.badlogic.gdx.physics.box2d.ContactImpulse;
+import com.badlogic.gdx.physics.box2d.ContactListener;
+import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 
-public class ProjektKarpador extends ApplicationAdapter implements ApplicationListener, InputProcessor {
+public class ProjektKarpador extends ApplicationAdapter implements ApplicationListener, InputProcessor, ContactListener {
 	private SpriteBatch batch;
 	private PolygonSpriteBatch pBatch;
 	private Fish myFish;
@@ -34,14 +38,18 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		batch = new SpriteBatch();
 		pBatch = new PolygonSpriteBatch();
 		
+		// Debugrenderer wird in render() angewandt
 		debugRenderer = new Box2DDebugRenderer();
 		
 		// Texturen laden
 		TextureAtlas atlas;
 		atlas = new TextureAtlas(Gdx.files.internal("KarpadorPack.pack"));
 
+		// GameContext hält globale Objekte
 		gameContext = new GameContext(new World(new Vector2(0, -9f), false), atlas);
+		gameContext.getWorld().setContactListener(this);
 
+		// Gelände erzeugen
 		terrain = new Terrain(8000, gameContext);
 		
 		// Spieler (Fisch) erzeugen
@@ -49,14 +57,15 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		
 		//Camera erzeugen 
 		camera = new OrthographicCamera();
+		
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
 		stage = new Stage(new ExtendViewport(1280, 720,camera));
-	    Gdx.input.setInputProcessor(stage);
 	    stage.addActor(myFish);
 	    
-	    // kA, stand im Tutorial
+	    // Input aktivieren
 		Gdx.input.setInputProcessor(this);
-		
+	    
+	    // Vsync
 		Gdx.graphics.setVSync(true);
 	}
 
@@ -65,11 +74,13 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
+		// World step
 		gameContext.getWorld().step(Gdx.graphics.getDeltaTime(), 6, 2);
 		
-//		stage.getCamera().translate(-1f, 0, 0);
+		// Camera auf Fish setzen
 		stage.getCamera().position.set(myFish.getX(), stage.getCamera().position.y, 0);
 		stage.getCamera().update();
+		
 		pBatch.setProjectionMatrix(camera.combined);
 		pBatch.begin();
 		terrain.draw(pBatch);
@@ -130,7 +141,6 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	public boolean scrolled(int amount) {
 		return false;
 	}
-	
 
 	@Override
 	public boolean keyDown(int keycode) {
@@ -145,5 +155,34 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	@Override
 	public boolean keyTyped(char character) {
 		return false;
+	}
+
+	@Override
+	public void beginContact(Contact contact) {
+		if ((contact.getFixtureA().getUserData().equals(myFish) &&
+			contact.getFixtureB().getUserData().equals(terrain)) ||
+			(contact.getFixtureB().getUserData().equals(myFish) &&
+			contact.getFixtureA().getUserData().equals(terrain))) 
+		{
+			myFish.jump();
+		}
+	}
+
+	@Override
+	public void endContact(Contact contact) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void preSolve(Contact contact, Manifold oldManifold) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void postSolve(Contact contact, ContactImpulse impulse) {
+		// TODO Auto-generated method stub
+		
 	}
 }
