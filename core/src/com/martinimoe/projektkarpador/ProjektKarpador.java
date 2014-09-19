@@ -45,7 +45,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		terrain = new Terrain(8000, gameContext);
 		
 		// Spieler (Fisch) erzeugen
-		myFish = new Fish(gameContext, 500, 500);
+		myFish = new Fish(gameContext, 1500, 500);
 		
 		//Camera erzeugen 
 		camera = new OrthographicCamera();
@@ -57,7 +57,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	    // kA, stand im Tutorial
 		Gdx.input.setInputProcessor(this);
 		
-		
+		Gdx.graphics.setVSync(true);
 	}
 
 	@Override
