@@ -3,6 +3,7 @@ package actors;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
@@ -38,6 +39,9 @@ public class Fish extends Actor{
 		circle.setRadius((getHeight()/2)/Config.PIXELSPERMETER);
 		
 		FixtureDef fDef = new FixtureDef();
+		fDef.friction =.25f;
+		fDef.restitution = .5f;
+		fDef.density = 1;
 		fDef.shape = circle;
 		
 		body.createFixture(fDef);
@@ -46,7 +50,18 @@ public class Fish extends Actor{
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
-		batch.draw(flounder.getKeyFrame(elapsed, true), body.getPosition().x*Config.PIXELSPERMETER-getWidth()/2, body.getPosition().y*Config.PIXELSPERMETER-getHeight()/1.2f);
+
+		batch.draw(flounder.getKeyFrame(elapsed, true),
+					body.getPosition().x*Config.PIXELSPERMETER-getWidth()/2,
+					body.getPosition().y*Config.PIXELSPERMETER-getHeight()/1.2f,
+					getWidth()/2,
+					getHeight()/2,
+					getWidth(),
+					getHeight(),
+					1f,
+					1f,
+					MathUtils.radDeg*body.getAngle()
+					);
 		elapsed += Gdx.graphics.getDeltaTime();
 	}
 	
