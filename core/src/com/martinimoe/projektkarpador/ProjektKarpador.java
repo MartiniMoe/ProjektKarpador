@@ -22,6 +22,7 @@ import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 
 public class ProjektKarpador extends ApplicationAdapter implements ApplicationListener, InputProcessor, ContactListener {
 	private SpriteBatch batch;
@@ -53,13 +54,13 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		terrain = new Terrain(8000, gameContext);
 		
 		// Spieler (Fisch) erzeugen
-		myFish = new Fish(gameContext, 1500, 500);
+		myFish = new Fish(gameContext, 4000, 500);
 		
 		//Camera erzeugen 
 		camera = new OrthographicCamera();
 		
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
-		stage = new Stage(new ExtendViewport(1280, 720,camera));
+		stage = new Stage(new ExtendViewport(1920, 1080,camera));
 	    stage.addActor(myFish);
 	    
 	    // Input aktivieren
@@ -67,6 +68,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	    
 	    // Vsync
 		Gdx.graphics.setVSync(true);
+		Gdx.graphics.getGL20();
 	}
 
 	@Override
