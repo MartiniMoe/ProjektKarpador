@@ -12,12 +12,11 @@ import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
 import com.badlogic.gdx.utils.Array;
 import com.martinimoe.projektkarpador.Config;
 import com.martinimoe.projektkarpador.GameContext;
 
-public class Fish extends Actor{
+public class Fish extends Actor {
 	private Animation flounder = null;
 	private float elapsed = 0;
 	private Body body = null;
@@ -67,6 +66,7 @@ public class Fish extends Actor{
 		};
 		
 		addAction(bouncing);
+		
 	}
 	
 	@Override
