@@ -1,5 +1,6 @@
 package com.martinimoe.projektkarpador;
 
+import actors.EvilCrab;
 import actors.Fish;
 
 import com.badlogic.gdx.ApplicationAdapter;
@@ -7,6 +8,7 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
@@ -28,6 +30,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	private SpriteBatch batch;
 	private PolygonSpriteBatch pBatch;
 	private Fish myFish;
+	private EvilCrab myCrab;
 	private Stage stage;
 	private Camera camera;
 	private GameContext gameContext = null;
@@ -54,7 +57,9 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		terrain = new Terrain(8000, gameContext);
 		
 		// Spieler (Fisch) erzeugen
-		myFish = new Fish(gameContext, 4000, 500);
+		myFish = new Fish(gameContext, 4000, 800);
+		
+		
 		
 		//Camera erzeugen 
 		camera = new OrthographicCamera();
@@ -62,6 +67,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
 		stage = new Stage(new ExtendViewport(1920, 1080,camera));
 	    stage.addActor(myFish);
+	    for (int i=0;i<20;i++) stage.addActor(new EvilCrab(gameContext, 4200+(550*i), 800, new Color(255f/255f,0f/255f,0f/255f,1f)));
 	    
 	    // Input aktivieren
 		Gdx.input.setInputProcessor(this);
@@ -75,7 +81,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	public void render () {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
+		gameContext.addDelta(Gdx.graphics.getDeltaTime());
 		// World step
 		gameContext.getWorld().step(Gdx.graphics.getDeltaTime(), 6, 2);
 		
@@ -92,8 +98,8 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		stage.act(Gdx.graphics.getDeltaTime());
 	    stage.draw();
 	    // Box2d Debugger:
-//	    Matrix4 cam = stage.getCamera().combined.cpy();
-//		debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
+	    //Matrix4 cam = stage.getCamera().combined.cpy();
+		//debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
 		batch.end();
 		
 	}
@@ -168,12 +174,23 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		{
 			myFish.jump();
 		}
+		else if (
+				 contact.getFixtureB().getUserData().equals(terrain) ||
+				 contact.getFixtureA().getUserData().equals(terrain)) 
+		{
+			EvilCrab tmpCrab = null;
+			if (contact.getFixtureA().getUserData().getClass().equals(EvilCrab.class))
+				tmpCrab = (EvilCrab) contact.getFixtureA().getUserData();
+			if (contact.getFixtureB().getUserData().getClass().equals(EvilCrab.class))
+				tmpCrab = (EvilCrab) contact.getFixtureB().getUserData();
+			if (tmpCrab != null) tmpCrab.setGrounded(true);
+			
+		}
 	}
 
 	@Override
 	public void endContact(Contact contact) {
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

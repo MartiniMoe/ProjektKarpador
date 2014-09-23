@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.World;
 public class GameContext {
 	private World world = null;
 	private TextureAtlas atlas = null;
+	private float timeElapsed = 0;
 
 	public GameContext(World world, TextureAtlas atlas) {
 		setWorld(world);
@@ -27,4 +28,21 @@ public class GameContext {
 	public void setWorld(World world) {
 		this.world = world;
 	}
+	
+	public void addDelta(float delta)
+	{
+		this.timeElapsed+=delta;
+	}
+
+	public float getTimeElapsed() {
+		return timeElapsed;
+	}
+
+	public void setTimeElapsed(float timeElapsed) {
+		this.timeElapsed = timeElapsed;
+	}
+	
+	
+	
+	
 }

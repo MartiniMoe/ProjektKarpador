@@ -3,6 +3,88 @@ KarpadorPack.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+Gegner/krabbe004_r1_c1_r1_c6
+  rotate: false
+  xy: 1, 261
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: -1
+Gegner/Krabbe
+  rotate: false
+  xy: 1, 131
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 3
+Gegner/krabbe004_r1_c1_r1_c3
+  rotate: false
+  xy: 1, 131
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: -1
+Gegner/krabbe004_r1_c1_r1_c2
+  rotate: false
+  xy: 152, 261
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: -1
+Gegner/Krabbe
+  rotate: false
+  xy: 152, 261
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 2
+Gegner/krabbe004_r1_c1_r1_c1
+  rotate: false
+  xy: 1, 1
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: -1
+Gegner/Krabbe
+  rotate: false
+  xy: 1, 1
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 1
+Gegner/krabbe004_r1_c1_r1_c7
+  rotate: false
+  xy: 152, 131
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: -1
+Gegner/Krabbe
+  rotate: false
+  xy: 303, 261
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 4
+Gegner/krabbe004_r1_c1_r1_c4
+  rotate: false
+  xy: 303, 261
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: -1
+Gegner/krabbe004_r1_c1_r1_c5
+  rotate: false
+  xy: 152, 1
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: -1
+
+KarpadorPack2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
 Fisch/Fisch
   rotate: false
   xy: 1, 99
@@ -95,14 +177,28 @@ Fisch/Fisch
   offset: 0, 0
   index: 1
 
-KarpadorPack2.png
+KarpadorPack3.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 Terrain/terrain
   rotate: false
-  xy: 1, 1
+  xy: 1, 43
   size: 512, 512
   orig: 512, 512
   offset: 0, 0
   index: 1
+Terrain/terrain_gras
+  rotate: false
+  xy: 1, 1
+  size: 20, 40
+  orig: 20, 40
+  offset: 0, 0
+  index: -1
+Terrain/terrain_erde
+  rotate: false
+  xy: 515, 539
+  size: 20, 16
+  orig: 20, 16
+  offset: 0, 0
+  index: -1
