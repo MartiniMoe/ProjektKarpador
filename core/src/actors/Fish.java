@@ -93,7 +93,6 @@ public class Fish extends Actor {
 	}
 
 	public void move(int i) {
-		System.out.println(body.getLinearVelocity());
 		if (i == 1 && body.getLinearVelocity().x < 10 ||
 			i == -1 && body.getLinearVelocity().x > -10)
 		{
