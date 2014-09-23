@@ -1,5 +1,6 @@
 package com.martinimoe.projektkarpador;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureWrap;
 import com.badlogic.gdx.graphics.g2d.PolygonRegion;
@@ -16,9 +17,11 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.utils.ShortArray;
 
 public class Terrain {
-	private PolygonRegion pRegion;
+	private PolygonRegion pRegion, pRegionGrass;
 	private float terrainWidth = 0;
 	Body body = null;
+	public static final Color colorEarth = new Color(120f/255f,80f/255f,29f/255f,1f); 
+	public static final Color colorGrass = new Color(20f/255f,220f/255f,29f/255f,1f);
 	
 	public Terrain(float width, GameContext gameContext) {
 		this.terrainWidth = width;
@@ -57,11 +60,15 @@ public class Terrain {
 		ShortArray sa = ect.computeTriangles(vertices);
 		// sa = dt.computeTriangles(vertices, true);
 		
-		Texture texture = new Texture("terrain.png");
+		Texture texture = new Texture("terrain_erde.png");
 		texture.setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
+
+		Texture textureGrass = new Texture("terrain_gras.png");
+		textureGrass.setWrap(TextureWrap.Repeat, TextureWrap.Repeat);
 		
 		// Die PolygonRegion enthält den Levelboden
 		pRegion = new PolygonRegion(new TextureRegion(texture), vertices,  sa.toArray());
+		pRegionGrass = new PolygonRegion(new TextureRegion(textureGrass), vertices,  sa.toArray());
 		
 		//Box2d Physik-Dingsi
 		BodyDef bd = new BodyDef();
@@ -76,9 +83,17 @@ public class Terrain {
 		fDef.shape = cShape;
 		Fixture f = body.createFixture(fDef);
 		f.setUserData(this);
+		
 	}
 	
 	public void draw(PolygonSpriteBatch pBatch) {
-		pBatch.draw(pRegion, 0, 0);
+		
+		pBatch.setColor(colorGrass);
+		pBatch.draw(pRegionGrass, -25, 45);
+		
+		pBatch.setColor(colorEarth);
+		pBatch.draw(pRegion, 25, -45);
+		
+		pBatch.setColor(1,1, 1, 1);
 	}
 }
