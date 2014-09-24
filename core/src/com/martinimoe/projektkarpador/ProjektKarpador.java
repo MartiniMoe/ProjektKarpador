@@ -14,7 +14,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.Contact;
@@ -24,17 +23,16 @@ import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 
 public class ProjektKarpador extends ApplicationAdapter implements ApplicationListener, InputProcessor, ContactListener {
 	private SpriteBatch batch;
 	private PolygonSpriteBatch pBatch;
 	private Fish myFish;
-	private EvilCrab myCrab;
 	private Stage stage;
 	private Camera camera;
 	private GameContext gameContext = null;
 	private Terrain terrain = null;
+	@SuppressWarnings("unused")
 	private Box2DDebugRenderer debugRenderer = null;
 	
 	@Override
@@ -67,7 +65,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
 		stage = new Stage(new ExtendViewport(1920, 1080,camera));
 	    stage.addActor(myFish);
-	    for (int i=0;i<20;i++) stage.addActor(new EvilCrab(gameContext, 4200+(550*i), 800, new Color(255f/255f,0f/255f,0f/255f,1f)));
+	    for (int i=0;i<20;i++) stage.addActor(new EvilCrab(gameContext, 4200+(550*i), 800, new Color(255f/255f,0f/255f,0f/255f,1f), 4f));
 	    
 	    // Input aktivieren
 		Gdx.input.setInputProcessor(this);
