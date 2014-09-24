@@ -1,9 +1,7 @@
 package actors;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
@@ -11,7 +9,6 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
-import com.badlogic.gdx.utils.Array;
 import com.martinimoe.projektkarpador.Config;
 import com.martinimoe.projektkarpador.GameContext;
 
@@ -20,13 +17,8 @@ public class EvilCrab extends Enemy{
 	public EvilCrab(GameContext gameContext, float x, float y, Color color, float speed){
 		super(gameContext, x, y, color, speed);
 		
-		// Textur laden
-		Array<AtlasRegion> frames = gameContext.getAtlas().findRegions("Gegner/Krabbe");
-		move = new Animation(0.1f,frames);
-		move.setPlayMode(PlayMode.LOOP_PINGPONG);
-		// Größe aus Textur generieren
-		setWidth(frames.get(0).getRegionWidth());
-		setHeight(frames.get(0).getRegionHeight());
+//		loadTexture("Gegner/Krabbe", 0.1f, PlayMode.LOOP_PINGPONG);
+		loadTexture("Gegner/Krabbe", speed*0.025f, PlayMode.LOOP_PINGPONG);
 		
 		// Box2d driss
 		BodyDef bdCrab = new BodyDef();

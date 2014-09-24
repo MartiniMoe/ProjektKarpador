@@ -3,8 +3,11 @@ package actors;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.utils.Array;
 import com.martinimoe.projektkarpador.Config;
 import com.martinimoe.projektkarpador.GameContext;
 
@@ -26,6 +29,16 @@ public abstract class Enemy extends Actor{
 		this.speed = speed;
 	}
 
+	protected void loadTexture(String regionName, float animationSpeed, PlayMode playMode) {
+		// Textur laden
+		Array<AtlasRegion> frames = gameContext.getAtlas().findRegions(regionName);
+		move = new Animation(animationSpeed, frames);
+		move.setPlayMode(playMode);
+		// Größe aus Textur generieren
+		setWidth(frames.get(0).getRegionWidth());
+		setHeight(frames.get(0).getRegionHeight());
+	}
+	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
