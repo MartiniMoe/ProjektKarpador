@@ -21,7 +21,8 @@ public class Terrain {
 	private float terrainWidth = 0;
 	Body body = null;
 	public static final Color colorEarth = new Color(120f/255f,80f/255f,29f/255f,1f); 
-	public static final Color colorGrass = new Color(20f/255f,220f/255f,29f/255f,1f);
+	//public static final Color colorGrass = new Color(20f/255f,220f/255f,29f/255f,1f);
+	public static final Color colorGrass = new Color(113f/255f,170f/255f,41f/255f,1f);
 	
 	public Terrain(float width, GameContext gameContext) {
 		this.terrainWidth = width;
