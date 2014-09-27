@@ -77,7 +77,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(0.4f, 0.6f, 0.6f, 1);
+		Gdx.gl.glClearColor(0.55f, .81f, 0.95f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		gameContext.addDelta(Gdx.graphics.getDeltaTime());
 		// World step

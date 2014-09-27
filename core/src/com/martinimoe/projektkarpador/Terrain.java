@@ -20,9 +20,9 @@ public class Terrain {
 	private PolygonRegion pRegion, pRegionGrass;
 	private float terrainWidth = 0;
 	Body body = null;
-	public static final Color colorEarth = new Color(120f/255f,80f/255f,29f/255f,1f); 
+	public static final Color colorEarth = new Color(217f/255f,164f/255f,72f/255f,1f); 
 	//public static final Color colorGrass = new Color(20f/255f,220f/255f,29f/255f,1f);
-	public static final Color colorGrass = new Color(113f/255f,170f/255f,41f/255f,1f);
+	public static final Color colorGrass = new Color(248f/255f,204f/255f,75f/255f,1f);
 	
 	public Terrain(float width, GameContext gameContext) {
 		this.terrainWidth = width;
@@ -90,10 +90,10 @@ public class Terrain {
 	public void draw(PolygonSpriteBatch pBatch) {
 		
 		pBatch.setColor(colorGrass);
-		pBatch.draw(pRegionGrass, -25, 45);
+		pBatch.draw(pRegionGrass, -25, 55);
 		
 		pBatch.setColor(colorEarth);
-		pBatch.draw(pRegion, 25, -45);
+		pBatch.draw(pRegion, 25, -55);
 		
 		pBatch.setColor(1,1, 1, 1);
 	}
