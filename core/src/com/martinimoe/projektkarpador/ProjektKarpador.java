@@ -45,7 +45,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		
 		// Texturen laden
 		TextureAtlas atlas;
-		atlas = new TextureAtlas(Gdx.files.internal("KarpadorPack.pack"));
+		atlas = new TextureAtlas(Gdx.files.internal("Karpador.pack"));
 
 		// GameContext hält globale Objekte
 		gameContext = new GameContext(new World(new Vector2(0, -9f), false), atlas);

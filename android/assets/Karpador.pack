@@ -1,0 +1,228 @@
+
+Karpador.png
+size: 650,196
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Fisch/Fisch
+  rotate: false
+  xy: 2, 100
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 1
+Fisch/Fisch
+  rotate: false
+  xy: 2, 2
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 2
+Fisch/Fisch
+  rotate: false
+  xy: 132, 100
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 3
+Fisch/Fisch
+  rotate: false
+  xy: 132, 2
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 4
+Fisch/Fisch
+  rotate: false
+  xy: 262, 100
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 5
+Fisch/Fisch
+  rotate: false
+  xy: 262, 2
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 6
+Fisch/Fisch
+  rotate: false
+  xy: 392, 100
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 7
+Fisch/Fisch
+  rotate: false
+  xy: 392, 2
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 8
+Fisch/Fisch
+  rotate: false
+  xy: 522, 100
+  size: 128, 96
+  orig: 128, 96
+  offset: 0, 0
+  index: 9
+
+Karpador2.png
+size: 755,390
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Gegner/Krabbe
+  rotate: false
+  xy: 2, 262
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 1
+Gegner/Krabbe
+  rotate: false
+  xy: 2, 262
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 3
+Gegner/Krabbe
+  rotate: false
+  xy: 2, 132
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 2
+Gegner/Krabbe
+  rotate: false
+  xy: 2, 132
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 4
+Gegner/Krabbe
+  rotate: false
+  xy: 153, 262
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 5
+Gegner/Krabbe
+  rotate: false
+  xy: 153, 262
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 13
+Gegner/Krabbe
+  rotate: false
+  xy: 2, 2
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 6
+Gegner/Krabbe
+  rotate: false
+  xy: 153, 132
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 7
+Gegner/Krabbe
+  rotate: false
+  xy: 304, 262
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 8
+Gegner/Krabbe
+  rotate: false
+  xy: 304, 262
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 16
+Gegner/Krabbe
+  rotate: false
+  xy: 153, 2
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 9
+Gegner/Krabbe
+  rotate: false
+  xy: 304, 132
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 11
+Gegner/Krabbe
+  rotate: false
+  xy: 304, 132
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 18
+Gegner/Krabbe
+  rotate: false
+  xy: 455, 262
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 12
+Gegner/Krabbe
+  rotate: false
+  xy: 304, 2
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 14
+Gegner/Krabbe
+  rotate: false
+  xy: 455, 132
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 15
+Gegner/Krabbe
+  rotate: false
+  xy: 606, 262
+  size: 149, 128
+  orig: 149, 128
+  offset: 0, 0
+  index: 17
+Gegner/Krabbe
+  rotate: false
+  xy: 455, 2
+  size: 148, 128
+  orig: 148, 128
+  offset: 0, 0
+  index: 10
+
+Karpador3.png
+size: 536,556
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Terrain/terrain
+  rotate: false
+  xy: 2, 44
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: 1
+Terrain/terrain_erde
+  rotate: false
+  xy: 516, 540
+  size: 20, 16
+  orig: 20, 16
+  offset: 0, 0
+  index: -1
+Terrain/terrain_gras
+  rotate: false
+  xy: 2, 2
+  size: 20, 40
+  orig: 20, 40
+  offset: 0, 0
+  index: -1

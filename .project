@@ -17,11 +17,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-<<<<<<< HEAD
-			<id>1410963638751</id>
-=======
-			<id>1410476004130</id>
->>>>>>> bd67e80ffc8dba4592a1d968ccda642c95fc9184
+			<id>1412183919588</id>
 			<name></name>
 			<type>26</type>
 			<matcher>
@@ -29,11 +25,7 @@
 				<arguments>
 					<matcher>
 						<id>org.eclipse.ui.ide.multiFilter</id>
-						<arguments>1.0-projectRelativePath-equals-true-false-android</arguments>
-					</matcher>
-					<matcher>
-						<id>org.eclipse.ui.ide.multiFilter</id>
-						<arguments>1.0-projectRelativePath-equals-true-false-ios</arguments>
+						<arguments>1.0-projectRelativePath-equals-true-false-core</arguments>
 					</matcher>
 					<matcher>
 						<id>org.eclipse.ui.ide.multiFilter</id>
@@ -41,11 +33,15 @@
 					</matcher>
 					<matcher>
 						<id>org.eclipse.ui.ide.multiFilter</id>
-						<arguments>1.0-projectRelativePath-equals-true-false-core</arguments>
+						<arguments>1.0-projectRelativePath-equals-true-false-android</arguments>
 					</matcher>
 					<matcher>
 						<id>org.eclipse.ui.ide.multiFilter</id>
 						<arguments>1.0-projectRelativePath-equals-true-false-html</arguments>
+					</matcher>
+					<matcher>
+						<id>org.eclipse.ui.ide.multiFilter</id>
+						<arguments>1.0-projectRelativePath-equals-true-false-ios</arguments>
 					</matcher>
 				</arguments>
 			</matcher>
