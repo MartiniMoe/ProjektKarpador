@@ -5,6 +5,7 @@
 /bin/
 /html/bin/
 /.gradle/
+/android/gen/
 
 #Android-SDK-Pfad
 *.properties
