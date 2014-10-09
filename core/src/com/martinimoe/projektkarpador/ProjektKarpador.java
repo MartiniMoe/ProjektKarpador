@@ -32,7 +32,6 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	private Camera camera;
 	private GameContext gameContext = null;
 	private Terrain terrain = null;
-	@SuppressWarnings("unused")
 	private Box2DDebugRenderer debugRenderer = null;
 	
 	@Override
@@ -55,7 +54,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		camera = new OrthographicCamera();
 	    
 		// Spieler (Fisch) erzeugen
-		myFish = new Fish(gameContext, 4000, 700);
+		myFish = new Fish(gameContext, 500, 700);
 		
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
 		stage = new Stage(new ExtendViewport(1920, 1080,camera));
@@ -93,9 +92,12 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		batch.begin();
 		stage.act(Gdx.graphics.getDeltaTime());
 	    stage.draw();
+	    
 	    // Box2d Debugger:
-	    Matrix4 cam = stage.getCamera().combined.cpy();
-		debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
+	    if (Config.DEBUG) {
+		    Matrix4 cam = stage.getCamera().combined.cpy();
+			debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
+	    }
 		batch.end();
 		
 	}

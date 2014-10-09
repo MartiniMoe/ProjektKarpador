@@ -94,7 +94,7 @@ public class Terrain {
 		
 		// Gegner einfügen
 		int enemyNum = difficulty * 2;
-		for (int i=0;i<enemyNum;i++) gameContext.getStage().addActor(new EvilCrab(gameContext, 4200+(550*i), maxLevelHeight + 100, new Color(255f/255f,0f/255f,0f/255f,1f), 4f * difficulty));
+		for (int i=0;i<enemyNum;i++) gameContext.getStage().addActor(new EvilCrab(gameContext, (i + 1) * (terrainWidth / (enemyNum + 1)), maxLevelHeight + 100, new Color(255f/255f,0f/255f,0f/255f,1f), 4f * difficulty));
 	}
 	
 	public void draw(PolygonSpriteBatch pBatch) {
