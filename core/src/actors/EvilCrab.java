@@ -22,7 +22,7 @@ public class EvilCrab extends Enemy{
 		super(gameContext, x, y, color, speed);
 		
 //		loadTexture("Gegner/Krabbe", 0.1f, PlayMode.LOOP_PINGPONG);
-		loadTexture("Gegner/Krabbe", speed*0.025f, PlayMode.LOOP_PINGPONG);
+		loadTexture("Gegner/Krabbe", 1/speed, PlayMode.LOOP_PINGPONG);
 		
 		// Box2d driss
 		BodyDef bdCrab = new BodyDef();
@@ -34,7 +34,7 @@ public class EvilCrab extends Enemy{
 		pShape.setAsBox((getWidth()/4)/Config.PIXELSPERMETER, (getHeight()/4)/Config.PIXELSPERMETER);
 		CircleShape cShape = new CircleShape();
 		cShape.setRadius(getWidth()/4 / Config.PIXELSPERMETER);
-		cShape.setPosition(new Vector2(0, (-getHeight()/4)/Config.PIXELSPERMETER));
+		cShape.setPosition(new Vector2(x, (-getHeight()/4)/Config.PIXELSPERMETER));
 		Fixture fc = body.createFixture(cShape,0);
 		fc.setUserData(this);
 		FixtureDef fDef = new FixtureDef();
