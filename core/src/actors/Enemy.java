@@ -88,7 +88,7 @@ public abstract class Enemy extends Actor{
 				body.applyForceToCenter(-body.getLinearVelocity().x*8f, 0, true);
 			if (Math.abs(body.getLinearVelocity().x) < Math.abs(speed))
 				body.applyForceToCenter(speed*2, speed*2, true);
-		}	
+		}
 	}
 	
 	public boolean isGrounded() {

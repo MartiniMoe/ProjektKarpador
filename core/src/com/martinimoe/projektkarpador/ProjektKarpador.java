@@ -58,9 +58,9 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		
 	    
 		// Spieler (Fisch) erzeugen
-		myFish = new Fish(gameContext, 500, 700);
+		myFish = new Fish(gameContext, 2000, 700);
 		txHealthbar = atlas.findRegion("Terrain/terrain_erde");
-
+		
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
 		stage = new Stage(new ExtendViewport(1920, 1080,camera));
 		hudCamera = new OrthographicCamera(stage.getViewport().getScreenWidth(),stage.getViewport().getScreenHeight());
@@ -69,7 +69,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	    stage.addActor(myFish);
 
 		// Gelände erzeugen
-		terrain = new Terrain(8000, gameContext, 1);
+		terrain = new Terrain(8000, gameContext, 5);
 	    
 	    // Input aktivieren
 		Gdx.input.setInputProcessor(this);
