@@ -1,5 +1,6 @@
 package com.martinimoe.projektkarpador;
 
+import actors.Enemy;
 import actors.EvilCrab;
 import actors.Fish;
 
@@ -13,6 +14,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -29,10 +31,11 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	private PolygonSpriteBatch pBatch;
 	private Fish myFish;
 	private Stage stage;
-	private Camera camera;
+	private Camera camera, hudCamera;
 	private GameContext gameContext = null;
 	private Terrain terrain = null;
 	private Box2DDebugRenderer debugRenderer = null;
+	private TextureRegion txHealthbar = null;
 	
 	@Override
 	public void create () {
@@ -52,12 +55,16 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		
 		//Camera erzeugen 
 		camera = new OrthographicCamera();
+		
 	    
 		// Spieler (Fisch) erzeugen
 		myFish = new Fish(gameContext, 500, 700);
-		
+		txHealthbar = atlas.findRegion("Terrain/terrain_erde");
+
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
 		stage = new Stage(new ExtendViewport(1920, 1080,camera));
+		hudCamera = new OrthographicCamera(stage.getViewport().getScreenWidth(),stage.getViewport().getScreenHeight());
+		
 	    gameContext.setStage(stage);
 	    stage.addActor(myFish);
 
@@ -98,8 +105,15 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		    Matrix4 cam = stage.getCamera().combined.cpy();
 			debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
 	    }
+	    
 		batch.end();
 		
+		
+		batch.setProjectionMatrix(hudCamera.combined);
+		hudCamera.update();
+		batch.begin();
+	    batch.draw(txHealthbar,200,200,0,0,myFish.getHealth(),24,1,1,0);
+		batch.end();
 	}
 	
 	@Override
@@ -177,13 +191,21 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 				 contact.getFixtureA().getUserData().equals(terrain)) 
 		{
 			EvilCrab tmpCrab = null;
-			if (contact.getFixtureA().getUserData().getClass().equals(EvilCrab.class))
+			if (contact.getFixtureA().getUserData() instanceof Enemy)
 				tmpCrab = (EvilCrab) contact.getFixtureA().getUserData();
-			if (contact.getFixtureB().getUserData().getClass().equals(EvilCrab.class))
+			if (contact.getFixtureB().getUserData() instanceof Enemy)
 				tmpCrab = (EvilCrab) contact.getFixtureB().getUserData();
 			if (tmpCrab != null) tmpCrab.setGrounded(true);
 			
 		}
+		if ((contact.getFixtureA().getUserData().equals(myFish) &&
+				contact.getFixtureB().getUserData() instanceof Enemy) ||
+				(contact.getFixtureB().getUserData().equals(myFish) &&
+					contact.getFixtureA().getUserData() instanceof Enemy)) 
+			{
+				if (contact.getFixtureA().getUserData().equals(myFish)) myFish.contact(contact.getFixtureB().getUserData());
+					else myFish.contact(contact.getFixtureA().getUserData());
+			}
 	}
 
 	@Override

@@ -22,11 +22,16 @@ public class Fish extends Actor {
 	private Body body = null;
 	private boolean doJump = false;
 	private float jumpDelay = 0;
+	private float health = 100;
+	private boolean invincible = false;
+	private float invincibleUntil = 0;
+	public static final float INVINCIBILITY_TIME = 1;
+	private GameContext gameContext;
 	
 	public Fish(GameContext gameContext, float x, float y){
 		setX(x);
 		setY(y);
-		
+		this.gameContext = gameContext;
 		// Textur laden
 		Array<AtlasRegion> frames = gameContext.getAtlas().findRegions("Fisch/Fisch");
 		flounder = new Animation(0.05f,frames);
@@ -61,6 +66,7 @@ public class Fish extends Actor {
 
 		setX(body.getPosition().x*Config.PIXELSPERMETER-getWidth()/2);
 		setY(body.getPosition().y*Config.PIXELSPERMETER-getHeight()/1.65f);
+		if (invincible) batch.setColor(1,1,1,0.5f);
 		batch.draw(flounder.getKeyFrame(elapsed, true),
 					getX(),
 					getY(),
@@ -83,11 +89,16 @@ public class Fish extends Actor {
 	@Override
 	public void act(float delta) {
 		super.act(delta);
-		if (doJump && jumpDelay > .2f) {
-			body.applyForceToCenter(0, 400, true);
-			doJump = false;
+		if (health > 0)
+		{
+			if (doJump && jumpDelay > .2f) {
+				body.applyForceToCenter(0, 400, true);
+				doJump = false;
+			}
+			jumpDelay += delta;
+			
+			if (invincible && gameContext.getTimeElapsed() > invincibleUntil) invincible = false;
 		}
-		jumpDelay += delta;
 	}
 
 	public void move(int i) {
@@ -97,6 +108,32 @@ public class Fish extends Actor {
 			body.applyForceToCenter(i*100, 0, true);
 			body.applyAngularImpulse(-i*.2f, true);
 		}
+	}
+	
+	public void contact(Object o)
+	{
+		if (o instanceof Enemy)
+		{
+			damage(10);
+		}
+	}
+	
+	public void damage(float amount)
+	{
+		if (!invincible)
+		{
+			health -= amount;
+			invincible = true;
+			invincibleUntil = gameContext.getTimeElapsed() + INVINCIBILITY_TIME;
+		}
+	}
+
+	public float getHealth() {
+		return health;
+	}
+
+	public void setHealth(float health) {
+		this.health = health;
 	}
 	
 

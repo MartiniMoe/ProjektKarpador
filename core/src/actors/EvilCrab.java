@@ -56,7 +56,7 @@ public class EvilCrab extends Enemy{
 		
 		if (gameContext.getTimeElapsed() > directionChangeTime)
 		{
-			directionChangeTime = gameContext.getTimeElapsed() + MathUtils.random(CHANGE_DIRECTION_INTERVAL, CHANGE_DIRECTION_INTERVAL*2);
+			directionChangeTime = gameContext.getTimeElapsed() + MathUtils.random(CHANGE_DIRECTION_INTERVAL, CHANGE_DIRECTION_INTERVAL*3);
 			speed = speed * -1;
 		}
 		this.angle = ( (move.getKeyFrames().length) - move.getKeyFrameIndex(gameContext.getTimeElapsed())*1.5f )*2;

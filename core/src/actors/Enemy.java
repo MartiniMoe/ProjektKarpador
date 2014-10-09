@@ -98,4 +98,14 @@ public abstract class Enemy extends Actor{
 	public void setGrounded(boolean grounded) {
 		this.grounded = grounded;
 	}
+
+	public GameContext getGameContext() {
+		return gameContext;
+	}
+
+	public void setGameContext(GameContext gameContext) {
+		this.gameContext = gameContext;
+	}
+	
+	
 }
