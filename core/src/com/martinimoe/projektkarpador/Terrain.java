@@ -1,5 +1,7 @@
 package com.martinimoe.projektkarpador;
 
+import actors.EvilCrab;
+
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureWrap;
@@ -19,13 +21,16 @@ import com.badlogic.gdx.utils.ShortArray;
 public class Terrain {
 	private PolygonRegion pRegion, pRegionGrass;
 	private float terrainWidth = 0;
+	private int difficulty = 0;
+	private int maxLevelHeight = 600;
 	Body body = null;
 	public static final Color colorEarth = new Color(217f/255f,164f/255f,72f/255f,1f); 
 	//public static final Color colorGrass = new Color(20f/255f,220f/255f,29f/255f,1f);
 	public static final Color colorGrass = new Color(248f/255f,204f/255f,75f/255f,1f);
 	
-	public Terrain(float width, GameContext gameContext) {
+	public Terrain(float width, GameContext gameContext, int diff) {
 		this.terrainWidth = width;
+		this.difficulty = diff;
 		
 		// Landscape generieren. Hochkompliziert!
 		float[] vertices = new float[(int) (terrainWidth/100)];
@@ -44,7 +49,9 @@ public class Terrain {
 			}
 			// Sonst Höhe zufällig berechnen
 			else{
-				vertices[i] = MathUtils.random(100, 600);
+				int height = MathUtils.random(100, 200 * difficulty);
+				if (height > maxLevelHeight) {height = maxLevelHeight;};
+				vertices[i] = height;
 			}
 			metricVertices[i] = vertices[i]/Config.PIXELSPERMETER;
 		}
@@ -85,6 +92,9 @@ public class Terrain {
 		Fixture f = body.createFixture(fDef);
 		f.setUserData(this);
 		
+		// Gegner einfügen
+		int enemyNum = difficulty * 2;
+		for (int i=0;i<enemyNum;i++) gameContext.getStage().addActor(new EvilCrab(gameContext, 4200+(550*i), maxLevelHeight + 100, new Color(255f/255f,0f/255f,0f/255f,1f), 4f * difficulty));
 	}
 	
 	public void draw(PolygonSpriteBatch pBatch) {

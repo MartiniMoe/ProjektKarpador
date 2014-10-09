@@ -8,12 +8,12 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.Contact;
@@ -50,22 +50,20 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		// GameContext hält globale Objekte
 		gameContext = new GameContext(new World(new Vector2(0, -9f), false), atlas);
 		gameContext.getWorld().setContactListener(this);
-
-		// Gelände erzeugen
-		terrain = new Terrain(8000, gameContext);
-		
-		// Spieler (Fisch) erzeugen
-		myFish = new Fish(gameContext, 4000, 800);
-		
-		
 		
 		//Camera erzeugen 
 		camera = new OrthographicCamera();
+	    
+		// Spieler (Fisch) erzeugen
+		myFish = new Fish(gameContext, 4000, 700);
 		
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
 		stage = new Stage(new ExtendViewport(1920, 1080,camera));
+	    gameContext.setStage(stage);
 	    stage.addActor(myFish);
-	    for (int i=0;i<20;i++) stage.addActor(new EvilCrab(gameContext, 4200+(550*i), 800, new Color(255f/255f,0f/255f,0f/255f,1f), 4f));
+
+		// Gelände erzeugen
+		terrain = new Terrain(8000, gameContext, 5);
 	    
 	    // Input aktivieren
 		Gdx.input.setInputProcessor(this);
@@ -96,8 +94,8 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		stage.act(Gdx.graphics.getDeltaTime());
 	    stage.draw();
 	    // Box2d Debugger:
-	    //Matrix4 cam = stage.getCamera().combined.cpy();
-		//debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
+	    Matrix4 cam = stage.getCamera().combined.cpy();
+		debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
 		batch.end();
 		
 	}
