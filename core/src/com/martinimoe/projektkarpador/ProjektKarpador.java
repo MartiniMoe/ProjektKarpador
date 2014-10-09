@@ -8,6 +8,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -35,6 +36,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	private Terrain terrain = null;
 	private Box2DDebugRenderer debugRenderer = null;
 	private TextureRegion txHealthbar = null;
+	private Music music = null;
 	
 	@Override
 	public void create () {
@@ -49,6 +51,11 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		// Texturen laden
 		TextureAtlas atlas;
 		atlas = new TextureAtlas(Gdx.files.internal("Karpador.pack"));
+		
+		//Musik!
+		music = Gdx.audio.newMusic(Gdx.files.internal("Karpador2.wav"));
+		music.setLooping(true);
+		music.play();
 
 		// GameContext hält globale Objekte
 		gameContext = new GameContext(new World(new Vector2(0, -9f), false), atlas);
@@ -132,6 +139,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	
 	public void dispose() {
 	    stage.dispose();
+	    music.dispose();
 	}
 	
 	@Override

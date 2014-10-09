@@ -1,6 +1,7 @@
 package actors;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -65,5 +66,25 @@ public class Cat extends Enemy{
 			jumpDelay = 0;
 		}
 		jumpDelay += delta;
+	}
+	
+	@Override
+	public void draw(Batch batch, float parentAlpha) {
+		super.draw(batch, parentAlpha);
+
+		batch.setColor(color);
+		batch.draw(move.getKeyFrame(gameContext.getTimeElapsed(), true),
+					getX(),
+					getY(),
+					getWidth()/2,
+					getHeight()/2,
+					getWidth(),
+					getHeight(),
+					1f,
+					1f,
+					this.angle
+					);
+		
+		batch.setColor(1,1, 1, 1);
 	}
 }
