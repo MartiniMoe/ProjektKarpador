@@ -52,8 +52,6 @@ public abstract class Enemy extends Actor{
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 
-		setX(body.getPosition().x*Config.PIXELSPERMETER-getWidth()/2);
-		setY(body.getPosition().y*Config.PIXELSPERMETER-getHeight()/1.5f);
 		batch.setColor(color);
 		batch.draw(move.getKeyFrame(gameContext.getTimeElapsed(), true),
 					getX(),

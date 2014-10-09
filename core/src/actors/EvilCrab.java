@@ -53,6 +53,8 @@ public class EvilCrab extends Enemy{
 	@Override
 	public void act(float delta) {
 		move();
+		setX(body.getPosition().x*Config.PIXELSPERMETER-getWidth()/2);
+		setY(body.getPosition().y*Config.PIXELSPERMETER-getHeight()/1.5f);
 		
 		if (gameContext.getTimeElapsed() > directionChangeTime)
 		{

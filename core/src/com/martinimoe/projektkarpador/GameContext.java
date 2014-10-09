@@ -1,5 +1,7 @@
 package com.martinimoe.projektkarpador;
 
+import actors.Fish;
+
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -9,6 +11,15 @@ public class GameContext {
 	private TextureAtlas atlas = null;
 	private float timeElapsed = 0;
 	private Stage stage = null;
+	private Fish fish = null;
+
+	public Fish getFish() {
+		return fish;
+	}
+
+	public void setFish(Fish fish) {
+		this.fish = fish;
+	}
 
 	public Stage getStage() {
 		return stage;

@@ -29,7 +29,6 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 public class ProjektKarpador extends ApplicationAdapter implements ApplicationListener, InputProcessor, ContactListener {
 	private SpriteBatch batch;
 	private PolygonSpriteBatch pBatch;
-	private Fish myFish;
 	private Stage stage;
 	private Camera camera, hudCamera;
 	private GameContext gameContext = null;
@@ -60,7 +59,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		
 	    
 		// Spieler (Fisch) erzeugen
-		myFish = new Fish(gameContext, 2000, 700);
+		gameContext.setFish(new Fish(gameContext, 2000, 700));
 		txHealthbar = atlas.findRegion("Terrain/terrain_erde");
 		
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
@@ -68,10 +67,10 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		hudCamera = new OrthographicCamera(stage.getViewport().getScreenWidth(),stage.getViewport().getScreenHeight());
 		
 	    gameContext.setStage(stage);
-	    stage.addActor(myFish);
+	    stage.addActor(gameContext.getFish());
 
 		// Gelände erzeugen
-		terrain = new Terrain(8000, gameContext, 5);
+		terrain = new Terrain(8000, gameContext, 2);
 	    
 	    // Input aktivieren
 		Gdx.input.setInputProcessor(this);
@@ -90,7 +89,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		gameContext.getWorld().step(Gdx.graphics.getDeltaTime(), 6, 2);
 		
 		// Camera auf Fish setzen
-		stage.getCamera().position.set(myFish.getX(), stage.getCamera().position.y, 0);
+		stage.getCamera().position.set(gameContext.getFish().getX(), stage.getCamera().position.y, 0);
 		stage.getCamera().update();
 		
 		pBatch.setProjectionMatrix(camera.combined);
@@ -114,7 +113,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		batch.setProjectionMatrix(hudCamera.combined);
 		hudCamera.update();
 		batch.begin();
-	    batch.draw(txHealthbar,200,200,0,0,myFish.getHealth(),24,1,1,0);
+	    batch.draw(txHealthbar,200,200,0,0,gameContext.getFish().getHealth(),24,1,1,0);
 		batch.end();
 	}
 	
@@ -138,9 +137,9 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		if (screenX < stage.getViewport().getScreenWidth()/2)
-			myFish.move(-1);
+			gameContext.getFish().move(-1);
 		else
-			myFish.move(1);
+			gameContext.getFish().move(1);
 		return false;
 	}
 
@@ -181,12 +180,12 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 
 	@Override
 	public void beginContact(Contact contact) {
-		if ((contact.getFixtureA().getUserData().equals(myFish) &&
+		if ((contact.getFixtureA().getUserData().equals(gameContext.getFish()) &&
 			contact.getFixtureB().getUserData().equals(terrain)) ||
-			(contact.getFixtureB().getUserData().equals(myFish) &&
+			(contact.getFixtureB().getUserData().equals(gameContext.getFish()) &&
 			contact.getFixtureA().getUserData().equals(terrain))) 
 		{
-			myFish.jump();
+			gameContext.getFish().jump();
 		}
 		else if (
 				 contact.getFixtureB().getUserData().equals(terrain) ||
@@ -200,13 +199,13 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 			if (tmpEnemy != null) tmpEnemy.setGrounded(true);
 			
 		}
-		if ((contact.getFixtureA().getUserData().equals(myFish) &&
+		if ((contact.getFixtureA().getUserData().equals(gameContext.getFish()) &&
 				contact.getFixtureB().getUserData() instanceof Enemy) ||
-				(contact.getFixtureB().getUserData().equals(myFish) &&
+				(contact.getFixtureB().getUserData().equals(gameContext.getFish()) &&
 					contact.getFixtureA().getUserData() instanceof Enemy)) 
 			{
-				if (contact.getFixtureA().getUserData().equals(myFish)) myFish.contact(contact.getFixtureB().getUserData());
-					else myFish.contact(contact.getFixtureA().getUserData());
+				if (contact.getFixtureA().getUserData().equals(gameContext.getFish())) gameContext.getFish().contact(contact.getFixtureB().getUserData());
+					else gameContext.getFish().contact(contact.getFixtureA().getUserData());
 			}
 	}
 

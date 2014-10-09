@@ -69,10 +69,31 @@ Fisch/Fisch
   index: 9
 
 Karpador2.png
-size: 755,390
+size: 917,906
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+Gegner/Katze
+  rotate: false
+  xy: 2, 650
+  size: 381, 256
+  orig: 381, 256
+  offset: 0, 0
+  index: 1
+Gegner/Katze
+  rotate: false
+  xy: 2, 392
+  size: 381, 256
+  orig: 381, 256
+  offset: 0, 0
+  index: 2
+Gegner/Katze
+  rotate: false
+  xy: 385, 650
+  size: 381, 256
+  orig: 381, 256
+  offset: 0, 0
+  index: 3
 Gegner/Krabbe
   rotate: false
   xy: 2, 262
@@ -89,112 +110,112 @@ Gegner/Krabbe
   index: 3
 Gegner/Krabbe
   rotate: false
-  xy: 2, 132
+  xy: 385, 520
   size: 149, 128
   orig: 149, 128
   offset: 0, 0
   index: 2
 Gegner/Krabbe
   rotate: false
-  xy: 2, 132
+  xy: 385, 520
   size: 149, 128
   orig: 149, 128
   offset: 0, 0
   index: 4
 Gegner/Krabbe
   rotate: false
-  xy: 153, 262
+  xy: 768, 778
   size: 149, 128
   orig: 149, 128
   offset: 0, 0
   index: 5
 Gegner/Krabbe
   rotate: false
-  xy: 153, 262
+  xy: 768, 778
   size: 149, 128
   orig: 149, 128
   offset: 0, 0
   index: 13
 Gegner/Krabbe
   rotate: false
-  xy: 2, 2
+  xy: 2, 132
   size: 149, 128
   orig: 149, 128
   offset: 0, 0
   index: 6
 Gegner/Krabbe
   rotate: false
-  xy: 153, 132
+  xy: 153, 262
   size: 149, 128
   orig: 149, 128
   offset: 0, 0
   index: 7
 Gegner/Krabbe
   rotate: false
-  xy: 304, 262
+  xy: 536, 520
   size: 149, 128
   orig: 149, 128
   offset: 0, 0
   index: 8
 Gegner/Krabbe
   rotate: false
-  xy: 304, 262
+  xy: 536, 520
   size: 149, 128
   orig: 149, 128
   offset: 0, 0
   index: 16
 Gegner/Krabbe
   rotate: false
-  xy: 153, 2
+  xy: 2, 2
   size: 149, 128
   orig: 149, 128
   offset: 0, 0
   index: 9
 Gegner/Krabbe
   rotate: false
-  xy: 304, 132
+  xy: 153, 132
   size: 149, 128
   orig: 149, 128
   offset: 0, 0
   index: 11
 Gegner/Krabbe
   rotate: false
-  xy: 304, 132
+  xy: 153, 132
   size: 149, 128
   orig: 149, 128
   offset: 0, 0
   index: 18
 Gegner/Krabbe
   rotate: false
-  xy: 455, 262
+  xy: 153, 2
   size: 149, 128
   orig: 149, 128
   offset: 0, 0
   index: 12
 Gegner/Krabbe
   rotate: false
-  xy: 304, 2
+  xy: 385, 390
   size: 149, 128
   orig: 149, 128
   offset: 0, 0
   index: 14
 Gegner/Krabbe
   rotate: false
-  xy: 455, 132
+  xy: 536, 390
   size: 149, 128
   orig: 149, 128
   offset: 0, 0
   index: 15
 Gegner/Krabbe
   rotate: false
-  xy: 606, 262
+  xy: 768, 648
   size: 149, 128
   orig: 149, 128
   offset: 0, 0
   index: 17
 Gegner/Krabbe
   rotate: false
-  xy: 455, 2
+  xy: 304, 260
   size: 148, 128
   orig: 148, 128
   offset: 0, 0
