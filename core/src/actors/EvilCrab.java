@@ -2,6 +2,7 @@ package actors;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
@@ -13,6 +14,9 @@ import com.martinimoe.projektkarpador.Config;
 import com.martinimoe.projektkarpador.GameContext;
 
 public class EvilCrab extends Enemy{
+	
+	private float directionChangeTime = 1;
+	public static final float CHANGE_DIRECTION_INTERVAL = 5;
 
 	public EvilCrab(GameContext gameContext, float x, float y, Color color, float speed){
 		super(gameContext, x, y, color, speed);
@@ -42,13 +46,19 @@ public class EvilCrab extends Enemy{
 		Fixture f = body.createFixture(fDef);
 		f.setUserData(this);
 //		body.setLinearDamping(100);
+		directionChangeTime = gameContext.getTimeElapsed() + CHANGE_DIRECTION_INTERVAL;
+		
 	}
 	
 	@Override
 	public void act(float delta) {
 		move();
-		System.out.println();
 		
-		this.angle = ( (-move.getAnimationDuration()/2) + move.getKeyFrameIndex(gameContext.getTimeElapsed()) )*5;
+		if (gameContext.getTimeElapsed() > directionChangeTime)
+		{
+			directionChangeTime = gameContext.getTimeElapsed() + MathUtils.random(CHANGE_DIRECTION_INTERVAL, CHANGE_DIRECTION_INTERVAL*2);
+			speed = speed * -1;
+		}
+		this.angle = ( (move.getKeyFrames().length) - move.getKeyFrameIndex(gameContext.getTimeElapsed())*1.5f )*2;
 	}
 }

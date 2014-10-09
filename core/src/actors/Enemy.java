@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Array;
@@ -70,9 +71,9 @@ public abstract class Enemy extends Actor{
 		//body.setLinearVelocity(new Vector2(1, .1f));
 		if (this.grounded) {
 			body.applyForceToCenter(speed, 0, true);
-			if (body.getLinearVelocity().x*Config.PIXELSPERMETER > speed)
+			if (Math.abs(body.getLinearVelocity().x*Config.PIXELSPERMETER) > Math.abs(speed))
 				body.applyForceToCenter(-body.getLinearVelocity().x*8f, 0, true);
-			if (body.getLinearVelocity().x < speed)
+			if (Math.abs(body.getLinearVelocity().x) < Math.abs(speed))
 				body.applyForceToCenter(speed*2, speed*2, true);
 		}	
 	}
