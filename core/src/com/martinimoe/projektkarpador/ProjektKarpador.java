@@ -62,7 +62,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	    stage.addActor(myFish);
 
 		// Gelände erzeugen
-		terrain = new Terrain(8000, gameContext, 5);
+		terrain = new Terrain(8000, gameContext, 1);
 	    
 	    // Input aktivieren
 		Gdx.input.setInputProcessor(this);

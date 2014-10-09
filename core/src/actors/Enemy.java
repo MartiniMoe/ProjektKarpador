@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -21,6 +22,7 @@ public abstract class Enemy extends Actor{
 	protected boolean grounded = false;
 	protected GameContext gameContext = null;
 	protected float angle = 0f;
+	protected BitmapFont font;
 
 	public Enemy(GameContext gameContext, float x, float y, Color color, float speed){
 		setX(x);
@@ -28,6 +30,12 @@ public abstract class Enemy extends Actor{
 		this.color = color;
 		this.gameContext = gameContext;
 		this.speed = speed;
+		
+		if (Config.DEBUG) {
+	        font = new BitmapFont();
+	        font.setScale(4);
+	        font.setColor(Color.BLACK);
+		}
 	}
 
 	protected void loadTexture(String regionName, float animationSpeed, PlayMode playMode) {
@@ -58,6 +66,11 @@ public abstract class Enemy extends Actor{
 					1f,
 					this.angle
 					);
+		
+		if (Config.DEBUG) {
+	        CharSequence str = MathUtils.round(getX()) + " : " + MathUtils.round(getY());
+	        font.draw(batch, str, getX(), getY());
+		}
 		
 		batch.setColor(1,1, 1, 1);
 	}
