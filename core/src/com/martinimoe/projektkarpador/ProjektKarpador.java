@@ -190,12 +190,12 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 				 contact.getFixtureB().getUserData().equals(terrain) ||
 				 contact.getFixtureA().getUserData().equals(terrain)) 
 		{
-			EvilCrab tmpCrab = null;
+			Enemy tmpEnemy = null;
 			if (contact.getFixtureA().getUserData() instanceof Enemy)
-				tmpCrab = (EvilCrab) contact.getFixtureA().getUserData();
+				tmpEnemy = (Enemy) contact.getFixtureA().getUserData();
 			if (contact.getFixtureB().getUserData() instanceof Enemy)
-				tmpCrab = (EvilCrab) contact.getFixtureB().getUserData();
-			if (tmpCrab != null) tmpCrab.setGrounded(true);
+				tmpEnemy = (Enemy) contact.getFixtureB().getUserData();
+			if (tmpEnemy != null) tmpEnemy.setGrounded(true);
 			
 		}
 		if ((contact.getFixtureA().getUserData().equals(myFish) &&
