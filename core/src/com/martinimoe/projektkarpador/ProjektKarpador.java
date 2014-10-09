@@ -43,7 +43,9 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		pBatch = new PolygonSpriteBatch();
 		
 		// Debugrenderer wird in render() angewandt
-		debugRenderer = new Box2DDebugRenderer();
+		if (Config.DEBUG) {
+			debugRenderer = new Box2DDebugRenderer();
+		}
 		
 		// Texturen laden
 		TextureAtlas atlas;
