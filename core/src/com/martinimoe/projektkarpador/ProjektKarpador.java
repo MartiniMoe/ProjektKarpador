@@ -12,10 +12,12 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -38,10 +40,18 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	private TextureRegion txHealthbar = null;
 	private Music music = null;
 	
+    String vertexShader;
+    String fragmentShader;
+    ShaderProgram shaderProgram;
+    
+    private Texture wasser = null;
+	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		pBatch = new PolygonSpriteBatch();
+		
+
 		
 		// Debugrenderer wird in render() angewandt
 		if (Config.DEBUG) {
@@ -71,10 +81,21 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
 		stage = new Stage(new ExtendViewport(1920, 1080,camera));
-		hudCamera = new OrthographicCamera(stage.getViewport().getScreenWidth(),stage.getViewport().getScreenHeight());
+		hudCamera = new OrthographicCamera(1920, 1080);
+		
+	    vertexShader = Gdx.files.internal("shader/vertex.glsl").readString();
+	    fragmentShader = Gdx.files.internal("shader/fragment.glsl").readString();
+	    
+	    shaderProgram = new ShaderProgram(vertexShader,fragmentShader);
+	    shaderProgram.pedantic = false;
+	    
+	    shaderProgram.setUniformf("resolution", new Vector2(512,512));
+	    shaderProgram.setUniformf("turbulence", 1f);
 		
 	    gameContext.setStage(stage);
 	    stage.addActor(gameContext.getFish());
+	    
+	    wasser = new Texture("terrain.png");
 
 		// Gelände erzeugen
 		terrain = new Terrain(8000, gameContext, 2);
@@ -83,7 +104,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		Gdx.input.setInputProcessor(this);
 	    
 	    // Vsync
-		Gdx.graphics.setVSync(true);
+		//Gdx.graphics.setVSync(true);
 		Gdx.graphics.getGL20();
 	}
 
@@ -101,26 +122,42 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		
 		pBatch.setProjectionMatrix(camera.combined);
 		pBatch.begin();
+
+        
 		terrain.draw(pBatch);
 		pBatch.end();
 		
 		batch.begin();
+
 		stage.act(Gdx.graphics.getDeltaTime());
+
+		
 	    stage.draw();
 	    
+	    shaderProgram.setUniformf("time", gameContext.getTimeElapsed());
+	   
+	  	batch.setShader(shaderProgram);
+	    batch.draw(wasser,0,-50,512,512);
+	    
+	   
 	    // Box2d Debugger:
 	    if (Config.DEBUG) {
 		    Matrix4 cam = stage.getCamera().combined.cpy();
 			debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
 	    }
-	    
+		
 		batch.end();
 		
 		
 		batch.setProjectionMatrix(hudCamera.combined);
 		hudCamera.update();
 		batch.begin();
-	    batch.draw(txHealthbar,200,200,0,0,gameContext.getFish().getHealth(),24,1,1,0);
+		
+		
+		batch.setShader(null);
+	    batch.draw(txHealthbar,0,0,0,0,gameContext.getFish().getHealth()*2,100,1,1,0);
+	    
+
 		batch.end();
 	}
 	
@@ -140,6 +177,9 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	public void dispose() {
 	    stage.dispose();
 	    music.dispose();
+	    shaderProgram.dispose();
+	    pBatch.dispose();
+	    batch.dispose();
 	}
 	
 	@Override
