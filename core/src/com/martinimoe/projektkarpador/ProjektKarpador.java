@@ -1,5 +1,6 @@
 package com.martinimoe.projektkarpador;
 
+import hud.HealthBar;
 import actors.Enemy;
 import actors.EvilCrab;
 import actors.Fish;
@@ -32,12 +33,12 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 public class ProjektKarpador extends ApplicationAdapter implements ApplicationListener, InputProcessor, ContactListener {
 	private SpriteBatch batch;
 	private PolygonSpriteBatch pBatch;
-	private Stage stage;
+	private Stage stage, hudStage;
 	private Camera camera, hudCamera;
 	private GameContext gameContext = null;
 	private Terrain terrain = null;
 	private Box2DDebugRenderer debugRenderer = null;
-	private TextureRegion txHealthbar = null;
+	
 	private Music music = null;
 	
     String vertexShader;
@@ -45,6 +46,8 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
     ShaderProgram shaderProgram;
     
     private Texture wasser = null;
+    
+    private HealthBar healthBar = null;
 	
 	@Override
 	public void create () {
@@ -77,17 +80,22 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	    
 		// Spieler (Fisch) erzeugen
 		gameContext.setFish(new Fish(gameContext, 2000, 700));
-		txHealthbar = atlas.findRegion("Terrain/terrain_erde");
+		
 		
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
 		stage = new Stage(new ExtendViewport(1920, 1080,camera));
-		hudCamera = new OrthographicCamera(1920, 1080);
+		hudCamera = new OrthographicCamera();
+		
+		hudStage = new Stage(new ExtendViewport(1920, 1080,hudCamera));
+		healthBar = new HealthBar(gameContext, hudStage.getWidth(), hudStage.getHeight()-64);
+		
+		hudStage.addActor(healthBar);
 		
 	    vertexShader = Gdx.files.internal("shader/vertex.glsl").readString();
 	    fragmentShader = Gdx.files.internal("shader/fragment.glsl").readString();
 	    
 	    shaderProgram = new ShaderProgram(vertexShader,fragmentShader);
-	    shaderProgram.pedantic = false;
+	    ShaderProgram.pedantic = false;
 	    
 	    shaderProgram.setUniformf("resolution", new Vector2(512,512));
 	    shaderProgram.setUniformf("turbulence", 1f);
@@ -122,42 +130,36 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		
 		pBatch.setProjectionMatrix(camera.combined);
 		pBatch.begin();
-
-        
-		terrain.draw(pBatch);
+			terrain.draw(pBatch);
 		pBatch.end();
 		
 		batch.begin();
 
-		stage.act(Gdx.graphics.getDeltaTime());
-
-		
-	    stage.draw();
-	    
-	    shaderProgram.setUniformf("time", gameContext.getTimeElapsed());
-	   
-	  	batch.setShader(shaderProgram);
-	    batch.draw(wasser,0,-50,512,512);
-	    
-	   
-	    // Box2d Debugger:
-	    if (Config.DEBUG) {
-		    Matrix4 cam = stage.getCamera().combined.cpy();
-			debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
-	    }
+			stage.act(Gdx.graphics.getDeltaTime());
+	
+			
+		    stage.draw();
+		    
+		    //shaderProgram.setUniformf("time", gameContext.getTimeElapsed());
+		   
+		  	//batch.setShader(shaderProgram);
+		    //batch.draw(wasser,0,-50,512,512);
+		    
+		   
+		    // Box2d Debugger:
+		    if (Config.DEBUG) {
+			    Matrix4 cam = stage.getCamera().combined.cpy();
+				debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
+		    }
 		
 		batch.end();
 		
 		
 		batch.setProjectionMatrix(hudCamera.combined);
-		hudCamera.update();
+		
 		batch.begin();
-		
-		
-		batch.setShader(null);
-	    batch.draw(txHealthbar,0,0,0,0,gameContext.getFish().getHealth()*2,100,1,1,0);
-	    
-
+			hudStage.act(Gdx.graphics.getDeltaTime());
+	    	hudStage.draw();
 		batch.end();
 	}
 	
