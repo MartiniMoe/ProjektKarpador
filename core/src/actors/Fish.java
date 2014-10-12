@@ -91,7 +91,7 @@ public class Fish extends Actor {
 		super.act(delta);
 		if (health > 0)
 		{
-			if (doJump && jumpDelay > .2f) {
+			if (doJump && jumpDelay > .2f && body.getLinearVelocity().y < 10) {
 				body.applyForceToCenter(0, 400, true);
 				doJump = false;
 			}
