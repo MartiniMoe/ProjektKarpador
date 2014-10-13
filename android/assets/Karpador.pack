@@ -222,6 +222,19 @@ Gegner/Krabbe
   index: 10
 
 Karpador3.png
+size: 130,34
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+HUD/healthbar
+  rotate: false
+  xy: 2, 2
+  size: 128, 32
+  orig: 128, 32
+  offset: 0, 0
+  index: -1
+
+Karpador4.png
 size: 536,556
 format: RGBA8888
 filter: Nearest,Nearest
