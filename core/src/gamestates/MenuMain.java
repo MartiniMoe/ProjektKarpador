@@ -4,7 +4,9 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g3d.Renderable;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.physics.box2d.Contact;
@@ -12,7 +14,10 @@ import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.martinimoe.projektkarpador.GameContext;
 
 public class MenuMain extends ApplicationAdapter implements ApplicationListener, InputProcessor, ContactListener  {
@@ -35,7 +40,11 @@ public class MenuMain extends ApplicationAdapter implements ApplicationListener,
 
 	    shapeRenderer = new ShapeRenderer();
 
-	    // Add widgets to the table here.
+	    Skin skin = new Skin(Gdx.files.internal("uiskin/uiskin.json"));
+	    skin.addRegions(new TextureAtlas(Gdx.files.internal("uiskin/uiskin.atlas")));
+	    	    
+	    TextButton btnPlayGame = new TextButton("Play", skin);
+	    table.add(btnPlayGame);
 	}
 	
 	@Override
