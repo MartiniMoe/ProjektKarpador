@@ -1,6 +1,7 @@
 package com.martinimoe.projektkarpador;
 
 import gamestates.Game;
+import gamestates.MenuMain;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.ApplicationListener;
@@ -26,14 +27,17 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	@Override
 	public void create () {
 		// Texturen laden
-				TextureAtlas atlas;
-				atlas = new TextureAtlas(Gdx.files.internal("Karpador.pack"));
+		TextureAtlas atlas;
+		atlas = new TextureAtlas(Gdx.files.internal("Karpador.pack"));
 				
 		// GameContext hält globale Objekte
 		gameContext = new GameContext(new World(new Vector2(0, -9f), false), atlas);
 		
+		gameContext.setMenuMain(new MenuMain(gameContext));
 		gameContext.setGame(new Game(gameContext));
 		gameContext.getGame().create();
+		gameContext.setGameState(gameContext.getMenuMain());
+		
 		//Musik!
 		music = Gdx.audio.newMusic(Gdx.files.internal("Karpador2.wav"));
 		music.setLooping(true);
@@ -54,12 +58,12 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		gameContext.addDelta(Gdx.graphics.getDeltaTime());
 		// World step
 		gameContext.getWorld().step(Gdx.graphics.getDeltaTime(), 6, 2);
-		gameContext.getGame().render();
+		gameContext.getGameState().render();
 	}
 	
 	@Override
 	public void resize(int width, int height) {
-		gameContext.getGame().resize(width, height);
+		gameContext.getGameState().resize(width, height);
 	}
 
 	@Override

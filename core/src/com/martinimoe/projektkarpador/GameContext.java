@@ -1,8 +1,10 @@
 package com.martinimoe.projektkarpador;
 
 import gamestates.Game;
+import gamestates.MenuMain;
 import actors.Fish;
 
+import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -15,6 +17,26 @@ public class GameContext {
 	private Fish fish = null;
 	
 	private Game game;
+	private MenuMain menuMain;
+	
+	//0 = Menu, 1 = Spiel
+	private ApplicationAdapter gameState = null;
+
+	public ApplicationAdapter getGameState() {
+		return gameState;
+	}
+
+	public void setGameState(ApplicationAdapter gameState) {
+		this.gameState = gameState;
+	}
+
+	public MenuMain getMenuMain() {
+		return menuMain;
+	}
+
+	public void setMenuMain(MenuMain menuMain) {
+		this.menuMain = menuMain;
+	}
 
 	public Fish getFish() {
 		return fish;
