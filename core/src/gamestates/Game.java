@@ -133,9 +133,9 @@ public class Game extends ApplicationAdapter implements ApplicationListener, Inp
 	    cloudShader.begin();
 	    cloudShader.setUniformf("time", gameContext.getTimeElapsed());
 	    cloudPos[0] = .0f;
-	    cloudPos[1] = -.25f;
+	    cloudPos[1] = .25f;
 	    cloudPos[2] = .5f;
-	    cloudPos[3] = -.25f;
+	    cloudPos[3] = .25f;
 	    cloudRatio[0] = 10f;
 	    cloudRatio[1] = 20f;
 	    cloudRatio[2] = 10f;
