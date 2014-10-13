@@ -1,5 +1,6 @@
 package com.martinimoe.projektkarpador;
 
+import gamestates.Game;
 import actors.Fish;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -12,6 +13,8 @@ public class GameContext {
 	private float timeElapsed = 0;
 	private Stage stage = null;
 	private Fish fish = null;
+	
+	private Game game;
 
 	public Fish getFish() {
 		return fish;
@@ -61,6 +64,14 @@ public class GameContext {
 
 	public void setTimeElapsed(float timeElapsed) {
 		this.timeElapsed = timeElapsed;
+	}
+
+	public Game getGame() {
+		return game;
+	}
+
+	public void setGame(Game game) {
+		this.game = game;
 	}
 	
 	
