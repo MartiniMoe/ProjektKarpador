@@ -86,7 +86,7 @@ void main(){
 	
 	//col=mix(col,vec3(.45),1.-shadow);
 	//col*=min(shadow+.75,1.);
-	shadow=.1*(1.-shadow);
+	shadow=.3*(1.-shadow);
 	col*=1.-shadow;
 	//vec4 col=vec4(shadow);
 	
