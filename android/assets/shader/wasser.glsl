@@ -16,11 +16,11 @@ void main(){
 	
 	float phase=abs(mod(time*.1,.2)-.1)-.05;
 	
-	uv.y+=.125*sin(time);
+	uv.y+=-.25+.125*sin(time);
 	uv.x+=.5*sin(time);
 	
 	float col=10.*max(uv.y+phase*sin(uv.x*10.),0.);
 	
-	gl_FragColor=vec4(mix(vec4(0,.5f,1,1),vec4(0),col));
+	gl_FragColor=vec4(mix(vec4(0,.5,1,0.75),vec4(0),col));
 	
 }
