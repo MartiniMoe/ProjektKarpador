@@ -44,6 +44,7 @@ public class Cat extends Enemy{
 		body.setFixedRotation(true);
 		Fixture f = body.createFixture(fDef);
 		f.setUserData(this);
+		setDamage(100f);
 	}
 	
 	private float jumpDelay = 0f;

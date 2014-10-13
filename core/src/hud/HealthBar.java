@@ -12,13 +12,13 @@ public class HealthBar extends Actor {
 	private GameContext gameContext;
 	public static final Color COLOR_BACKGROUND = new Color(.5f,.5f,.5f,1f);
 	public static final Color COLOR_FOREGROUND = new Color(.1f,.9f,.1f,1f);
-	
+	public static final float padding = 10f;
 	
 	public HealthBar(GameContext gameContext, float x, float y) {
 		this.gameContext = gameContext;
 		txHealthbar = gameContext.getAtlas().findRegion("Terrain/terrain_gras");
 		setWidth(gameContext.getFish().getHealth());
-		setPosition(x-getWidth()*2, y);
+		setPosition(x-(getWidth()*2)-padding, y-padding);
 	}
 	
 	@Override

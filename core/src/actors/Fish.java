@@ -27,6 +27,7 @@ public class Fish extends Actor {
 	private float invincibleUntil = 0;
 	public static final float INVINCIBILITY_TIME = 1;
 	private GameContext gameContext;
+	private float angle;
 	
 	public Fish(GameContext gameContext, float x, float y){
 		setX(x);
@@ -66,7 +67,9 @@ public class Fish extends Actor {
 
 		setX(body.getPosition().x*Config.PIXELSPERMETER-getWidth()/2);
 		setY(body.getPosition().y*Config.PIXELSPERMETER-getHeight()/1.65f);
-		if (invincible) batch.setColor(1,1,1,0.5f);
+		setAngle(MathUtils.radDeg*body.getAngle());
+		if (health <= 0) setAngle(180);
+		if (invincible) batch.setColor(1,1,1,0.1f+MathUtils.sin(gameContext.getTimeElapsed()*15));
 		batch.draw(flounder.getKeyFrame(elapsed, true),
 					getX(),
 					getY(),
@@ -76,7 +79,7 @@ public class Fish extends Actor {
 					getHeight(),
 					1f,
 					1f,
-					MathUtils.radDeg*body.getAngle()
+					getAngle()
 					);
 		elapsed += Gdx.graphics.getDeltaTime();
 	}
@@ -99,14 +102,18 @@ public class Fish extends Actor {
 			
 			if (invincible && gameContext.getTimeElapsed() > invincibleUntil) invincible = false;
 		}
+		else health = 0;
 	}
 
 	public void move(int i) {
-		if (i == 1 && body.getLinearVelocity().x < 10 ||
-			i == -1 && body.getLinearVelocity().x > -10)
+		if (health > 0)
 		{
-			body.applyForceToCenter(i*100, 0, true);
-			body.applyAngularImpulse(-i*.2f, true);
+			if (i == 1 && body.getLinearVelocity().x < 10 ||
+				i == -1 && body.getLinearVelocity().x > -10)
+			{
+				body.applyForceToCenter(i*100, 0, true);
+				body.applyAngularImpulse(-i*.2f, true);
+			}
 		}
 	}
 	
@@ -114,7 +121,8 @@ public class Fish extends Actor {
 	{
 		if (o instanceof Enemy)
 		{
-			damage(10);
+			Enemy contactEnemy = (Enemy) o;
+			damage(contactEnemy.getDamage());
 		}
 	}
 	
@@ -134,6 +142,14 @@ public class Fish extends Actor {
 
 	public void setHealth(float health) {
 		this.health = health;
+	}
+
+	public float getAngle() {
+		return angle;
+	}
+
+	public void setAngle(float angle) {
+		this.angle = angle;
 	}
 	
 

@@ -92,21 +92,23 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		hudStage.addActor(healthBar);
 		
 	    vertexShader = Gdx.files.internal("shader/vertex.glsl").readString();
-	    fragmentShader = Gdx.files.internal("shader/fragment.glsl").readString();
+	    fragmentShader = Gdx.files.internal("shader/fragmenttest.glsl").readString();
 	    
 	    shaderProgram = new ShaderProgram(vertexShader,fragmentShader);
 	    ShaderProgram.pedantic = false;
 	    
-	    shaderProgram.setUniformf("resolution", new Vector2(512,512));
-	    shaderProgram.setUniformf("turbulence", 1f);
+	    shaderProgram.begin();
+	    shaderProgram.setUniformf("time", gameContext.getTimeElapsed());
+	    shaderProgram.end();
 		
 	    gameContext.setStage(stage);
 	    stage.addActor(gameContext.getFish());
 	    
+	    
 	    wasser = new Texture("terrain.png");
 
 		// Gelände erzeugen
-		terrain = new Terrain(8000, gameContext, 2);
+		terrain = new Terrain(16000, gameContext, 2);
 	    
 	    // Input aktivieren
 		Gdx.input.setInputProcessor(this);
@@ -140,10 +142,11 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 			
 		    stage.draw();
 		    
-		    //shaderProgram.setUniformf("time", gameContext.getTimeElapsed());
-		   
-		  	//batch.setShader(shaderProgram);
-		    //batch.draw(wasser,0,-50,512,512);
+		    shaderProgram.begin();
+		    shaderProgram.setUniformf("time", gameContext.getTimeElapsed());
+		    shaderProgram.end();
+		    batch.setShader(shaderProgram);
+		    batch.draw(wasser,0,-50,512,512);
 		    
 		   
 		    // Box2d Debugger:

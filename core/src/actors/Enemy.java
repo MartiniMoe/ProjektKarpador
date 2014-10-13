@@ -23,6 +23,7 @@ public abstract class Enemy extends Actor{
 	protected GameContext gameContext = null;
 	protected float angle = 0f;
 	protected BitmapFont font;
+	private float damage = 10f;
 
 	public Enemy(GameContext gameContext, float x, float y, Color color, float speed){
 		setX(x);
@@ -103,6 +104,14 @@ public abstract class Enemy extends Actor{
 
 	public void setGameContext(GameContext gameContext) {
 		this.gameContext = gameContext;
+	}
+
+	public float getDamage() {
+		return damage;
+	}
+
+	public void setDamage(float damage) {
+		this.damage = damage;
 	}
 	
 	
