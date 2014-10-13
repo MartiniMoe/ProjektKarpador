@@ -172,18 +172,17 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		batch.begin();
 
 			stage.act(Gdx.graphics.getDeltaTime());
-	
 			
 		    stage.draw();
-		    
-		    
-		    
+
 		    batch.setShader(waterShader);
 		    batch.draw(wasser,0,0,stage.getWidth(),512);
 		   
 		    //batch.setShader(null);
+		    batch.setBlendFunction(GL20.GL_DST_COLOR, GL20.GL_ZERO);
 		    batch.setShader(cloudShader);
 		    batch.draw(wasser,0,0,1920,1080);
+		    batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE);
 		    
 		    // Box2d Debugger:
 		    if (Config.DEBUG) {

@@ -68,14 +68,14 @@ void main(){
 	vec2 sun_pos=vec2(-.3,.6);
 	//vec2 sun_dir=vec2(.3,-1);
 	
-	vec4 col=vec4(0);
+	vec3 col=vec3(1);
 	
 	float sun_ray=0.;
 
 	sun_ray=(1./pow(1.+abs(length(uv-sun_pos)-.25),1.5));
 	//sun_ray=(1./pow(2.-uv.y,1.5));
 
-	col=mix(col,vec4(1,1,.5,1),sun_ray);
+	col=mix(col,vec3(1,1,.5),sun_ray);
 	
 	float shadow=1.;
 
@@ -86,12 +86,12 @@ void main(){
 	
 	//col=mix(col,vec3(.45),1.-shadow);
 	//col*=min(shadow+.75,1.);
-	shadow=.5*(1.-shadow);
+	shadow=.1*(1.-shadow);
 	col*=1.-shadow;
 	//vec4 col=vec4(shadow);
 	
 	float sun=smoothstep(0.,.1,max(.3-length(uv-sun_pos),0.));
-	col=mix(col,vec4(1,1,0,1),sun);
+	col=mix(col,vec3(1,1,0),sun);
 	/*
 	for(int i=1;i<num;i++){
 		float cloud=smoothstep(0.,.25,max(1.-length(cloud_ratio[i]*(uv-cloud_pos[i])),0.));
@@ -117,6 +117,6 @@ void main(){
 	*/
 	//col*=cl_tex.a;
 
-	gl_FragColor=col;
+	gl_FragColor=vec4(col,1);
 
 }

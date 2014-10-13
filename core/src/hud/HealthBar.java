@@ -16,7 +16,7 @@ public class HealthBar extends Actor {
 	
 	public HealthBar(GameContext gameContext, float x, float y) {
 		this.gameContext = gameContext;
-		txHealthbar = gameContext.getAtlas().findRegion("Terrain/terrain_gras");
+		txHealthbar = gameContext.getAtlas().findRegion("HUD/healthbar");
 		setWidth(gameContext.getFish().getHealth());
 		setPosition(x-(getWidth()*2)-padding, y-padding);
 	}
