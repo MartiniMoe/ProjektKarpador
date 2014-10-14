@@ -27,7 +27,7 @@ import com.martinimoe.projektkarpador.Config;
 import com.martinimoe.projektkarpador.GameContext;
 import com.martinimoe.projektkarpador.Terrain;
 
-public class Game extends ApplicationAdapter implements ApplicationListener, InputProcessor, ContactListener  {
+public class Game extends GameState implements ApplicationListener, ContactListener  {
 	
 	private Stage stage, hudStage;
 	private Camera camera, hudCamera;
@@ -84,7 +84,9 @@ public class Game extends ApplicationAdapter implements ApplicationListener, Inp
 		
 		
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
-		stage = new Stage(new StretchViewport(1920, 1080,camera));
+		setStage ( new Stage(new StretchViewport(1920, 1080,camera)) );
+		stage = getStage();
+		
 		hudCamera = new OrthographicCamera();
 		
 		hudStage = new Stage(new StretchViewport(1920, 1080,hudCamera));
@@ -116,7 +118,8 @@ public class Game extends ApplicationAdapter implements ApplicationListener, Inp
 		// Gelände erzeugen
 		terrain = new Terrain(16000, gameContext, 2);
 		
-		gameContext.getWorld().setContactListener(this);	
+		gameContext.getWorld().setContactListener(this);
+		//Gdx.input.setInputProcessor(this);
 	}
 
 	@Override

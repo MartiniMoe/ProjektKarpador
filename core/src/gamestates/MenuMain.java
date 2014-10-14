@@ -14,15 +14,15 @@ import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.martinimoe.projektkarpador.GameContext;
 
-public class MenuMain extends ApplicationAdapter implements ApplicationListener, InputProcessor, ContactListener  {
+public class MenuMain extends GameState implements ApplicationListener, ContactListener  {
 
-	private Stage stage;
 	private Table table;
 	// For debug drawing
 	private ShapeRenderer shapeRenderer;
@@ -30,39 +30,42 @@ public class MenuMain extends ApplicationAdapter implements ApplicationListener,
 	
 	public MenuMain(GameContext gc) {
 		gameContext = gc;
-		
-		stage = new Stage();
-	    Gdx.input.setInputProcessor(stage);
-
-	    table = new Table();
-	    table.setFillParent(true);
-	    stage.addActor(table);
-
-	    shapeRenderer = new ShapeRenderer();
-
-	    Skin skin = new Skin(Gdx.files.internal("uiskin/uiskin.json"));
-	    skin.addRegions(new TextureAtlas(Gdx.files.internal("uiskin/uiskin.atlas")));
-	    	    
-	    TextButton btnPlayGame = new TextButton("Play", skin);
-	    table.add(btnPlayGame);
 	}
 	
 	@Override
 	public void create() {
+		setStage(new Stage());
+	    table = new Table();
+	    table.setFillParent(true);
+	    getStage().addActor(table);
+
+	    Skin skin = new Skin(Gdx.files.internal("uiskin/uiskin.json"));
+	    skin.addRegions(new TextureAtlas(Gdx.files.internal("uiskin/uiskin.atlas")));
+	    	    
+	    final TextButton btnPlayGame = new TextButton("  Play  ", skin);
+	    btnPlayGame.addListener(new ChangeListener() {
+	    	public void changed (ChangeEvent event, Actor actor) {
+		    	System.out.println("Play clicked");
+		    	gameContext.setGameState(gameContext.getGame());
+	    	}
+    	});
+	    
+	    table.add(btnPlayGame);
+	    table.row();
+	    final TextButton btnQuit = new TextButton("  Quit  ", skin);
+	    table.add(btnQuit);
 	}
 
 	@Override
 	public void render() {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-	    stage.act(Gdx.graphics.getDeltaTime());
-	    stage.draw();
-
-	    table.drawDebug(shapeRenderer); // This is optional, but enables debug lines for tables.
+	    getStage().act(Gdx.graphics.getDeltaTime());
+	    getStage().draw();
 	}
 	
 	@Override
 	public void resize(int width, int height) {
-		stage.getViewport().update(width, height, true);
+		getStage().getViewport().update(width, height, true);
 	}
 
 	@Override
@@ -127,7 +130,7 @@ public class MenuMain extends ApplicationAdapter implements ApplicationListener,
 	
 	@Override
 	public void dispose() {
-		stage.dispose();
+		getStage().dispose();
 	    shapeRenderer.dispose();
 	}
 }

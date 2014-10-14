@@ -34,6 +34,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		gameContext = new GameContext(new World(new Vector2(0, -9f), false), atlas);
 		
 		gameContext.setMenuMain(new MenuMain(gameContext));
+		gameContext.getMenuMain().create();
 		gameContext.setGame(new Game(gameContext));
 		gameContext.getGame().create();
 		gameContext.setGameState(gameContext.getMenuMain());
@@ -41,14 +42,12 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		//Musik!
 		music = Gdx.audio.newMusic(Gdx.files.internal("Karpador2.wav"));
 		music.setLooping(true);
-		music.play();
-	    
-	    // Input aktivieren
-		Gdx.input.setInputProcessor(this);
+		if (!gameContext.isMute()) music.play();
 	    
 	    // Vsync
 		//Gdx.graphics.setVSync(true);
 		Gdx.graphics.getGL20();
+		
 	}
 
 	@Override
