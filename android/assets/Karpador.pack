@@ -235,28 +235,35 @@ HUD/healthbar
   index: -1
 
 Karpador4.png
-size: 536,556
+size: 536,679
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 Terrain/terrain
   rotate: false
-  xy: 2, 44
+  xy: 2, 167
   size: 512, 512
   orig: 512, 512
   offset: 0, 0
   index: 1
 Terrain/terrain_erde
   rotate: false
-  xy: 516, 540
+  xy: 2, 2
   size: 20, 16
   orig: 20, 16
   offset: 0, 0
   index: -1
 Terrain/terrain_gras
   rotate: false
-  xy: 2, 2
+  xy: 516, 639
   size: 20, 40
   orig: 20, 40
+  offset: 0, 0
+  index: -1
+Terrain/wolke
+  rotate: false
+  xy: 2, 20
+  size: 268, 145
+  orig: 268, 145
   offset: 0, 0
   index: -1

@@ -40,7 +40,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		gameContext.setGameState(gameContext.getMenuMain());
 		
 		//Musik!
-		music = Gdx.audio.newMusic(Gdx.files.internal("Karpador2.wav"));
+		music = Gdx.audio.newMusic(Gdx.files.internal("Karpador_Loop.wav"));
 		music.setLooping(true);
 		if (!gameContext.isMute()) music.play();
 	    
@@ -56,7 +56,8 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		gameContext.addDelta(Gdx.graphics.getDeltaTime());
 		// World step
-		gameContext.getWorld().step(Gdx.graphics.getDeltaTime(), 6, 2);
+		if (gameContext.getGameState().equals(gameContext.getGame()))
+			gameContext.getWorld().step(Gdx.graphics.getDeltaTime(), 6, 2);
 		gameContext.getGameState().render();
 	}
 	
