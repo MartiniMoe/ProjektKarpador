@@ -30,24 +30,22 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		TextureAtlas atlas;
 		atlas = new TextureAtlas(Gdx.files.internal("Karpador.pack"));
 				
-		// GameContext hält globale Objekte
-		gameContext = new GameContext(new World(new Vector2(0, -9f), false), atlas);
+		//Musik!
+		music = Gdx.audio.newMusic(Gdx.files.internal("Karpador_Loop.wav"));
+		music.setLooping(true);
 		
+		// GameContext hält globale Objekte
+		gameContext = new GameContext(new World(new Vector2(0, -9f), false), atlas, music);
 		gameContext.setMenuMain(new MenuMain(gameContext));
 		gameContext.getMenuMain().create();
 		gameContext.setGame(new Game(gameContext));
 		gameContext.getGame().create();
 		gameContext.setGameState(gameContext.getMenuMain());
+	    gameContext.toggleMusic();
 		
-		//Musik!
-		music = Gdx.audio.newMusic(Gdx.files.internal("Karpador_Loop.wav"));
-		music.setLooping(true);
-		if (!gameContext.isMute()) music.play();
-	    
 	    // Vsync
 		//Gdx.graphics.setVSync(true);
 		Gdx.graphics.getGL20();
-		
 	}
 
 	@Override

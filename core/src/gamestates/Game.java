@@ -77,7 +77,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		
 	    
 		// Spieler (Fisch) erzeugen
-		gameContext.setFish(new Fish(gameContext, 2000, 700));
+		gameContext.setFish(new Fish(gameContext, 2500, 900));
 		
 		
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
@@ -113,7 +113,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    wasser = new Texture("terrain.png");
 
 		// Gelände erzeugen
-		terrain = new Terrain(16000, gameContext, 2);
+		terrain = new Terrain(16000, gameContext, 5);
 		
 		gameContext.getWorld().setContactListener(this);
 		//Gdx.input.setInputProcessor(this);

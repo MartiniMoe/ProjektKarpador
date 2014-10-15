@@ -19,7 +19,7 @@ public class Cat extends Enemy{
 	public Cat(GameContext gameContext, float x, float y, Color color, float speed) {
 		super(gameContext, x, y, color, speed);
 
-		loadTexture("Gegner/Katze", 1/speed, PlayMode.LOOP_PINGPONG);
+		loadTexture("Gegner/Katze", 1/12f, PlayMode.LOOP_PINGPONG);
 		
 		this.grounded = true;
 		
@@ -39,7 +39,7 @@ public class Cat extends Enemy{
 		FixtureDef fDef = new FixtureDef();
 		fDef.friction = 0f;
 //				fDef.restitution = .01f;
-		fDef.density = speed/2;
+		fDef.density = 10;
 		fDef.shape = pShape;
 		body.setFixedRotation(true);
 		Fixture f = body.createFixture(fDef);

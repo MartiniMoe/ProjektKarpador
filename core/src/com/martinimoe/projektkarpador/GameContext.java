@@ -7,6 +7,7 @@ import actors.Fish;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -17,22 +18,18 @@ public class GameContext {
 	private float timeElapsed = 0;
 	private Stage stage = null;
 	private Fish fish = null;
-	private boolean mute = false;
-	
-	public boolean isMute() {
-		return mute;
-	}
-
-	public void setMute(boolean mute) {
-		this.mute = mute;
-	}
-
+	private Music music = null;
 	private Game game;
 	private MenuMain menuMain;
-	
-	//0 = Menu, 1 = Spiel
 	private GameState gameState = null;
 
+	public boolean toggleMusic() {
+		if (music.isPlaying()) music.stop();
+		else music.play();
+		
+		return music.isPlaying();
+	}
+	
 	public ApplicationAdapter getGameState() {
 		return gameState;
 	}
@@ -67,9 +64,10 @@ public class GameContext {
 		this.stage = stage;
 	}
 
-	public GameContext(World world, TextureAtlas atlas) {
+	public GameContext(World world, TextureAtlas atlas, Music music) {
 		setWorld(world);
 		setAtlas(atlas);
+		this.music = music;
 	}
 	
 	public TextureAtlas getAtlas() {

@@ -23,7 +23,7 @@ public class Terrain {
 	private PolygonRegion pRegion, pRegionGrass;
 	private float terrainWidth = 0;
 	private int difficulty = 0;
-	private int maxLevelHeight = 600;
+	private int maxLevelHeight = 700;
 	Body body = null;
 	public static final Color colorEarth = new Color(217f/255f,164f/255f,72f/255f,1f); 
 	//public static final Color colorGrass = new Color(20f/255f,220f/255f,29f/255f,1f);
@@ -50,7 +50,7 @@ public class Terrain {
 			}
 			// Sonst Höhe zufällig berechnen
 			else{
-				int height = MathUtils.random(100, 200 * difficulty);
+				int height = MathUtils.random(200, 200 * difficulty);
 				if (height > maxLevelHeight) {height = maxLevelHeight;};
 				vertices[i] = height;
 			}
@@ -98,7 +98,7 @@ public class Terrain {
 		for (int i=0;i<enemyNum;i++) gameContext.getStage().addActor(new EvilCrab(gameContext, (i + 1) * (terrainWidth / (enemyNum + 1)), maxLevelHeight + 100, new Color(255f/255f,0f/255f,0f/255f,1f), 4f * difficulty));
 
 		//KATZE!!!
-		gameContext.getStage().addActor(new Cat(gameContext, 1500, 600, Color.BLACK, 12f));
+		gameContext.getStage().addActor(new Cat(gameContext, 1500, 800, Color.BLACK, 12f * difficulty));
 	}
 	
 	public void draw(PolygonSpriteBatch pBatch) {

@@ -45,14 +45,29 @@ public class MenuMain extends GameState implements ApplicationListener, ContactL
 	    final TextButton btnPlayGame = new TextButton("  Play  ", skin);
 	    btnPlayGame.addListener(new ChangeListener() {
 	    	public void changed (ChangeEvent event, Actor actor) {
-		    	System.out.println("Play clicked");
 		    	gameContext.setGameState(gameContext.getGame());
 	    	}
     	});
 	    
+	    final TextButton btnMusic = new TextButton("  Music: On  ", skin);
+	    btnMusic.addListener(new ChangeListener() {
+	    	public void changed(ChangeEvent event, Actor actor) {
+	    		if (!gameContext.toggleMusic()) btnMusic.setText("  Music: Off  ");
+	    		else btnMusic.setText("  Music: On  ");
+	    	}
+	    });
+
+	    final TextButton btnQuit = new TextButton("  Quit  ", skin);
+	    btnQuit.addListener(new ChangeListener() {
+	    	public void changed(ChangeEvent event, Actor actor) {
+	    		Gdx.app.exit();
+	    	}
+	    });
+	    
 	    table.add(btnPlayGame);
 	    table.row();
-	    final TextButton btnQuit = new TextButton("  Quit  ", skin);
+	    table.add(btnMusic);
+	    table.row();
 	    table.add(btnQuit);
 	}
 
