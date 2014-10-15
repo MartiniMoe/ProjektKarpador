@@ -113,7 +113,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    wasser = new Texture("terrain.png");
 
 		// Gelände erzeugen
-		terrain = new Terrain(16000, gameContext, 5);
+		terrain = new Terrain(16000, gameContext, 3);
 		
 		gameContext.getWorld().setContactListener(this);
 		//Gdx.input.setInputProcessor(this);
