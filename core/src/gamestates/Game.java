@@ -1,6 +1,7 @@
 package gamestates;
 
 import hud.HealthBar;
+import actors.Decoration;
 import actors.Enemy;
 import actors.Fish;
 
@@ -47,6 +48,9 @@ public class Game extends GameState implements ApplicationListener, ContactListe
     
 	private SpriteBatch batch, lightbatch;
 	private PolygonSpriteBatch pBatch;
+	
+	
+	private Decoration cloud = null;
 
 	private GameContext gameContext;
 	
@@ -117,6 +121,8 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		
 		gameContext.getWorld().setContactListener(this);
 		//Gdx.input.setInputProcessor(this);
+		cloud = new Decoration(gameContext, 200, 1000,"Terrain/wolke");
+		hudStage.addActor(cloud);
 	}
 
 	@Override
@@ -131,8 +137,9 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    
 	    cloudShader.begin();
 	    cloudShader.setUniformf("time", gameContext.getTimeElapsed());
-	    cloudPos[0] = .0f;
+	    cloudPos[0] = -.20f;
 	    cloudPos[1] = .25f;
+	    
 	    cloudPos[2] = .5f;
 	    cloudPos[3] = .25f;
 	    cloudRatio[0] = 10f;
@@ -145,7 +152,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    cloudShader.setUniform2fv("cloud_ratio[1]", cloudRatio,2,2);
 	    cloudShader.setUniform2fv("resolution", resolution, 0, 2);
 	    cloudShader.end();
-		
+	    cloud.setPosition(stage.getWidth()/2-cloudPos[2]*stage.getWidth(), stage.getHeight()/2+cloudPos[3]*stage.getHeight());
 		// Camera auf Fish setzen
 		stage.getCamera().position.set(gameContext.getFish().getX(), stage.getCamera().position.y, 0);
 		stage.getCamera().update();
