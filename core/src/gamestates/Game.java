@@ -4,10 +4,8 @@ import hud.HealthBar;
 import actors.Enemy;
 import actors.Fish;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -47,22 +45,21 @@ public class Game extends GameState implements ApplicationListener, ContactListe
     private float[] cloudRatio = null;
     private float[] resolution = null;
     
-	private SpriteBatch batch;
+	private SpriteBatch batch, lightbatch;
 	private PolygonSpriteBatch pBatch;
 
 	private GameContext gameContext;
 	
 	public Game(GameContext gameContext) {
-		// TODO Auto-generated constructor stub
 		this.gameContext = gameContext;
 	}
 	
 	@Override
 	public void create() {
-		// TODO Auto-generated method stub
 		super.create();
 		
 		batch = new SpriteBatch();
+		lightbatch = new SpriteBatch(6);
 		pBatch = new PolygonSpriteBatch();
 		
 		cloudPos = new float[4];
@@ -124,7 +121,6 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 
 	@Override
 	public void render() {
-		// TODO Auto-generated method stub
 		super.render();
 		
 
@@ -159,7 +155,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 			terrain.draw(pBatch);
 		pBatch.end();
 		
-		batch.begin();
+	batch.begin();
 
 			stage.act(Gdx.graphics.getDeltaTime());
 			
@@ -167,12 +163,13 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 
 		    batch.setShader(waterShader);
 		    batch.draw(wasser,0,0,stage.getWidth(),512);
-		   
+	  batch.end();
+	  lightbatch.begin();
 		    //batch.setShader(null);
-		    batch.setBlendFunction(GL20.GL_DST_COLOR, GL20.GL_ZERO);
-		    batch.setShader(cloudShader);
-		    batch.draw(wasser,0,0,1920,1080);
-		    batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE);
+		  lightbatch.setBlendFunction(GL20.GL_DST_COLOR, GL20.GL_ZERO);
+		  lightbatch.setShader(cloudShader);
+		  lightbatch.draw(wasser,0,0,1920,1080);
+		    
 		    
 		    // Box2d Debugger:
 		    if (Config.DEBUG) {
@@ -180,7 +177,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 				debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
 		    }
 		
-		batch.end();
+		    lightbatch.end();
 		
 		
 		batch.setProjectionMatrix(hudCamera.combined);
@@ -189,6 +186,12 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 			hudStage.act(Gdx.graphics.getDeltaTime());
 	    	hudStage.draw();
 		batch.end();
+	}
+	
+	@Override
+	public void update() {
+		super.update();
+		Gdx.input.setInputProcessor(this);
 	}
 
 	@Override

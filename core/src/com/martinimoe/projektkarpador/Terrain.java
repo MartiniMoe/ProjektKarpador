@@ -58,7 +58,7 @@ public class Terrain {
 		}
 		// Der letzte ist punkt ist an ( Levelende | 0 )
 		vertices[vertices.length-2] = terrainWidth * Config.SCREENSPERLEVEL;
-		vertices[vertices.length-1] = 0;
+		vertices[vertices.length-1] = -120;
 		metricVertices[metricVertices.length-2] = vertices[vertices.length-2]/Config.PIXELSPERMETER;
 		metricVertices[metricVertices.length-1] = vertices[vertices.length-1]/Config.PIXELSPERMETER;
 		

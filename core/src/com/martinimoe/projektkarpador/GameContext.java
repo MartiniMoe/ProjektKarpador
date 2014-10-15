@@ -40,7 +40,7 @@ public class GameContext {
 	public void setGameState(GameState gameState) {
 		this.gameState = gameState;
 		Gdx.input.setInputProcessor(gameState.getStage());
-		System.out.println(gameState.getClass());
+		this.gameState.update();
 	}
 
 	public MenuMain getMenuMain() {

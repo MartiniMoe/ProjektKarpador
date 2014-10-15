@@ -8,6 +8,11 @@ public class GameState extends ApplicationAdapter implements InputProcessor{
 
 	private Stage stage;
 	
+	public void update()
+	{
+		
+	}
+	
 	@Override
 	public boolean keyDown(int keycode) {
 		// TODO Auto-generated method stub
