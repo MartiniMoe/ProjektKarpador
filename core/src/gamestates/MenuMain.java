@@ -18,7 +18,10 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Button.ButtonStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.martinimoe.projektkarpador.GameContext;
 
 public class MenuMain extends GameState implements ApplicationListener, ContactListener  {
@@ -41,8 +44,10 @@ public class MenuMain extends GameState implements ApplicationListener, ContactL
 
 	    Skin skin = new Skin(Gdx.files.internal("uiskin/uiskin.json"));
 	    skin.addRegions(new TextureAtlas(Gdx.files.internal("uiskin/uiskin.atlas")));
-	    	    
-	    final TextButton btnPlayGame = new TextButton("  Play  ", skin);
+	    
+	    TextButtonStyle largeButton = skin.get("default", TextButtonStyle.class);
+	    
+	    final TextButton btnPlayGame = new TextButton("  Play  ", largeButton);
 	    btnPlayGame.addListener(new ChangeListener() {
 	    	public void changed (ChangeEvent event, Actor actor) {
 		    	gameContext.setGameState(gameContext.getGame());

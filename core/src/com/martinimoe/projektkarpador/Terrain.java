@@ -107,8 +107,9 @@ public class Terrain {
 		f.setUserData(this);
 		
 		// Gegner einfügen
-		int enemyNum = difficulty * 2;
-		for (int i=0;i<enemyNum;i++) gameContext.getStage().addActor(new EvilCrab(gameContext, (i + 1) * (terrainWidth / (enemyNum + 1)), maxLevelHeight + 100, new Color(255f/255f,0f/255f,0f/255f,1f), 4f * difficulty));
+		int enemyNum = difficulty * 3;
+		for (int i=0;i<enemyNum;i++) 
+			gameContext.getStage().addActor(new EvilCrab(gameContext, ((i + 1) * (terrainWidth * Config.SCREENSPERLEVEL / (enemyNum + 1))) * Config.SCREENSPERLEVEL, maxLevelHeight + 100, new Color(255f/255f,0f/255f,0f/255f,1f), 4f * difficulty));
 
 		//KATZE!!!
 		gameContext.getStage().addActor(new Cat(gameContext, 1500, 800, Color.BLACK, 12f * difficulty));
