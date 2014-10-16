@@ -167,7 +167,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 				reset();
 			}
 		});
-	    tbPlayAgain.setPosition(hudStage.getWidth()/2-tbPlayAgain.getWidth()/2, hudStage.getHeight()/2-tbPlayAgain.getHeight()-16);
+	    tbPlayAgain.setPosition(hudStage.getWidth()/2-tbPlayAgain.getWidth()/2, hudStage.getHeight()/3);
 	    tbPlayAgain.setVisible(false);
 	    tbPlayAgain.setScale(4f);
 	    
@@ -188,8 +188,8 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		gameContext.getWorld().setContactListener(this);
 		stage.addActor(gameContext.getFish());
 		
-		house = new House(gameContext, 0, 500);
-	    house.setScale(5);
+		house = new House(gameContext, 0, 800);
+//	    house.setScale(5);
 	    
 	    stage.addActor(house);
 		
