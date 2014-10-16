@@ -67,6 +67,8 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	
 	private Decoration house = null;
 	
+	private Label lbFPS = null;
+	
 	
 	public Game(GameContext gameContext) {
 		this.gameContext = gameContext;
@@ -149,6 +151,11 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    lbMessage.setVisible(false);
 	    hudStage.addActor(lbMessage);
 	    
+	    lbFPS = new Label("FPS: ", skin);
+	    lbFPS.setPosition(hudStage.getWidth()-100, hudStage.getHeight()-32);
+	    lbFPS.setVisible(true || Config.DEBUG);
+	    hudStage.addActor(lbFPS);
+	    
 	    tbPlayAgain = new TextButton("Play again!", skin);
 	    tbPlayAgain.addListener(new ChangeListener() {
 			@Override
@@ -192,7 +199,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	public void render() {
 		super.render();
 		
-
+		lbFPS.setText("FPS: " + 1 / Gdx.graphics.getDeltaTime());
 		// Update Shaders
 		waterShader.begin();
 	    waterShader.setUniformf("time", gameContext.getTimeElapsed());
