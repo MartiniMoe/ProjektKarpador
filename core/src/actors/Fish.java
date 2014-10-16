@@ -18,7 +18,7 @@ import com.martinimoe.projektkarpador.GameContext;
 
 public class Fish extends Actor {
 	private Animation flounder = null;
-	private float elapsed = 0;
+	
 	private Body body = null;
 	private boolean doJump = false;
 	private float jumpDelay = 0;
@@ -28,6 +28,7 @@ public class Fish extends Actor {
 	public static final float INVINCIBILITY_TIME = 1;
 	private GameContext gameContext;
 	private float angle;
+	private float frame = 0;
 	
 	public Fish(GameContext gameContext, float x, float y){
 		setX(x);
@@ -70,7 +71,11 @@ public class Fish extends Actor {
 		setAngle(MathUtils.radDeg*body.getAngle());
 		if (health <= 0) setAngle(180);
 		if (invincible) batch.setColor(1,1,1,0.1f+MathUtils.sin(gameContext.getTimeElapsed()*15));
-		batch.draw(flounder.getKeyFrame(elapsed, true),
+		
+		frame = gameContext.getTimeElapsed();
+		if (health <= 0) frame = 0;
+		
+		batch.draw(flounder.getKeyFrame(frame, true),
 					getX(),
 					getY(),
 					getWidth()/2,
@@ -81,7 +86,7 @@ public class Fish extends Actor {
 					1f,
 					getAngle()
 					);
-		elapsed += Gdx.graphics.getDeltaTime();
+		
 	}
 	
 	public void jump() {

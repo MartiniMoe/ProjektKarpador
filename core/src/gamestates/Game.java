@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -20,7 +21,13 @@ import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.martinimoe.projektkarpador.Config;
 import com.martinimoe.projektkarpador.GameContext;
@@ -53,6 +60,10 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	private Decoration cloud = null;
 
 	private GameContext gameContext;
+	
+	private Label lbMessage = null;
+	private TextButton tbPlayAgain = null;
+	
 	
 	public Game(GameContext gameContext) {
 		this.gameContext = gameContext;
@@ -123,6 +134,31 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		//Gdx.input.setInputProcessor(this);
 		cloud = new Decoration(gameContext, 200, 1000,"Terrain/wolke");
 		hudStage.addActor(cloud);
+		
+	    Skin skin = new Skin(Gdx.files.internal("uiskin/uiskin.json"));
+	    skin.addRegions(new TextureAtlas(Gdx.files.internal("uiskin/uiskin.atlas")));
+	    
+	    lbMessage = new Label("Game Over", skin);
+	    lbMessage.setFontScale(4f);
+	    lbMessage.setCenterPosition(hudStage.getWidth()/2, hudStage.getHeight()/2);
+	    lbMessage.setVisible(false);
+	    hudStage.addActor(lbMessage);
+	    
+	    tbPlayAgain = new TextButton("Play again!", skin);
+	    tbPlayAgain.addListener(new ChangeListener() {
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				reset();
+			}
+		});
+	    tbPlayAgain.setCenterPosition(hudStage.getWidth()/2, hudStage.getHeight()/2-200);
+	    tbPlayAgain.setVisible(false);
+	    hudStage.addActor(tbPlayAgain);
+	}
+	
+	public void reset()
+	{
+		terrain = new Terrain(16000, gameContext, 3);
 	}
 
 	@Override
@@ -162,7 +198,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 			terrain.draw(pBatch);
 		pBatch.end();
 		
-	batch.begin();
+		batch.begin();
 
 			stage.act(Gdx.graphics.getDeltaTime());
 			
@@ -191,7 +227,14 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		
 		batch.begin();
 			hudStage.act(Gdx.graphics.getDeltaTime());
-	    	hudStage.draw();
+	    	if (gameContext.getFish().getHealth() <= 0) 
+	    		{
+	    			tbPlayAgain.setVisible(true);
+	    			lbMessage.setVisible(true);
+	    			Gdx.input.setInputProcessor(hudStage);
+	    		}
+			hudStage.draw();
+	    	
 		batch.end();
 	}
 	
