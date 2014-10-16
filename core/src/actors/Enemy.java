@@ -23,7 +23,7 @@ public abstract class Enemy extends Actor{
 	protected GameContext gameContext = null;
 	protected float angle = 0f;
 	protected BitmapFont font;
-	private float damage = 10f;
+	private float damage = 25f;
 
 	public Enemy(GameContext gameContext, float x, float y, Color color, float speed){
 		setX(x);

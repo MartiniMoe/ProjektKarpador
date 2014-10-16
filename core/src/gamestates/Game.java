@@ -14,7 +14,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -49,10 +48,11 @@ public class Game extends GameState implements ApplicationListener, ContactListe
     private Texture wasser = null;
     
     private HealthBar healthBar = null;
-    
+    /*
     private float[] cloudPos = null;
     private float[] cloudRatio = null;
     private float[] resolution = null;
+    */
     
 	private SpriteBatch batch, lightbatch;
 	private PolygonSpriteBatch pBatch;
@@ -80,9 +80,11 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		lightbatch = new SpriteBatch(6);
 		pBatch = new PolygonSpriteBatch();
 		
+		/*
 		cloudPos = new float[4];
 		cloudRatio = new float[4];
 		resolution = new float[2];
+		*/
 		
 		// Debugrenderer wird in render() angewandt
 		if (Config.DEBUG) {
@@ -113,8 +115,8 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    fragmentShader = Gdx.files.internal("shader/wasser.glsl").readString();
 	    waterShader = new ShaderProgram(vertexShader,fragmentShader);
 	    
-	    fragmentShader = Gdx.files.internal("shader/sonnenstrahlen.glsl").readString();
-	    cloudShader = new ShaderProgram(vertexShader, fragmentShader);
+	    //fragmentShader = Gdx.files.internal("shader/sonnenstrahlen.glsl").readString();
+	    //cloudShader = new ShaderProgram(vertexShader, fragmentShader);
 	    
 	    ShaderProgram.pedantic = false;
 	    
@@ -126,8 +128,8 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    stage.addActor(gameContext.getFish());
 	    
 	    
-	    resolution[0] = 1920;
-	    resolution[1] = 1080;
+	    //resolution[0] = 1920;
+	    //resolution[1] = 1080;
 	    wasser = new Texture("terrain.png");
 
 		// Gelände erzeugen
@@ -196,6 +198,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    waterShader.setUniformf("time", gameContext.getTimeElapsed());
 	    waterShader.end();
 	    
+	    /*
 	    cloudShader.begin();
 	    cloudShader.setUniformf("time", gameContext.getTimeElapsed());
 	    cloudPos[0] = -.20f;
@@ -214,6 +217,8 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    cloudShader.setUniform2fv("resolution", resolution, 0, 2);
 	    cloudShader.end();
 	    cloud.setPosition(stage.getWidth()/2-cloudPos[2]*stage.getWidth(), stage.getHeight()/2+cloudPos[3]*stage.getHeight());
+	    */
+	    
 		// Camera auf Fish setzen
 		stage.getCamera().position.set(gameContext.getFish().getX(), stage.getCamera().position.y, 0);
 		stage.getCamera().update();
@@ -230,18 +235,16 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 			
 		    stage.draw();
 		    
-		    
-		    
 		    batch.setShader(waterShader);
 		    batch.draw(wasser,0,0,stage.getWidth(),512);
-	  batch.end();
-	  lightbatch.begin();
+		batch.end();
+		    /*
+		    lightbatch.begin();
 		    //batch.setShader(null);
 		  lightbatch.setBlendFunction(GL20.GL_DST_COLOR, GL20.GL_ZERO);
 		  lightbatch.setShader(cloudShader);
 		  lightbatch.draw(wasser,0,0,1920,1080);
-		    
-		    
+		   
 		    // Box2d Debugger:
 		    if (Config.DEBUG) {
 			    Matrix4 cam = stage.getCamera().combined.cpy();
@@ -249,7 +252,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		    }
 		
 		    lightbatch.end();
-		
+		     */
 		
 		batch.setProjectionMatrix(hudCamera.combined);
 		
