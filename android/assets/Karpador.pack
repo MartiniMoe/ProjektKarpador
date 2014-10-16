@@ -1,5 +1,67 @@
 
 Karpador.png
+size: 784,99
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Button/button_back.fw
+  rotate: false
+  xy: 2, 2
+  size: 96, 97
+  orig: 96, 97
+  offset: 0, 0
+  index: -1
+Button/button_highscore.fw
+  rotate: false
+  xy: 100, 2
+  size: 96, 97
+  orig: 96, 97
+  offset: 0, 0
+  index: -1
+Button/button_leveleditor001.fw
+  rotate: false
+  xy: 198, 2
+  size: 96, 97
+  orig: 96, 97
+  offset: 0, 0
+  index: -1
+Button/button_next.fw
+  rotate: false
+  xy: 296, 2
+  size: 96, 97
+  orig: 96, 97
+  offset: 0, 0
+  index: -1
+Button/button_pause.fw
+  rotate: false
+  xy: 688, 3
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+Button/button_play.fw
+  rotate: false
+  xy: 394, 2
+  size: 96, 97
+  orig: 96, 97
+  offset: 0, 0
+  index: -1
+Button/button_restart.fw
+  rotate: false
+  xy: 492, 2
+  size: 96, 97
+  orig: 96, 97
+  offset: 0, 0
+  index: -1
+Button/button_save.fw
+  rotate: false
+  xy: 590, 2
+  size: 96, 97
+  orig: 96, 97
+  offset: 0, 0
+  index: -1
+
+Karpador2.png
 size: 650,196
 format: RGBA8888
 filter: Nearest,Nearest
@@ -68,7 +130,7 @@ Fisch/Fisch
   offset: 0, 0
   index: 9
 
-Karpador2.png
+Karpador3.png
 size: 917,906
 format: RGBA8888
 filter: Nearest,Nearest
@@ -221,7 +283,7 @@ Gegner/Krabbe
   offset: 0, 0
   index: 10
 
-Karpador3.png
+Karpador4.png
 size: 130,34
 format: RGBA8888
 filter: Nearest,Nearest
@@ -234,7 +296,7 @@ HUD/healthbar
   offset: 0, 0
   index: -1
 
-Karpador4.png
+Karpador5.png
 size: 798,814
 format: RGBA8888
 filter: Nearest,Nearest
