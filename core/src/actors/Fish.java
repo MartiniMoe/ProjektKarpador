@@ -87,6 +87,7 @@ public class Fish extends Actor {
 					1f,
 					getAngle()
 					);
+		batch.setColor(1,1,1,1);
 		
 	}
 	
