@@ -244,21 +244,22 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		    batch.setShader(waterShader);
 		    batch.draw(wasser,0,0,stage.getWidth(),512);
 		batch.end();
-		    /*
-		    lightbatch.begin();
-		    //batch.setShader(null);
-		  lightbatch.setBlendFunction(GL20.GL_DST_COLOR, GL20.GL_ZERO);
-		  lightbatch.setShader(cloudShader);
-		  lightbatch.draw(wasser,0,0,1920,1080);
+		    
+		/*
+	    lightbatch.begin();
+		//batch.setShader(null);
+		lightbatch.setBlendFunction(GL20.GL_DST_COLOR, GL20.GL_ZERO);
+		lightbatch.setShader(cloudShader);
+		lightbatch.draw(wasser,0,0,1920,1080);
+  
+	    lightbatch.end();*/
 		   
-		    // Box2d Debugger:
-		    if (Config.DEBUG) {
-			    Matrix4 cam = stage.getCamera().combined.cpy();
-				debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
-		    }
-		
-		    lightbatch.end();
-		     */
+	    //Box2d Debugger:
+	    if (Config.DEBUG) {
+		    Matrix4 cam = stage.getCamera().combined.cpy();
+			debugRenderer.render(gameContext.getWorld(), cam.scl(Config.PIXELSPERMETER));
+	    }
+	
 		
 		batch.setProjectionMatrix(hudCamera.combined);
 		
