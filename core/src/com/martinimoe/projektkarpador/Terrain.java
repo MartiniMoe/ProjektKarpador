@@ -36,13 +36,26 @@ public class Terrain {
 		// Landscape generieren. Hochkompliziert!
 		float[] vertices = new float[(int) (terrainWidth/100)];
 		float[] metricVertices = new float[vertices.length];
-		// Der erste Punkt ist am Koordinatenursprung
-		vertices[0] = 0;
+		// Der erste Punkt muss auf Y=0 liegen!
+		vertices[0] = -600;
 		vertices[1] = 0;
-		metricVertices[0] = 0;
-		metricVertices[1] = 0;
+		metricVertices[0] =  vertices[0]/Config.PIXELSPERMETER;
+		metricVertices[1] =  vertices[1]/Config.PIXELSPERMETER;
 		
-		for (int i = 2; i < vertices.length-2; i++) {
+		
+		// Eine Plattform auf der das Haus steht:
+		vertices[2] = -600;
+		vertices[3] = 400;
+		metricVertices[2] =  vertices[2]/Config.PIXELSPERMETER;
+		metricVertices[3] =  vertices[3]/Config.PIXELSPERMETER;
+		
+		vertices[4] = 300;
+		vertices[5] = 400;
+		metricVertices[4] =  vertices[4]/Config.PIXELSPERMETER;
+		metricVertices[5] =  vertices[5]/Config.PIXELSPERMETER;
+		
+		
+		for (int i = 6; i < vertices.length-2; i++) {
 			// Jede Zweite Koordinate ist x-Koordinate
 			// Diese sollen gleichmäßig verteilt sein.
 			if(i%2 == 0){

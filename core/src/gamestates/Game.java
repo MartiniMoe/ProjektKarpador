@@ -14,6 +14,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -28,7 +29,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.martinimoe.projektkarpador.Config;
 import com.martinimoe.projektkarpador.GameContext;
@@ -64,6 +64,8 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	
 	private Label lbMessage = null;
 	private TextButton tbPlayAgain = null;
+	
+	private Decoration house = null;
 	
 	
 	public Game(GameContext gameContext) {
@@ -157,6 +159,11 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    tbPlayAgain.setScale(4f);
 	    
 	    hudStage.addActor(tbPlayAgain);
+	    
+	    house = new Decoration(gameContext, 0, 800, "Terrain/haus");
+	    house.setScale(4);
+	    
+	    stage.addActor(house);
 	}
 	
 	public void reset()
@@ -167,6 +174,12 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		gameContext.setFish(new Fish(gameContext, 2500, 900));
 		gameContext.getWorld().setContactListener(this);
 		stage.addActor(gameContext.getFish());
+		
+		house = new Decoration(gameContext, 0, 500, "Terrain/haus");
+	    house.setScale(5);
+	    
+	    stage.addActor(house);
+		
 		terrain = new Terrain(16000, gameContext, 3);
 		gameContext.setGameState(this);
 		lbMessage.setVisible(false);
@@ -208,6 +221,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		pBatch.setProjectionMatrix(camera.combined);
 		pBatch.begin();
 			terrain.draw(pBatch);
+			
 		pBatch.end();
 		
 		batch.begin();
@@ -215,7 +229,9 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 			stage.act(Gdx.graphics.getDeltaTime());
 			
 		    stage.draw();
-
+		    
+		    
+		    
 		    batch.setShader(waterShader);
 		    batch.draw(wasser,0,0,stage.getWidth(),512);
 	  batch.end();

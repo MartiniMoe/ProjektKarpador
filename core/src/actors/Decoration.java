@@ -26,7 +26,7 @@ public class Decoration extends Actor{
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 		
-		batch.draw(texture, getX(), getY(), texture.getRegionWidth()/2, texture.getRegionHeight()/2, texture.getRegionWidth(), texture.getRegionHeight(), 1, 1, 0);
+		batch.draw(texture, getX(), getY(), texture.getRegionWidth()/2, texture.getRegionHeight()/2, texture.getRegionWidth(), texture.getRegionHeight(), getScaleX(), getScaleY(), 0);
 	}
 	
 	
