@@ -62,7 +62,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 
 	private GameContext gameContext;
 	
-	private Label lbMessage = null;
+	private Label lbGameOver = null;
 	private TextButton tbPlayAgain = null;
 	
 	private Decoration house = null;
@@ -145,16 +145,18 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    Skin skin = new Skin(Gdx.files.internal("uiskin/uiskin.json"));
 	    skin.addRegions(new TextureAtlas(Gdx.files.internal("uiskin/uiskin.atlas")));
 	    
-	    lbMessage = new Label("Game Over", skin);
-	    lbMessage.setFontScale(4f);
-	    lbMessage.setPosition(hudStage.getWidth()/2, hudStage.getHeight()/2);
-	    lbMessage.setVisible(false);
-	    hudStage.addActor(lbMessage);
+	    lbGameOver = new Label("Game Over", skin);
+	    lbGameOver.setFontScale(4f);
+	    lbGameOver.setPosition(hudStage.getWidth()/2, hudStage.getHeight()/2);
+	    lbGameOver.setVisible(false);
+	    hudStage.addActor(lbGameOver);
 	    
-	    lbFPS = new Label("FPS: ", skin);
-	    lbFPS.setPosition(hudStage.getWidth()-100, hudStage.getHeight()-32);
-	    lbFPS.setVisible(true || Config.DEBUG);
-	    hudStage.addActor(lbFPS);
+	    if (Config.DEBUG) {
+	    	lbFPS = new Label("FPS: ", skin);
+		    lbFPS.setPosition(hudStage.getWidth()-100, hudStage.getHeight()-32);
+		    lbFPS.setVisible(Config.DEBUG);
+		    hudStage.addActor(lbFPS);
+	    }
 	    
 	    tbPlayAgain = new TextButton("Play again!", skin);
 	    tbPlayAgain.addListener(new ChangeListener() {
@@ -191,7 +193,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		
 		terrain = new Terrain(16000, gameContext, 3);
 		gameContext.setGameState(this);
-		lbMessage.setVisible(false);
+		lbGameOver.setVisible(false);
 		tbPlayAgain.setVisible(false);
 	}
 
@@ -199,7 +201,8 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	public void render() {
 		super.render();
 		
-		lbFPS.setText("FPS: " + 1 / Gdx.graphics.getDeltaTime());
+		if (Config.DEBUG) lbFPS.setText("FPS: " + 1 / Gdx.graphics.getDeltaTime());
+		
 		// Update Shaders
 		waterShader.begin();
 	    waterShader.setUniformf("time", gameContext.getTimeElapsed());
@@ -233,15 +236,11 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		pBatch.setProjectionMatrix(camera.combined);
 		pBatch.begin();
 			terrain.draw(pBatch);
-			
 		pBatch.end();
 		
 		batch.begin();
-
 			stage.act(Gdx.graphics.getDeltaTime());
-			
 		    stage.draw();
-		    
 		    batch.setShader(waterShader);
 		    batch.draw(wasser,0,0,stage.getWidth(),512);
 		batch.end();
@@ -268,11 +267,10 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    	if (gameContext.getFish().getHealth() <= 0) 
 	    		{
 	    			tbPlayAgain.setVisible(true);
-	    			lbMessage.setVisible(true);
+	    			lbGameOver.setVisible(true);
 	    			Gdx.input.setInputProcessor(hudStage);
 	    		}
 			hudStage.draw();
-	    	
 		batch.end();
 	}
 	
@@ -387,11 +385,13 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	public void resize(int width, int height) {
 		super.resize(width, height);
 		if (stage != null) stage.getViewport().update(width, height, true);
+		hudStage.getViewport().update(width, height, true);
+		tbPlayAgain.setPosition(hudStage.getWidth()/2, hudStage.getHeight()/2-64);
 	}
 	@Override
 	public void dispose() {
 		super.dispose();
-		 stage.dispose();
+		stage.dispose();
 	    waterShader.dispose();
 	    pBatch.dispose();
 	    batch.dispose();
