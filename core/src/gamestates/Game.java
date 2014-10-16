@@ -10,7 +10,6 @@ import actors.House;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
@@ -28,8 +27,8 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.martinimoe.projektkarpador.Config;
 import com.martinimoe.projektkarpador.GameContext;
@@ -56,7 +55,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
     private float[] resolution = null;
     */
     
-	private SpriteBatch batch, lightbatch;
+	private SpriteBatch batch;
 	private PolygonSpriteBatch pBatch;
 	
 	
@@ -65,6 +64,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	private GameContext gameContext;
 	
 	private Label lbGameOver = null;
+	private Label lbVictory = null;
 	private Button tbPlayAgain = null;
 	
 	private House house = null;
@@ -81,7 +81,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		super.create();
 		
 		batch = new SpriteBatch();
-		lightbatch = new SpriteBatch(6);
+		
 		pBatch = new PolygonSpriteBatch();
 		
 		/*
@@ -105,12 +105,12 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		
 		
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
-		setStage ( new Stage(new StretchViewport(1920, 1080,camera)) );
+		setStage ( new Stage(new ExtendViewport(1920, 1080,camera)) );
 		stage = getStage();
 		
 		hudCamera = new OrthographicCamera();
 		
-		hudStage = new Stage(new StretchViewport(1920, 1080,hudCamera));
+		hudStage = new Stage(new ExtendViewport(1920, 1080,hudCamera));
 		healthBar = new HealthBar(gameContext, hudStage.getWidth(), hudStage.getHeight()-64);
 		
 		hudStage.addActor(healthBar);
@@ -152,6 +152,12 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    lbGameOver.setPosition(hudStage.getWidth()/2-lbGameOver.getWidth()/2, hudStage.getHeight()/2);
 	    lbGameOver.setVisible(false);
 	    hudStage.addActor(lbGameOver);
+	    
+	    lbVictory = new Label("Victory!", skin);
+	    lbVictory.setFontScale(3f);
+	    lbVictory.setPosition(hudStage.getWidth()/2, hudStage.getHeight()/2);
+	    lbVictory.setVisible(false);
+	    hudStage.addActor(lbVictory);
 	    
 	    if (Config.DEBUG) {
 	    	lbFPS = new Label("FPS: ", skin);
@@ -196,6 +202,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		terrain = new Terrain(16000, gameContext, 3);
 		gameContext.setGameState(this);
 		lbGameOver.setVisible(false);
+		lbVictory.setVisible(false);
 		tbPlayAgain.setVisible(false);
 	}
 
@@ -267,6 +274,12 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		
 		batch.begin();
 			hudStage.act(Gdx.graphics.getDeltaTime());
+			if (gameContext.getFish().getY() < - 100)
+			{
+				lbVictory.setVisible(true);
+				tbPlayAgain.setVisible(true);
+				Gdx.input.setInputProcessor(hudStage);
+			}
 	    	if (gameContext.getFish().getHealth() <= 0) 
 	    		{
 	    			tbPlayAgain.setVisible(true);
