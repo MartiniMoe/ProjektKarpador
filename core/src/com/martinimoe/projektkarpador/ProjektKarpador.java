@@ -41,7 +41,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		gameContext.setGame(new Game(gameContext));
 		gameContext.getGame().create();
 		gameContext.setGameState(gameContext.getMenuMain());
-	    gameContext.toggleMusic();
+	    //gameContext.toggleMusic();
 		
 	    // Vsync
 		//Gdx.graphics.setVSync(true);
