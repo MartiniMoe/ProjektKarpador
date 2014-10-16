@@ -21,6 +21,7 @@ import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -140,7 +141,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    
 	    lbMessage = new Label("Game Over", skin);
 	    lbMessage.setFontScale(4f);
-	    lbMessage.setCenterPosition(hudStage.getWidth()/2, hudStage.getHeight()/2);
+	    lbMessage.setPosition(hudStage.getWidth()/2, hudStage.getHeight()/2);
 	    lbMessage.setVisible(false);
 	    hudStage.addActor(lbMessage);
 	    
@@ -151,14 +152,25 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 				reset();
 			}
 		});
-	    tbPlayAgain.setCenterPosition(hudStage.getWidth()/2, hudStage.getHeight()/2-200);
+	    tbPlayAgain.setPosition(hudStage.getWidth()/2, hudStage.getHeight()/2-64);
 	    tbPlayAgain.setVisible(false);
+	    tbPlayAgain.setScale(4f);
+	    
 	    hudStage.addActor(tbPlayAgain);
 	}
 	
 	public void reset()
 	{
+		stage.clear();
+		
+		gameContext.setWorld(new World(gameContext.getWorld().getGravity(), true));
+		gameContext.setFish(new Fish(gameContext, 2500, 900));
+		gameContext.getWorld().setContactListener(this);
+		stage.addActor(gameContext.getFish());
 		terrain = new Terrain(16000, gameContext, 3);
+		gameContext.setGameState(this);
+		lbMessage.setVisible(false);
+		tbPlayAgain.setVisible(false);
 	}
 
 	@Override

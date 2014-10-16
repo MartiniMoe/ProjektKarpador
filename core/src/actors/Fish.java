@@ -1,6 +1,5 @@
 package actors;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
@@ -22,10 +21,12 @@ public class Fish extends Actor {
 	private Body body = null;
 	private boolean doJump = false;
 	private float jumpDelay = 0;
-	private float health = 100;
+	
 	private boolean invincible = false;
 	private float invincibleUntil = 0;
 	public static final float INVINCIBILITY_TIME = 1;
+	public static final float MAX_HEALTH = 100;
+	private float health = MAX_HEALTH;
 	private GameContext gameContext;
 	private float angle;
 	private float frame = 0;
