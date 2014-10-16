@@ -1,6 +1,7 @@
 package gamestates;
 
 import hud.HealthBar;
+import actors.Button;
 import actors.Decoration;
 import actors.Enemy;
 import actors.Fish;
@@ -64,7 +65,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	private GameContext gameContext;
 	
 	private Label lbGameOver = null;
-	private TextButton tbPlayAgain = null;
+	private Button tbPlayAgain = null;
 	
 	private House house = null;
 	
@@ -148,7 +149,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    
 	    lbGameOver = new Label("Game Over", skin);
 	    lbGameOver.setFontScale(4f);
-	    lbGameOver.setPosition(hudStage.getWidth()/2, hudStage.getHeight()/2);
+	    lbGameOver.setPosition(hudStage.getWidth()/2-lbGameOver.getWidth()/2, hudStage.getHeight()/2);
 	    lbGameOver.setVisible(false);
 	    hudStage.addActor(lbGameOver);
 	    
@@ -159,14 +160,14 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		    hudStage.addActor(lbFPS);
 	    }
 	    
-	    tbPlayAgain = new TextButton("Play again!", skin);
+	    tbPlayAgain = new Button(gameContext,"Button/button_restart.fw");
 	    tbPlayAgain.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				reset();
 			}
 		});
-	    tbPlayAgain.setPosition(hudStage.getWidth()/2, hudStage.getHeight()/2-64);
+	    tbPlayAgain.setPosition(hudStage.getWidth()/2-tbPlayAgain.getWidth()/2, hudStage.getHeight()/2-tbPlayAgain.getHeight()-16);
 	    tbPlayAgain.setVisible(false);
 	    tbPlayAgain.setScale(4f);
 	    
