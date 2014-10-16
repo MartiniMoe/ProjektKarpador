@@ -4,6 +4,7 @@ import hud.HealthBar;
 import actors.Decoration;
 import actors.Enemy;
 import actors.Fish;
+import actors.House;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
@@ -65,7 +66,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	private Label lbGameOver = null;
 	private TextButton tbPlayAgain = null;
 	
-	private Decoration house = null;
+	private House house = null;
 	
 	private Label lbFPS = null;
 	
@@ -171,9 +172,9 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    
 	    hudStage.addActor(tbPlayAgain);
 	    
-	    house = new Decoration(gameContext, 0, 800, "Terrain/haus");
-	    house.setScale(4);
+	    house = new House(gameContext, 0, 800);
 	    
+	    house.setZIndex(999);
 	    stage.addActor(house);
 	}
 	
@@ -186,7 +187,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		gameContext.getWorld().setContactListener(this);
 		stage.addActor(gameContext.getFish());
 		
-		house = new Decoration(gameContext, 0, 500, "Terrain/haus");
+		house = new House(gameContext, 0, 500);
 	    house.setScale(5);
 	    
 	    stage.addActor(house);
@@ -242,7 +243,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 			stage.act(Gdx.graphics.getDeltaTime());
 		    stage.draw();
 		    batch.setShader(waterShader);
-		    batch.draw(wasser,0,0,stage.getWidth(),512);
+		    batch.draw(wasser,0,0,stage.getWidth(),128);
 		batch.end();
 		    
 		/*

@@ -9,18 +9,15 @@ uniform mat4 u_projTrans;
 uniform float time;
 
 void main(){
-	//vec2 uv=gl_FragCoord.xy/resolution;
 	vec2 uv=vec2(1)-v_texCoords;
-	//uv-=.5;
-	//uv.x/=resolution.y/resolution.x;
-	
 	float phase=abs(mod(time*.1,.2)-.1)-.05;
 	
-	uv.y+=-.25+.125*sin(time);
-	uv.x+=.5*sin(time);
+	uv.y+=-.5;
+	uv+=vec2(.5,.125)*sin(time);
 	
-	float col=10.*max(uv.y+phase*sin(uv.x*10.),0.);
+	float wave=uv.y+phase*sin(uv.x*10.);
+	vec4 col=mix(vec4(0,0,1,.5),vec4(0),step(0.,wave));
+	col=mix(vec4(1),col,smoothstep(0.,.015,abs(wave)));
 	
-	gl_FragColor=vec4(mix(vec4(0,.5,1,0.75),vec4(0),col));
-	
+	gl_FragColor=col;
 }
