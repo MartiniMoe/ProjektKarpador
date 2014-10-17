@@ -25,6 +25,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
+import com.martinimoe.projektkarpador.Config;
 import com.martinimoe.projektkarpador.GameContext;
 
 public class MenuMain extends GameState implements ApplicationListener, ContactListener  {
@@ -85,8 +86,9 @@ public class MenuMain extends GameState implements ApplicationListener, ContactL
 	    tbToggleMusic.addListener(new ChangeListener() {
 	    	@Override
 	    	public void changed(ChangeEvent event, Actor actor) {
-	    		if (!gameContext.toggleMusic()) tbToggleMusic.setColor(255, 255, 255, 155);
-	    		else tbToggleMusic.setColor(255, 255, 255, 0);
+	    		gameContext.setMuted(!gameContext.isMuted());
+	    		if (Config.DEBUG)
+	    			System.out.println("Muted: " + gameContext.isMuted());
 	    	}
 	    });
 	    tbToggleMusic.setVisible(true);
