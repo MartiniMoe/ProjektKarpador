@@ -70,7 +70,7 @@ public class MenuMain extends GameState implements ApplicationListener, ContactL
 //	    	}
 //	    });
 	    
-	    final Button tbPlay = new Button(gameContext,"Button/button_play.fw");
+	    final Button tbPlay = new Button(gameContext,"Button/button_play");
 	    tbPlay.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
@@ -82,13 +82,28 @@ public class MenuMain extends GameState implements ApplicationListener, ContactL
 	    tbPlay.setPosition((getStage().getWidth()/2) - tbPlay.getWidth()/2, (getStage().getHeight()/2) - tbPlay.getHeight()/2);
 	    getStage().addActor(tbPlay);
 	    
-	    final Button tbToggleMusic = new Button(gameContext, "Button/button_pause.fw");
+	    final Button tbToggleMusicMuted = new Button(gameContext, "Button/button_mute");
+	    final Button tbToggleMusic = new Button(gameContext, "Button/button_unmute");
+	    tbToggleMusicMuted.addListener(new ChangeListener() {
+	    	@Override
+	    	public void changed(ChangeEvent event, Actor actor) {
+	    		gameContext.setMuted(false);
+	    		System.out.println("Unmuted!");
+	    		tbToggleMusicMuted.setVisible(false);
+	    		tbToggleMusic.setVisible(true);
+	    	}
+	    });
+	    tbToggleMusicMuted.setVisible(false);
+	    tbToggleMusicMuted.setScale(1f);
+	    tbToggleMusicMuted.setPosition((getStage().getWidth()/2) - tbToggleMusicMuted.getWidth()/2, (getStage().getHeight()/2) - tbPlay.getHeight() * 2f);
+	    getStage().addActor(tbToggleMusicMuted);
 	    tbToggleMusic.addListener(new ChangeListener() {
 	    	@Override
 	    	public void changed(ChangeEvent event, Actor actor) {
-	    		gameContext.setMuted(!gameContext.isMuted());
-	    		if (Config.DEBUG)
-	    			System.out.println("Muted: " + gameContext.isMuted());
+	    		gameContext.setMuted(true);
+	    		System.out.println("Muted!");
+	    		tbToggleMusic.setVisible(false);
+	    		tbToggleMusicMuted.setVisible(true);
 	    	}
 	    });
 	    tbToggleMusic.setVisible(true);

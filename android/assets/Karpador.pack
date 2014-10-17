@@ -1,61 +1,33 @@
 
 Karpador.png
-size: 784,99
+size: 392,99
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-Button/button_back.fw
+Button/button_mute
   rotate: false
   xy: 2, 2
   size: 96, 97
   orig: 96, 97
   offset: 0, 0
   index: -1
-Button/button_highscore.fw
+Button/button_play
   rotate: false
   xy: 100, 2
   size: 96, 97
   orig: 96, 97
   offset: 0, 0
   index: -1
-Button/button_leveleditor001.fw
+Button/button_restart
   rotate: false
   xy: 198, 2
   size: 96, 97
   orig: 96, 97
   offset: 0, 0
   index: -1
-Button/button_next.fw
+Button/button_unmute
   rotate: false
   xy: 296, 2
-  size: 96, 97
-  orig: 96, 97
-  offset: 0, 0
-  index: -1
-Button/button_pause.fw
-  rotate: false
-  xy: 688, 3
-  size: 96, 96
-  orig: 96, 96
-  offset: 0, 0
-  index: -1
-Button/button_play.fw
-  rotate: false
-  xy: 394, 2
-  size: 96, 97
-  orig: 96, 97
-  offset: 0, 0
-  index: -1
-Button/button_restart.fw
-  rotate: false
-  xy: 492, 2
-  size: 96, 97
-  orig: 96, 97
-  offset: 0, 0
-  index: -1
-Button/button_save.fw
-  rotate: false
-  xy: 590, 2
   size: 96, 97
   orig: 96, 97
   offset: 0, 0

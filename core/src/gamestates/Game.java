@@ -168,7 +168,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		    hudStage.addActor(lbFPS);
 	    }
 	    
-	    tbPlayAgain = new Button(gameContext,"Button/button_restart.fw");
+	    tbPlayAgain = new Button(gameContext,"Button/button_restart");
 	    tbPlayAgain.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
@@ -217,12 +217,12 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	public void render() {
 		super.render();
 		
-		if (gameContext.getGameState().equals(this) && !introStarted) {
+		if (!gameContext.isMuted() && gameContext.getGameState().equals(this) && !introStarted) {
 			gameContext.playIntro();
 			introStarted = true;
 		}
 		
-		if (introStarted && !gameContext.getIntro().isPlaying() && !musicLoopStarted)
+		if (!gameContext.isMuted() && introStarted && !gameContext.getIntro().isPlaying() && !musicLoopStarted)
 			gameContext.startMusic();
 		
 		if (Config.DEBUG) lbFPS.setText("FPS: " + 1 / Gdx.graphics.getDeltaTime());
