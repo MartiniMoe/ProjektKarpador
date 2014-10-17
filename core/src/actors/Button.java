@@ -22,6 +22,14 @@ public class Button extends com.badlogic.gdx.scenes.scene2d.ui.Button{
 		batch.draw(tex, getX(), getY(), 0, 0, getWidth(), getHeight(), 1, 1, 0);
 	}
 	
-
+	@Override
+	public void setScale(float scaleXY) {
+		setWidth(tex.getRegionWidth()*scaleXY);
+		setHeight(tex.getRegionHeight()*scaleXY);
+	}
 	
+	@Override
+	public void setColor(float r, float g, float b, float a) {
+		super.setColor(r, g, b, a);
+	}
 }

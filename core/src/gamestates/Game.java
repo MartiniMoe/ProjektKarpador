@@ -173,9 +173,9 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 				reset();
 			}
 		});
+	    tbPlayAgain.setScale(1f);
 	    tbPlayAgain.setPosition(hudStage.getWidth()/2-tbPlayAgain.getWidth()/2, hudStage.getHeight()/3);
 	    tbPlayAgain.setVisible(false);
-	    tbPlayAgain.setScale(4f);
 	    
 	    hudStage.addActor(tbPlayAgain);
 	    
