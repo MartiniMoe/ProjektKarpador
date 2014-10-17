@@ -71,6 +71,8 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	
 	private Label lbFPS = null;
 	
+	private boolean musicLoopStarted = false;
+	
 	
 	public Game(GameContext gameContext) {
 		this.gameContext = gameContext;
@@ -204,11 +206,24 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		lbGameOver.setVisible(false);
 		lbVictory.setVisible(false);
 		tbPlayAgain.setVisible(false);
+		
+		gameContext.stopMusic();
+		musicLoopStarted = false;
+		introStarted = false;
 	}
 
+	private boolean introStarted = false;
 	@Override
 	public void render() {
 		super.render();
+		
+		if (gameContext.getGameState().equals(this) && !introStarted) {
+			gameContext.playIntro();
+			introStarted = true;
+		}
+		
+		if (introStarted && !gameContext.getIntro().isPlaying() && !musicLoopStarted)
+			gameContext.startMusic();
 		
 		if (Config.DEBUG) lbFPS.setText("FPS: " + 1 / Gdx.graphics.getDeltaTime());
 		

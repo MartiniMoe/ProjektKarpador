@@ -21,7 +21,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 
 	private GameContext gameContext = null;
 	
-	private Music music = null;
+	private Music music, intro = null;
 	
 	
 	@Override
@@ -33,15 +33,16 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		//Musik!
 		music = Gdx.audio.newMusic(Gdx.files.internal("Karpador_Loop.wav"));
 		music.setLooping(true);
+		intro = Gdx.audio.newMusic(Gdx.files.internal("intro.wav"));
+		intro.setLooping(false);
 		
 		// GameContext hält globale Objekte
-		gameContext = new GameContext(new World(new Vector2(0, -9f), false), atlas, music);
+		gameContext = new GameContext(new World(new Vector2(0, -9f), false), atlas, music, intro);
 		gameContext.setMenuMain(new MenuMain(gameContext));
 		gameContext.getMenuMain().create();
 		gameContext.setGame(new Game(gameContext));
 		gameContext.getGame().create();
 		gameContext.setGameState(gameContext.getMenuMain());
-	    //gameContext.toggleMusic();
 		
 	    // Vsync
 		//Gdx.graphics.setVSync(true);

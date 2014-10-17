@@ -18,16 +18,41 @@ public class GameContext {
 	private float timeElapsed = 0;
 	private Stage stage = null;
 	private Fish fish = null;
-	private Music music = null;
+	private Music music, intro = null;
 	private Game game;
 	private MenuMain menuMain;
 	private GameState gameState = null;
+	private boolean muted = false;
+
+	public void playIntro() {
+		intro.play();
+	}
+	
+	public Music getIntro() {
+		return intro;
+	}
+	
+	public boolean isMuted() {
+		return muted;
+	}
+
+	public void setMuted(boolean muted) {
+		this.muted = muted;
+	}
 
 	public boolean toggleMusic() {
 		if (music.isPlaying()) music.stop();
 		else music.play();
 		
 		return music.isPlaying();
+	}
+	
+	public void startMusic() {
+		if (!music.isPlaying()) music.play();
+	}
+	
+	public void stopMusic() {
+		if (music.isPlaying()) music.stop();
 	}
 	
 	public ApplicationAdapter getGameState() {
@@ -64,10 +89,11 @@ public class GameContext {
 		this.stage = stage;
 	}
 
-	public GameContext(World world, TextureAtlas atlas, Music music) {
+	public GameContext(World world, TextureAtlas atlas, Music music, Music intro) {
 		setWorld(world);
 		setAtlas(atlas);
 		this.music = music;
+		this.intro = intro;
 	}
 	
 	public TextureAtlas getAtlas() {
