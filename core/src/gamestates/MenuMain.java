@@ -8,6 +8,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g3d.Renderable;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -31,6 +34,8 @@ import com.martinimoe.projektkarpador.GameContext;
 public class MenuMain extends GameState implements ApplicationListener, ContactListener  {
 
 	private Table table;
+	private Texture bg = null;
+	private SpriteBatch batch=null;
 	// For debug drawing
 	private ShapeRenderer shapeRenderer;
 	private GameContext gameContext;
@@ -42,7 +47,8 @@ public class MenuMain extends GameState implements ApplicationListener, ContactL
 	@Override
 	public void create() {
 		setStage(new Stage());
-
+		bg = new Texture("MenuScreen.png");
+		batch = new SpriteBatch(8);
 //	    Skin skin = new Skin(Gdx.files.internal("uiskin/uiskin.json"));
 //	    skin.addRegions(new TextureAtlas(Gdx.files.internal("uiskin/uiskin.atlas")));
 //	    
@@ -115,8 +121,12 @@ public class MenuMain extends GameState implements ApplicationListener, ContactL
 	@Override
 	public void render() {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-	    getStage().act(Gdx.graphics.getDeltaTime());
+		batch.begin();
+		batch.draw(bg,0,0,getStage().getWidth(),getStage().getHeight());
+		batch.end();
+		getStage().act(Gdx.graphics.getDeltaTime());
 	    getStage().draw();
+	    
 	}
 	
 	@Override
