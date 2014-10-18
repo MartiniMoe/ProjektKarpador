@@ -113,6 +113,14 @@ public abstract class Enemy extends Actor{
 	public void setDamage(float damage) {
 		this.damage = damage;
 	}
+
+	public Body getBody() {
+		return body;
+	}
+
+	public void setBody(Body body) {
+		this.body = body;
+	}
 	
 	
 }

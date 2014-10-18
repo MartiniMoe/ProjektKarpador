@@ -61,6 +61,8 @@ public class Fish extends Actor {
 		
 		Fixture f = body.createFixture(fDef);
 		f.setUserData(this);
+		
+		
 	}
 	
 	@Override
@@ -157,6 +159,14 @@ public class Fish extends Actor {
 
 	public void setAngle(float angle) {
 		this.angle = angle;
+	}
+
+	public Body getBody() {
+		return body;
+	}
+
+	public void setBody(Body body) {
+		this.body = body;
 	}
 	
 

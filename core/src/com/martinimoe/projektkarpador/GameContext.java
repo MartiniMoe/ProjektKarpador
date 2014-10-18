@@ -3,6 +3,7 @@ package com.martinimoe.projektkarpador;
 import gamestates.Game;
 import gamestates.GameState;
 import gamestates.MenuMain;
+import actors.Cat;
 import actors.Fish;
 
 import com.badlogic.gdx.ApplicationAdapter;
@@ -23,6 +24,7 @@ public class GameContext {
 	private MenuMain menuMain;
 	private GameState gameState = null;
 	private boolean muted = false;
+	private Cat cat = null;
 
 	public void playIntro() {
 		intro.play();
@@ -131,6 +133,15 @@ public class GameContext {
 
 	public void setGame(Game game) {
 		this.game = game;
+	}
+
+	public Cat getCat() {
+		return cat;
+	}
+
+	public void setCat(Cat cat) {
+		this.cat = cat;
+		stage.addActor(cat);
 	}
 	
 	

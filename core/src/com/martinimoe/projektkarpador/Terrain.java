@@ -112,7 +112,9 @@ public class Terrain {
 			gameContext.getStage().addActor(new EvilCrab(gameContext, ((i + 1) * (terrainWidth * Config.SCREENSPERLEVEL / (enemyNum + 1))) * Config.SCREENSPERLEVEL, maxLevelHeight + 100, new Color(255f/255f,0f/255f,0f/255f,1f), 4f * difficulty));
 
 		//KATZE!!!
-		gameContext.getStage().addActor(new Cat(gameContext, 1500, 800, Color.BLACK, 12f * difficulty));
+		gameContext.setCat(new Cat(gameContext, 200, 1100, Color.BLACK, 12f * difficulty));
+		
+		
 	}
 	
 	public void draw(PolygonSpriteBatch pBatch) {

@@ -12,6 +12,7 @@ import com.martinimoe.projektkarpador.GameContext;
 public class House extends Decoration {
 
 	private Body body;
+	private boolean active;
 	
 	public House(GameContext gameContext, float x , float y) {
 		super(gameContext, x, y, "Terrain/haus");
@@ -26,8 +27,18 @@ public class House extends Decoration {
 		fDef.shape = pShape;
 		Fixture f = body.createFixture(fDef);
 		f.setUserData(this);
-	
+		body.setActive(false);
 	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		body.setActive(active);
+		this.active = active;
+	}
+	
 	
 	
 

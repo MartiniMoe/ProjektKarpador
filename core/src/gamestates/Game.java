@@ -16,6 +16,7 @@ import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.Contact;
@@ -103,7 +104,7 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		
 	    
 		// Spieler (Fisch) erzeugen
-		gameContext.setFish(new Fish(gameContext, 2500, 900));
+		gameContext.setFish(new Fish(gameContext, 600, 800));
 		
 		
 		// Stage (Level) erzeugen und Fisch als Actor hinzufügen
@@ -185,14 +186,17 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    
 	    house.setZIndex(999);
 	    stage.addActor(house);
+	    
+	    gameContext.getFish().getBody().applyForceToCenter(300, 200, true);
+	    gameContext.getCat().getBody().applyForceToCenter(500, 2000, true);
 	}
 	
 	public void reset()
 	{
 		stage.clear();
-		
+		gameContext.setTimeElapsed(0);
 		gameContext.setWorld(new World(gameContext.getWorld().getGravity(), true));
-		gameContext.setFish(new Fish(gameContext, 2500, 900));
+		gameContext.setFish(new Fish(gameContext, 200, 800));
 		gameContext.getWorld().setContactListener(this);
 		stage.addActor(gameContext.getFish());
 		
@@ -210,12 +214,18 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		gameContext.stopMusic();
 		musicLoopStarted = false;
 		introStarted = false;
+		
+		gameContext.getFish().getBody().applyForceToCenter(300, 200, true);
+	    gameContext.getCat().getBody().applyForceToCenter(8000, 3000, true);
+		
 	}
 
 	private boolean introStarted = false;
 	@Override
 	public void render() {
 		super.render();
+		
+		if (gameContext.getFish().getX() > 1500) house.setActive(true);
 		
 		if (!gameContext.isMuted() && gameContext.getGameState().equals(this) && !introStarted) {
 			gameContext.playIntro();
@@ -254,7 +264,8 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    */
 	    
 		// Camera auf Fish setzen
-		stage.getCamera().position.set(gameContext.getFish().getX(), stage.getCamera().position.y, 0);
+		stage.getCamera().position.set(MathUtils.clamp(gameContext.getFish().getX(), 800, 999999999), stage.getCamera().position.y, 0);
+		
 		stage.getCamera().update();
 		
 		pBatch.setProjectionMatrix(camera.combined);
