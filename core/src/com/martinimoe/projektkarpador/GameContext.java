@@ -25,6 +25,7 @@ public class GameContext {
 	private GameState gameState = null;
 	private boolean muted = false;
 	private Cat cat = null;
+	private Stage sky = null;
 
 	public void playIntro() {
 		intro.play();
@@ -142,6 +143,14 @@ public class GameContext {
 	public void setCat(Cat cat) {
 		this.cat = cat;
 		stage.addActor(cat);
+	}
+
+	public Stage getSky() {
+		return sky;
+	}
+
+	public void setSky(Stage sky) {
+		this.sky = sky;
 	}
 	
 	

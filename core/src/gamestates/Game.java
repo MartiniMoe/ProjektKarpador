@@ -2,7 +2,6 @@ package gamestates;
 
 import hud.HealthBar;
 import actors.Button;
-import actors.Decoration;
 import actors.Enemy;
 import actors.Fish;
 import actors.House;
@@ -30,7 +29,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.martinimoe.projektkarpador.Config;
 import com.martinimoe.projektkarpador.GameContext;
 import com.martinimoe.projektkarpador.Terrain;
@@ -59,8 +57,6 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	private SpriteBatch batch;
 	private PolygonSpriteBatch pBatch;
 	
-	
-	private Decoration cloud = null;
 
 	private GameContext gameContext;
 	
@@ -73,6 +69,8 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	private Label lbFPS = null;
 	
 	private boolean musicLoopStarted = false;
+	
+	
 	
 	
 	public Game(GameContext gameContext) {
@@ -118,6 +116,8 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		
 		hudStage.addActor(healthBar);
 		
+		gameContext.setSky(new Stage(new ExtendViewport(1920, 1080,new OrthographicCamera())));
+		
 	    vertexShader = Gdx.files.internal("shader/vertex.glsl").readString();
 	    fragmentShader = Gdx.files.internal("shader/wasser.glsl").readString();
 	    waterShader = new ShaderProgram(vertexShader,fragmentShader);
@@ -144,8 +144,6 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		
 		gameContext.getWorld().setContactListener(this);
 		//Gdx.input.setInputProcessor(this);
-		cloud = new Decoration(gameContext, 200, 1000,"Terrain/wolke");
-		hudStage.addActor(cloud);
 		
 	    Skin skin = new Skin(Gdx.files.internal("uiskin/uiskin.json"));
 	    skin.addRegions(new TextureAtlas(Gdx.files.internal("uiskin/uiskin.atlas")));
@@ -187,8 +185,8 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	    house.setZIndex(999);
 	    stage.addActor(house);
 	    
-	    gameContext.getFish().getBody().applyForceToCenter(300, 200, true);
-	    gameContext.getCat().getBody().applyForceToCenter(500, 2000, true);
+	    gameContext.getFish().getBody().applyForceToCenter(750, 200, true);
+	    gameContext.getCat().getBody().applyForceToCenter(5000, 2000, true);
 	}
 	
 	public void reset()
@@ -215,8 +213,8 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		musicLoopStarted = false;
 		introStarted = false;
 		
-		gameContext.getFish().getBody().applyForceToCenter(300, 200, true);
-	    gameContext.getCat().getBody().applyForceToCenter(8000, 3000, true);
+		gameContext.getFish().getBody().applyForceToCenter(750, 200, true);
+	    gameContext.getCat().getBody().applyForceToCenter(5000, 3000, true);
 		
 	}
 
@@ -273,9 +271,16 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 			terrain.draw(pBatch);
 		pBatch.end();
 		
+		gameContext.getSky().getCamera().position.x = stage.getCamera().position.x / 2;
+		
 		batch.begin();
+			gameContext.getSky().act();
+			gameContext.getSky().draw();
+			
 			stage.act(Gdx.graphics.getDeltaTime());
 		    stage.draw();
+		    
+		    
 		    batch.setShader(waterShader);
 		    batch.draw(wasser,0,0,stage.getWidth(),128);
 		batch.end();

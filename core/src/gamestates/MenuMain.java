@@ -122,7 +122,7 @@ public class MenuMain extends GameState implements ApplicationListener, ContactL
 	public void render() {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
-		batch.draw(bg,0,0,getStage().getWidth(),getStage().getHeight());
+		batch.draw(bg,0,0,getStage().getWidth(),getStage().getHeight() );
 		batch.end();
 		getStage().act(Gdx.graphics.getDeltaTime());
 	    getStage().draw();

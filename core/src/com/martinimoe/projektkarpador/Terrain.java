@@ -1,6 +1,7 @@
 package com.martinimoe.projektkarpador;
 
 import actors.Cat;
+import actors.Decoration;
 import actors.EvilCrab;
 
 import com.badlogic.gdx.graphics.Color;
@@ -28,7 +29,7 @@ public class Terrain {
 	public static final Color colorEarth = new Color(217f/255f,164f/255f,72f/255f,1f); 
 	//public static final Color colorGrass = new Color(20f/255f,220f/255f,29f/255f,1f);
 	public static final Color colorGrass = new Color(248f/255f,204f/255f,75f/255f,1f);
-	
+	private int numClouds = 20;
 	public Terrain(float width, GameContext gameContext, int diff) {
 		this.terrainWidth = width;
 		this.difficulty = diff;
@@ -111,6 +112,13 @@ public class Terrain {
 		for (int i=0;i<enemyNum;i++) 
 			gameContext.getStage().addActor(new EvilCrab(gameContext, ((i + 1) * (terrainWidth * Config.SCREENSPERLEVEL / (enemyNum + 1))) * Config.SCREENSPERLEVEL, maxLevelHeight + 100, new Color(255f/255f,0f/255f,0f/255f,1f), 4f * difficulty));
 
+		
+		//Add Clouds
+		for (int i=0;i<numClouds;i++)
+			gameContext.getSky().addActor(new Decoration(gameContext, i*(terrainWidth * Config.SCREENSPERLEVEL / (numClouds + 1))+MathUtils.random(100, 200),MathUtils.random(800, 1200),"Terrain/wolke", 450, 200));
+		
+		
+		
 		//KATZE!!!
 		gameContext.setCat(new Cat(gameContext, 200, 1100, Color.BLACK, 12f * difficulty));
 		

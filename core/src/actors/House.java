@@ -15,7 +15,7 @@ public class House extends Decoration {
 	private boolean active;
 	
 	public House(GameContext gameContext, float x , float y) {
-		super(gameContext, x, y, "Terrain/haus");
+		super(gameContext, x, y, "Terrain/haus", 0,0);
 		setScale(4);
 		BodyDef bDef = new BodyDef();
 		bDef.type = BodyType.StaticBody;
