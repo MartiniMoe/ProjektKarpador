@@ -132,6 +132,7 @@ public class MenuMain extends GameState implements ApplicationListener, ContactL
 	@Override
 	public void resize(int width, int height) {
 		getStage().getViewport().update(width, height, true);
+		gameContext.getGame().resize(width, height);
 	}
 
 	@Override

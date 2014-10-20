@@ -18,7 +18,12 @@ public class HealthBar extends Actor {
 		this.gameContext = gameContext;
 		txHealthbar = gameContext.getAtlas().findRegion("HUD/healthbar");
 		setWidth(gameContext.getFish().getHealth());
-		setPosition(x-(getWidth()*2)-padding, y-padding);
+		setPosition(x, y);
+	}
+	
+	@Override
+	public void setPosition(float x, float y) {
+		super.setPosition(x-(getWidth()*2)-padding, y-padding);
 	}
 	
 	@Override
@@ -30,8 +35,4 @@ public class HealthBar extends Actor {
 		batch.draw(txHealthbar, getX(), getY(), 0, 0, gameContext.getFish().getHealth()*2, 64, 1, 1, 0);
 		batch.setColor(1f,1f,1f,1f);
 	}
-	
-	
-	
-
 }

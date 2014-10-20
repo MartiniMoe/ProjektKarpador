@@ -31,7 +31,7 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 		atlas = new TextureAtlas(Gdx.files.internal("Karpador.pack"));
 				
 		//Musik!
-		music = Gdx.audio.newMusic(Gdx.files.internal("Karpador_Loop.wav"));
+		music = Gdx.audio.newMusic(Gdx.files.internal("Karpador_Loop.ogg"));
 		music.setLooping(true);
 		intro = Gdx.audio.newMusic(Gdx.files.internal("intro.wav"));
 		intro.setLooping(false);
@@ -62,7 +62,9 @@ public class ProjektKarpador extends ApplicationAdapter implements ApplicationLi
 	
 	@Override
 	public void resize(int width, int height) {
-		gameContext.getGameState().resize(width, height);
+//		gameContext.getGameState().resize(width, height);
+		gameContext.getGame().resize(width, height);
+		gameContext.getMenuMain().resize(width, height);
 	}
 
 	@Override

@@ -211,14 +211,14 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 		
 		gameContext.stopMusic();
 		musicLoopStarted = false;
-		introStarted = false;
+		introStarted = true;
 		
 		gameContext.getFish().getBody().applyForceToCenter(750, 200, true);
 	    gameContext.getCat().getBody().applyForceToCenter(5000, 3000, true);
 		
 	}
 
-	private boolean introStarted = false;
+	private boolean introStarted = true;
 	@Override
 	public void render() {
 		super.render();
@@ -430,10 +430,12 @@ public class Game extends GameState implements ApplicationListener, ContactListe
 	
 	@Override
 	public void resize(int width, int height) {
-		super.resize(width, height);
+//		super.resize(width, height);
 		if (stage != null) stage.getViewport().update(width, height, true);
 		hudStage.getViewport().update(width, height, true);
-		tbPlayAgain.setPosition(hudStage.getWidth()/2, hudStage.getHeight()/2-64);
+		tbPlayAgain.setPosition(hudStage.getWidth()/2, hudStage.getHeight()/2-128);
+//		gameContext.getMenuMain().resize(width, height);
+		healthBar.setPosition(hudStage.getWidth(), hudStage.getHeight()-64);
 	}
 	@Override
 	public void dispose() {
