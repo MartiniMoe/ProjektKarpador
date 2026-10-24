@@ -1,6 +1,7 @@
 package actors;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.MathUtils;
@@ -16,7 +17,7 @@ import com.martinimoe.projektkarpador.Config;
 import com.martinimoe.projektkarpador.GameContext;
 
 public class Fish extends Actor {
-	private Animation flounder = null;
+	private Animation<TextureRegion> flounder = null;
 	
 	private Body body = null;
 	private boolean doJump = false;
@@ -37,7 +38,7 @@ public class Fish extends Actor {
 		this.gameContext = gameContext;
 		// Textur laden
 		Array<AtlasRegion> frames = gameContext.getAtlas().findRegions("Fisch/Fisch");
-		flounder = new Animation(0.05f,frames);
+		flounder = new Animation<TextureRegion>(0.05f,frames);
 		// Fischgröße aus Textur generieren
 		setWidth(frames.get(0).getRegionWidth());
 		setHeight(frames.get(0).getRegionHeight());

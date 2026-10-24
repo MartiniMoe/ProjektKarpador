@@ -2,6 +2,7 @@ package actors;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -15,7 +16,7 @@ import com.martinimoe.projektkarpador.GameContext;
 
 public abstract class Enemy extends Actor{
 	
-	protected Animation move = null;
+	protected Animation<TextureRegion> move = null;
 	protected Body body = null;
 	protected Color color = null;
 	protected float speed = 0f;
@@ -34,7 +35,7 @@ public abstract class Enemy extends Actor{
 		
 		if (Config.DEBUG) {
 	        font = new BitmapFont();
-	        font.setScale(4);
+	        font.getData().setScale(4);
 	        font.setColor(Color.BLACK);
 		}
 	}
@@ -42,7 +43,7 @@ public abstract class Enemy extends Actor{
 	protected void loadTexture(String regionName, float animationSpeed, PlayMode playMode) {
 		// Textur laden
 		Array<AtlasRegion> frames = gameContext.getAtlas().findRegions(regionName);
-		move = new Animation(animationSpeed, frames);
+		move = new Animation<TextureRegion>(animationSpeed, frames);
 		move.setPlayMode(playMode);
 		// Größe aus Textur generieren
 		setWidth(frames.get(0).getRegionWidth());

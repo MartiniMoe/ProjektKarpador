@@ -2,6 +2,7 @@ package actors;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
@@ -66,7 +67,7 @@ public class Cat extends Enemy{
 			ai.next().flip(true, false);
 		}
 		
-		move = new Animation(animationSpeed, frames);
+		move = new Animation<TextureRegion>(animationSpeed, frames);
 		move.setPlayMode(playMode);
 		// Größe aus Textur generieren
 		setWidth(frames.get(0).getRegionWidth());
@@ -83,11 +84,11 @@ public class Cat extends Enemy{
 		
 		if (this.getX() > gameContext.getFish().getX() && speed > 0) {
 			speed = speed * -1;
-			move = new Animation(animationSpeed, framesFlip);
+			move = new Animation<TextureRegion>(animationSpeed, framesFlip);
 		}
 		if (this.getX() < gameContext.getFish().getX() && speed < 0){
 			speed = speed * -1;
-			move = new Animation(animationSpeed, frames);
+			move = new Animation<TextureRegion>(animationSpeed, frames);
 		}
 		
 		if (jumpDelay > 5f) {
